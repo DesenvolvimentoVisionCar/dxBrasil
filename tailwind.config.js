@@ -16,8 +16,9 @@ export default {
       colors: {
         neutralSilver: "#F5F7FA",
         neutralGray: "#4D4D4D",
-        primary: "#4CAF4F",
+        primary: "#fef432",
         neutral: "#717171",
+        warm: "#e07b45",
       },
     },
     screens: {

@@ -20,7 +20,7 @@ const HeroSection = () => {
         <button className="py-2 px-2 rounded-lg bg-gradient-to-r from-[#65bc3c] to-[#cad01f]">
           Comece agora
         </button>
-        <button className="py-2 px-3 rounded-lg border border-white bg-gradient-to-br  hover:bg-slate-800">
+        <button className="py-2 px-3 rounded-lg border border-white bg-gradient-to-br  hover:bg-stone-800">
           Saiba mais
         </button>
       </div>

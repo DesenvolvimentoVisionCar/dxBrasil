@@ -79,7 +79,7 @@ const Navbar = () => {
           </ul>
 
           <div className="hidden md:flex space-x-4">
-            <button className="py-2 px-3 rounded-lg border border-white bg-gradient-to-br  hover:bg-slate-800">
+            <button className="py-2 px-3 rounded-lg border border-white bg-gradient-to-br  hover:bg-stone-800">
                 Entre
             </button>
             <button className="py-2 px-2 rounded-lg bg-gradient-to-r from-[#65bc3c] to-[#cad01f]">
@@ -128,8 +128,8 @@ const Navbar = () => {
                 </li>
               ))}
               <li className="space-y-2 flex items-center justify-center flex-col md:flex-row">
-                <button className="w-1/3 lg:w-full py-1 px-1 rounded-full bg-gradient-to-br from-emerald-400 via-cyan-500 to-[#ddb811] hover:bg-slate-800">
-                  <span className="block bg-[#121212] hover:bg-slate-900 rounded-full py-2 px-4">
+                <button className="w-1/3 lg:w-full py-1 px-1 rounded-full bg-gradient-to-br from-emerald-400 via-cyan-500 to-[#ddb811] hover:bg-stone-800">
+                  <span className="block bg-[#121212] hover:bg-stone-900 rounded-full py-2 px-4">
                     Entre
                   </span>
                 </button>

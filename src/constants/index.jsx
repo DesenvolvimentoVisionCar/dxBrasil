@@ -154,7 +154,8 @@ export const pricingOptions = [
       { name: "Controle", value: "2 Sensores" },
       { name: "Alimentação", value: "12V" },
       { name: "Consumo", value: "70 mAh" },
-    ]
+    ],
+    seriais: "Paradox, SP, Linha Sprit (728,738,748 e Posonics), ViaWeb, JFL, Intelbrás 4010R e 2018E Smart."
   },
   {
     id: 8,

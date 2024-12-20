@@ -14,7 +14,7 @@ const ProductSection = () => {
   return (
     <div className="container text-start  mx-auto px-4 py-10 max-w-4xl">
       <a
-        href="/products"
+        href="/"
         className="inline-flex text-white hover:underline mb-8"
       >
         <ArrowLeft className="w-4 h-4 mr-2 mt-1" />
@@ -63,13 +63,17 @@ const ProductSection = () => {
             ))}
           </div>
         </section>
+        <div className="text-center">
+          <p className="text-lg">Seriais Compativeis</p>
+          <p className="text-stone-500">
+          {product.seriais}
+          </p>
+        </div>
 
         <section className="text-center w-full flex items-center justify-center">
           <button className="w-1/3 gap-1 transition-all hover:translate-x-3 gradient-background text-lg rounded-md p-2 flex items-center justify-center">
-              <ArrowRight className="transition-all" />
-              <p className="transition-all">
-                Entre em Contato
-                </p>
+            <ArrowRight className="transition-all" />
+            <p className="transition-all">Entre em Contato</p>
           </button>
         </section>
       </div>

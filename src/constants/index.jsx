@@ -67,37 +67,165 @@ export const checklistItems = [
 ];
 
 export const pricingOptions = [
+  // Transformadores
   {
-    title: "Restreamento",
-    price: "R$300",
+    id: 1,
+    title: "Carregador",
+    category: "Transformadores",
+    price: "R$125",
+    features: ["Fonte Chaveada", "Própria para Transmissor"],
+  },
+  {
+    id: 2,
+    title: "Fonte",
+    category: "Transformadores",
+    price: "R$145",
+    features: ["Fonte Chaveada", "Própria para receptora"],
+  },
+
+  // Transmissoras
+  {
+    id: 3,
+    title: "Transmissor Full DS",
+    category: "Transmissoras",
+    price: "R$520",
     features: [
-      "Private board sharing",
-      "5 Gb Storage",
-      "Web Analytics",
-      "Private Mode",
+      "Comunicação Ring Tip e Serial",
+      "Edição de pacotes de eventos",
+      "Suporte horário comercial",
     ],
   },
   {
-    title: "Chips",
-    price: "R$400",
+    id: 4,
+    title: "Transmissor Full IP",
+    category: "Transmissoras",
+    price: "N/A",
     features: [
-      "Private board sharing",
-      "10 Gb Storage",
-      "Web Analytics (Advance)",
-      "Private Mode",
+      "Comunicação Ring Tip",
+      "Dupla via de comunicação",
+      "Arme e desarme remoto",
     ],
   },
   {
-    title: "Roteadores",
-    price: "R$500",
+    id: 5,
+    title: "Transmissor Full ID",
+    category: "Transmissoras",
+    price: "N/A",
     features: [
-      "Private board sharing",
-      "Unlimited Storage",
-      "High Performance Network",
-      "Private Mode",
+      "Comunicação Ring Tip",
+      "Quatro zonas",
+      "Compatível com meio de backup",
+    ],
+  },
+  {
+    id: 6,
+    title: "Transmissor 45WD",
+    category: "Transmissoras",
+    price: "N/A",
+    features: ["Comunicação Serial", "Recursos: Duas zonas"],
+  },
+
+  // Módulos
+  {
+    id: 7,
+    title: "Módulo IP Lite",
+    category: "Módulos",
+    price: "R$200",
+    features: [
+      "Comunicação via Ring Tip",
+      "Acesso simplificado via Babyware",
+      "Automação remota",
+    ],
+    tagline: "Upgrade inteligente para sua central de alarme.",
+    description:
+      "Nosso Módulo Ethernet oferece uma solução eficiente para aprimorar a comunicação dos sistemas de alarme de seus clientes. Este produto é compatível com todos os painéis de alarme disponíveis no mercado, destacando-se pela sua facilidade de programação e instalação.",
+    feature: [
+      "Sistema de HCP",
+      "Monitoramento da Tensão",
+      "Aceita uso de domínio",
+      "Criptografia de ponta a ponta",
+      "Comunicação Intranet e Internet",
+      "Quatro saídas que permitem acionamento remoto",
+    ],
+    specs: [
+      { name: "Comunicação", value: "Ring e Tip" },
+      { name: "Automatização", value: "Babyware e Winload" },
+      { name: "Comandos", value: "4 PGMs" },
+      { name: "Controle", value: "2 Sensores" },
+      { name: "Alimentação", value: "12V" },
+      { name: "Consumo", value: "70 mAh" },
+    ]
+  },
+  {
+    id: 8,
+    title: "Módulo IP Convencional",
+    category: "Módulos",
+    price: "R$250",
+    features: [
+      "Comunicação via Ring Tip",
+      "Backup para segurança",
+      "Acesso fácil via Babyware",
+    ],
+  },
+  {
+    id: 9,
+    title: "Conversor Serial IP",
+    category: "Módulos",
+    price: "R$450",
+    features: [
+      "Integração com monitoramento",
+      "Protocolos Ademco e DX Net",
+      "Comunicação com repetidoras",
+    ],
+  },
+
+  // Receptora
+  {
+    id: 10,
+    title: "RMV01",
+    category: "Receptora",
+    price: "R$2.145",
+    features: [
+      "Comunicação: Servidor via IP",
+      "Acesso: Direto ao servidor",
+      "Capacidade: Até 4.000 contas",
+    ],
+  },
+  {
+    id: 11,
+    title: "RMV02",
+    category: "Receptora",
+    price: "R$4.158",
+    features: [
+      "Cabo serial",
+      "Display para análise de eventos",
+      "Capacidade: 4.000 contas",
+    ],
+  },
+  {
+    id: 12,
+    title: "RMV04",
+    category: "Receptora",
+    price: "R$5.962",
+    features: [
+      "Cabo serial",
+      "Display de análise e teclado",
+      "Capacidade: 4.000 contas",
+    ],
+  },
+  {
+    id: 13,
+    title: "Repetidora",
+    category: "Receptora",
+    price: "R$3.641",
+    features: [
+      "Retransmissão de eventos via rádio",
+      "Expande área de monitoramento",
+      "Máxima segurança",
     ],
   },
 ];
+
 export const resourcesLinks = [
   { href: "#", text: "Getting Started" },
   { href: "#", text: "Documentation" },

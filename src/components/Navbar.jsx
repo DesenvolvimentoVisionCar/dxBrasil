@@ -35,7 +35,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`w-screen fixed top-0 left-0 right-0 transition-all backdrop-blur-lg duration-300 border-b border-neutral/80`}
+      className={`w-screen z-20 fixed top-0 left-0 right-0 transition-all backdrop-blur-lg duration-300 border-b border-neutral/80`}
     >
       <nav
         className={`${
@@ -82,7 +82,7 @@ const Navbar = () => {
             <button className="py-2 px-3 rounded-lg border border-white bg-gradient-to-br  hover:bg-stone-800">
                 Entre
             </button>
-            <button className="py-2 px-2 rounded-lg bg-gradient-to-r from-[#65bc3c] to-[#cad01f]">
+            <button className="py-2 px-2 rounded-lg gradient-background ">
               Crie uma conta
             </button>
           </div>
@@ -133,7 +133,7 @@ const Navbar = () => {
                     Entre
                   </span>
                 </button>
-                <button className="w-1/3 lg:w-full py-2 px-2 rounded-lg bg-gradient-to-r from-emerald-500 to-[#e9c71e]">
+                <button className="w-1/3 lg:w-full py-2 px-2 rounded-lg gradient-background">
                   Crie uma conta
                 </button>
               </li>

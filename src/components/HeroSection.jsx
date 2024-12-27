@@ -12,9 +12,7 @@ const HeroSection = () => {
         </span>
       </h1>
       <p className="mt-4 text-center text-[#666666] max-w-4xl text-lg">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id atque nobis
-        facere ea deserunt mollitia voluptates voluptas nihil numquam fugiat
-        laborum quae asperiores.
+      A DX BRASIL é uma empresa sólida com mais de 40 anos de experiência, especializada em soluções tecnológicas de segurança eletrônica.
       </p>
       <div className="flex mt-7 space-x-5">
         <button className="py-2 px-2 rounded-lg bg-gradient-to-r from-[#65bc3c] to-[#cad01f]">

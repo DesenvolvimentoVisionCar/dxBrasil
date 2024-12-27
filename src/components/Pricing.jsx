@@ -122,10 +122,6 @@ const Pricing = () => {
                     </span>
                   )}
                 </p>
-                <p className="mb-8">
-                  <span className="text-5xl mt-6 mr-2">{option.price}</span>
-                  <span className="text-stone-400 tracking-tight">/Un</span>
-                </p>
                 <ul>
                   {option.features.map((feature, idx) => (
                     <li key={idx} className="mt-8 flex items-center">

@@ -5,9 +5,10 @@ const FeatureSection = () => {
     <div className=" mt-20 border-b border-stone-800">
       <div className="text-center">
         <h2 className="text-3xl sm:text-5xl lg:text-6xl mt-10 lg:mt-20 tracking-wide">
-          Easily build{" "}
-          <span className="bg-gradient-to-r from-emerald-400 to-yellow-300 text-transparent bg-clip-text">
-            your code
+        Monitoramento via Rádio<br/>
+
+          <span className=" text-5xl bg-gradient-to-r from-emerald-400 to-yellow-300 text-transparent bg-clip-text">
+          A Solução Completa para Segurança
           </span>
         </h2>
       </div>

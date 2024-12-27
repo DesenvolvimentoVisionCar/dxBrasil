@@ -4,65 +4,83 @@ import { Fingerprint } from "lucide-react";
 import { ShieldHalf } from "lucide-react";
 import { PlugZap } from "lucide-react";
 import { GlobeLock } from "lucide-react";
-
 export const features = [
   {
-    icon: <BotMessageSquare />,
-    text: "Drag-and-Drop Interface",
-    description:
-      "Easily design and arrange your VR environments with a user-friendly drag-and-drop interface.",
-  },
-  {
-    icon: <Fingerprint />,
-    text: "Multi-Platform Compatibility",
-    description:
-      "Build VR applications that run seamlessly across multiple platforms, including mobile, desktop, and VR headsets.",
-  },
-  {
     icon: <ShieldHalf />,
-    text: "Built-in Templates",
+    text: "Segurança e Proteção",
     description:
-      "Jumpstart your VR projects with a variety of built-in templates for different types of applications and environments.",
-  },
-  {
-    icon: <BatteryCharging />,
-    text: "Real-Time Preview",
-    description:
-      "Preview your VR application in real-time as you make changes, allowing for quick iterations and adjustments.",
+      "Proporciona comunicação rápida e eficiente entre alarmes e a central de monitoramento, garantindo uma resposta imediata a qualquer evento de segurança.",
   },
   {
     icon: <PlugZap />,
-    text: "Collaboration Tools",
+    text: "Independência de Provedores",
     description:
-      "Work together with your team in real-time on VR projects, enabling seamless collaboration and idea sharing.",
+      "Funciona sem depender de telefonia fixa ou internet, o que reduz a possibilidade de falhas de comunicação em caso de problemas com provedores.",
   },
   {
     icon: <GlobeLock />,
-    text: "Analytics Dashboard",
+    text: "Cobertura em Áreas Remotas",
     description:
-      "Gain valuable insights into user interactions and behavior within your VR applications with an integrated analytics dashboard.",
+      "Ideal para áreas rurais ou de difícil acesso, onde outros tipos de comunicação são limitados.",
+  },
+  {
+    icon: <BatteryCharging />,
+    text: "Redução de Custos Operacionais",
+    description:
+      "Com uma comunicação mais direta e confiável, há menos necessidade de manutenção constante.",
+  },
+  {
+    icon: <Fingerprint />,
+    text: "Instalação Rápida e Eficiente",
+    description:
+      "O sistema pode ser instalado rapidamente, garantindo agilidade para a ativação do serviço.",
+  },
+  {
+    icon: <BotMessageSquare />,
+    text: "Escalabilidade",
+    description:
+      "À medida que a necessidade de monitoramento cresce, a rede pode ser facilmente expandida com mais transmissores e repetidoras.",
+  },
+  {
+    icon: <ShieldHalf />,
+    text: "Monitoramento em Tempo Real",
+    description:
+      "Garante que os eventos de alarme sejam recebidos imediatamente, permitindo ações rápidas em emergências.",
+  },
+  {
+    icon: <Fingerprint />,
+    text: "Flexibilidade e Compatibilidade",
+    description:
+      "Integra-se facilmente com diferentes tipos de sistemas de alarme e outras tecnologias, oferecendo uma solução personalizada.",
+  },
+  {
+    icon: <PlugZap />,
+    text: "Análise e Relatórios",
+    description:
+      "O software de análise integrado permite o monitoramento contínuo e a geração de relatórios detalhados para tomada de decisões mais assertivas.",
   },
 ];
+
 export const checklistItems = [
   {
-    title: "Code merge made easy",
+    title: "Autonomia Total",
     description:
-      "Track the performance of your VR apps and gain insights into user behavior.",
+      "Com bateria e carregador, o transmissor se torna totalmente autônomo, sem a dependência de fontes externas de energia.",
   },
   {
-    title: "Review code without worry",
+    title: "Testes Periódicos Configuráveis",
     description:
-      "Track the performance of your VR apps and gain insights into user behavior.",
+      "O sistema permite testes periódicos, configurados conforme a necessidade de cada ambiente monitorado, garantindo a máxima confiabilidade e eficiência de operação.",
   },
   {
-    title: "AI Assistance to reduce time",
+    title: "Tecnologia de Ponta",
     description:
-      "Track the performance of your VR apps and gain insights into user behavior.",
+      "A DX BRASIL oferece soluções completas e seguras, com tecnologia avançada em monitoramento via rádio, proporcionando um sistema de alta performance.",
   },
   {
-    title: "Share work in minutes",
+    title: "Segurança e Eficiência",
     description:
-      "Track the performance of your VR apps and gain insights into user behavior.",
+      "Ideal para quem busca segurança, eficiência e independência, oferecendo um monitoramento confiável e eficaz para diversos ambientes.",
   },
 ];
 
@@ -72,15 +90,50 @@ export const pricingOptions = [
     id: 1,
     title: "Carregador",
     category: "Transformadores",
-    price: "R$125",
     features: ["Fonte Chaveada", "Própria para Transmissor"],
+    tagline: "Upgrade inteligente para sua central de alarme.",
+    description:
+      "O Carregador DX oferece alimentação estável e segura, sem ruídos ou interferências externas. Compatível com 127V e 220V, e com saída de 12V, garante o máximo de performance e proteção para seus dispositivos!",
+    feature: [
+      "Fonte Chaveada", 
+      "Própria para Transmissor",
+      "Evita ruído",
+      "Sem interferências",
+      "Enrolado com fio de cobre",
+      "Sistema DHCP",
+      "Criptografia de ponta a ponta",
+      "Monitoramento de tensão",
+    ],
+    specs: [
+      { name: "Saída", value: "12V 900 mA/h" },
+      { name: "Potência", value: "10,8 watts" },
+      { name: "Entrada", value: "127V - 220V" },
+    ],
+    seriais:
+      "A linha Sprit inclui os modelos 728, 738, 748 e suas respectivas Posonic's. Além disso, há o Paradox SP via Web/JFL e os modelos da Intelbras, como o 4010R, o 2018 e o Smart AMT1000 Smart.",
   },
   {
     id: 2,
     title: "Fonte",
     category: "Transformadores",
-    price: "R$145",
     features: ["Fonte Chaveada", "Própria para receptora"],
+    tagline: "Upgrade inteligente para sua central de alarme.",
+    description:
+      "A fonte DX oferece alimentação estável e segura, sem ruídos ou interferências externas. Compatível com 127V e 220V, e com saída de 12 V, garante o máximo de performance e proteção para seus dispositivos!",
+    feature: [
+      "Fonte Chaveada", 
+      "Própria para receptora",
+      "Evita ruído",
+      "Sem interferências",
+      "Enrolado com fio de cobre",
+    ],
+    specs: [
+      { name: "Saída", value: "12V 1,5 A/h" },
+      { name: "Potência", value: "18 watts" },
+      { name: "Entrada", value: "127V - 220V" },
+    ],
+    seriais:
+      "A linha Sprit inclui os modelos 728, 738, 748 e suas respectivas Posonic's. Além disso, há o Paradox SP via Web/JFL e os modelos da Intelbras, como o 4010R, o 2018 e o Smart AMT1000 Smart.",
   },
 
   // Transmissoras
@@ -88,18 +141,43 @@ export const pricingOptions = [
     id: 3,
     title: "Transmissor Full DS",
     category: "Transmissoras",
-    price: "R$520",
     features: [
       "Comunicação Ring Tip e Serial",
       "Edição de pacotes de eventos",
       "Suporte horário comercial",
     ],
+    tagline: "Upgrade inteligente para sua central de alarme.",
+    description:
+      "Garanta a máxima segurança para seu negócio com nosso equipamento autossuficiente, que dispensa dependência de sistemas externos e oferece monitoramento 100% independente e confiável.",
+      feature: [
+        "Não depende de fatores externos",
+        "Criptografia de ponta a ponta",
+        "Contact ID",
+        "Eventos editáveis",
+        "Número de pacotes configuráveis",
+        "Teste periódico",
+        "Comunicação universal por linha da central",
+        "Automonitoramento",
+        "Protocolos de centrais integrados",
+        "Programação descomplicada",
+      ],      
+      specs: [
+        { name: "Consumo Stand By", value: "40 mAh" },
+        { name: "Consumo em Transmissão", value: "900 mAh" },
+        { name: "Alimentação", value: "12 volts" },
+        { name: "Comunicação", value: "Ring e Tip" },
+        { name: "Sensores", value: "4 zonas duplas" },
+        { name: "Comunicação", value: "Serial" },
+        { name: "Automação", value: "Arme e desarme por iButton ou contato seco" },
+        { name: "Automação", value: "2 PGMs" },
+      ],      
+    seriais:
+      "Comunicação serial  com centrais: JFL, ViaWeb, Intelbrás 4010 e 2018E Smart, DSC 585 e DSC 1832/1864.",
   },
   {
     id: 4,
     title: "Transmissor Full IP",
     category: "Transmissoras",
-    price: "N/A",
     features: [
       "Comunicação Ring Tip",
       "Dupla via de comunicação",
@@ -110,7 +188,6 @@ export const pricingOptions = [
     id: 5,
     title: "Transmissor Full ID",
     category: "Transmissoras",
-    price: "N/A",
     features: [
       "Comunicação Ring Tip",
       "Quatro zonas",
@@ -121,7 +198,6 @@ export const pricingOptions = [
     id: 6,
     title: "Transmissor 45WD",
     category: "Transmissoras",
-    price: "N/A",
     features: ["Comunicação Serial", "Recursos: Duas zonas"],
   },
 
@@ -130,13 +206,12 @@ export const pricingOptions = [
     id: 7,
     title: "Módulo IP Lite",
     category: "Módulos",
-    price: "R$200",
     features: [
       "Comunicação via Ring Tip",
       "Acesso simplificado via Babyware",
       "Automação remota",
     ],
-    tagline: "Upgrade inteligente para sua central de alarme.",
+    tagline: "Upgrade para sua central de alarme",
     description:
       "Nosso Módulo Ethernet oferece uma solução eficiente para aprimorar a comunicação dos sistemas de alarme de seus clientes. Este produto é compatível com todos os painéis de alarme disponíveis no mercado, destacando-se pela sua facilidade de programação e instalação.",
     feature: [
@@ -155,29 +230,71 @@ export const pricingOptions = [
       { name: "Alimentação", value: "12V" },
       { name: "Consumo", value: "70 mAh" },
     ],
-    seriais: "Paradox, SP, Linha Sprit (728,738,748 e Posonics), ViaWeb, JFL, Intelbrás 4010R e 2018E Smart."
+    seriais:
+      "Paradox, SP, Linha Sprit (728,738,748 e Posonics), ViaWeb, JFL, Intelbrás 4010R e 2018E Smart.",
   },
   {
     id: 8,
     title: "Módulo IP Convencional",
     category: "Módulos",
-    price: "R$250",
     features: [
       "Comunicação via Ring Tip",
       "Backup para segurança",
       "Acesso fácil via Babyware",
     ],
+    tagline: "Upgrade para sua central de alarme",
+    description:
+      "O módulo IPDX convencional oferece uma solução eficiente para aprimorar a comunicação dos sistemas de alarme de seus clientes. É perfeito para a substituição de linhas telefônicas, permitindo ao cliente a comodidade de realizar o arme e desarme remoto do sistema.",
+    feature: [
+      "Sistema DHCP",
+      "Monitoramento de Tensão",
+      "Criptografado de ponta a ponta",
+      "Automatização da Central",
+      "Compatível com todas as centrais do mercado",
+      "Aceita domínio",
+      "Intranet e Internet",
+      "Compatível com meio backup",
+    ],
+    specs: [
+      { name: "Comunicação", value: "Ring e Tip" },
+      { name: "Automatização", value: "Babyware e Winload" },
+      { name: "Comandos", value: "2 PGMs" },
+      { name: "Controle", value: "2 Sensores" },
+      { name: "Alimentação", value: "12V" },
+      { name: "Consumo", value: "70 mAh" },
+    ],
+    seriais:
+      "A linha Sprit inclui os modelos 728, 738, 748 e suas respectivas Posonic's. Além disso, há o Paradox SP via Web/JFL e os modelos da Intelbras, como o 4010R, o 2018 e o Smart AMT1000 Smart.",
   },
   {
     id: 9,
     title: "Conversor Serial IP",
     category: "Módulos",
-    price: "R$450",
     features: [
       "Integração com monitoramento",
       "Protocolos Ademco e DX Net",
       "Comunicação com repetidoras",
     ],
+    tagline: "Upgrade inteligente para sua central de alarme.",
+    description:
+      "O Conversor Serial IP foi desenvolvido para proporcionar máxima segurança ao seu monitoramento, garantindo eficiência e tranquilidade no envio dos eventos diretamente para o servidor ou software de monitoramento. Quando utilizado em conjunto com receptoras, oferece uma solução robusta e confiável. Além disso, a integração com a repetidora reduz o consumo e fluxo de eventos, enquanto a comunicação em dupla via assegura a continuidade do serviço, eliminando riscos de falhas e garantindo a operação sem interrupções.",
+    feature: [
+      "Envia eventos via IP direto para o servidor",
+      "Integração completa com receptora/repetidora",
+      "Protocolos Ademco e DX Net",
+      "Intranet e Internet",
+      "Aceita uso de domínio",
+      "Sistema DHCP",
+      "Criptografia de ponta a ponta",
+      "Monitoramento de tensão",
+    ],
+    specs: [
+      { name: "Comunicação", value: "ADEMCO e DX NET" },
+      { name: "Alimentação", value: "12V" },
+      { name: "Consumo", value: "70 mAh" },
+    ],
+    seriais:
+      "A linha Sprit inclui os modelos 728, 738, 748 e suas respectivas Posonic's. Além disso, há o Paradox SP via Web/JFL e os modelos da Intelbras, como o 4010R, o 2018 e o Smart AMT1000 Smart.",
   },
 
   // Receptora
@@ -185,18 +302,35 @@ export const pricingOptions = [
     id: 10,
     title: "RMV01",
     category: "Receptora",
-    price: "R$2.145",
     features: [
       "Comunicação: Servidor via IP",
       "Acesso: Direto ao servidor",
       "Capacidade: Até 4.000 contas",
     ],
+    tagline: "Upgrade inteligente para sua central de alarme.",
+    description:
+      "RMV01 é a solução perfeita para ampliar sua cobertura com máxima eficiência e segurança. Ela permite receber até 4.000 contas via rádio e encaminhá-las diretamente para o servidor viá internet, proporcionando conectividade sem falhas. Além disso, pode ser instalado fora da base, garantindo uma área de cobertura mais ampla e maior flexibilidade para atender às suas necessidades.",
+    feature: [
+      "Comunicação: Servidor via IP",
+      "Acesso: Direto ao servidor",
+      "Capacidade: Até 4.000 contas",
+      "Intranet e Internet",
+      "Aceita uso de domínio",
+      "Sistema DHCP",
+      "Criptografia de ponta a ponta",
+      "Monitoramento de tensão",
+    ],
+    specs: [
+      { name: "Alimentação", value: "12V" },
+      { name: "Consumo", value: "70 mAh" },
+    ],
+    seriais:
+      "A linha Sprit inclui os modelos 728, 738, 748 e suas respectivas Posonic's. Além disso, há o Paradox SP via Web/JFL e os modelos da Intelbras, como o 4010R, o 2018 e o Smart AMT1000 Smart.",
   },
   {
     id: 11,
     title: "RMV02",
     category: "Receptora",
-    price: "R$4.158",
     features: [
       "Cabo serial",
       "Display para análise de eventos",
@@ -207,23 +341,61 @@ export const pricingOptions = [
     id: 12,
     title: "RMV04",
     category: "Receptora",
-    price: "R$5.962",
     features: [
       "Cabo serial",
       "Display de análise e teclado",
       "Capacidade: 4.000 contas",
     ],
+    tagline: "Upgrade inteligente para sua central de alarme.",
+    description:
+      "O RMV04 oferece um visor e teclado para acompanhamento de eventos em tempo real, além de permitir o acesso ao histórico dos últimos 200 eventos. Sua comunicação com o servidor é feita diretamente por cabo serial, garantindo uma integração eficiente. Além disso, é compatível com a ampliação de até 16 módulos externos, aumentando a capacidade de monitoramento conforme necessário.",
+    feature: [
+      "Cabo serial",
+      "Display de análise e teclado",
+      "Capacidade: 4.000 contas",
+      "Histórico na tela dos últimos 200 eventos",
+      "Monitoramento contínuo da comunicação com o servidor",
+      "Compatível com os formatos Ademco 685, Surgard e Dx Net",
+    ],
+    specs: [
+      { name: "Alimentação", value: "12V" },
+      { name: "Audível", value: "Buzzer para alertas sonoros." },
+      { name: "Configuração", value: "Teclado integrado para ajustes rápidos e precisos." },
+    ],
+    seriais:
+      "A linha Sprit inclui os modelos 728, 738, 748 e suas respectivas Posonic's. Além disso, há o Paradox SP via Web/JFL e os modelos da Intelbras, como o 4010R, o 2018 e o Smart AMT1000 Smart.",
   },
   {
     id: 13,
     title: "Repetidora",
     category: "Receptora",
-    price: "R$3.641",
     features: [
-      "Retransmissão de eventos via rádio",
+      "Retransmissão via rádio",
       "Expande área de monitoramento",
       "Máxima segurança",
     ],
+    tagline: "Upgrade inteligente para sua central de alarme.",
+    description:
+      "A Repetidora DX recebe eventos via rádio de áreas remotas e distantes, retransmitindo-os diretamente para a base. Com isso, garante a segurança e evita falhas, ampliando a área de monitoramento e assegurando que os dados cheguem de forma confiável.",
+    feature: [
+      "Retransmissão de eventos via rádio",
+      "Expande área de monitoramento",
+      "Máxima segurança",
+      "Formato Contact ID",
+      "Eventos internos para controle",
+      "Retransmite em vários canais",
+    ],
+    specs: [
+      { name: "Alimentação", value: "12 volts" },
+      { name: "Display", value: "Display integrado" },
+      { name: "Configuração", value: "Configuração via software terminal" },
+      { name: "Medição", value: "Medição de sinal do rádio do cliente" },
+      { name: "Evento de bateria", value: "Bateria baixa" },
+      { name: "Evento de auto-teste", value: "Auto-teste automático" },
+    ],    
+    seriais:
+      "A linha Sprit inclui os modelos 728, 738, 748 e suas respectivas Posonic's. Além disso, há o Paradox SP via Web/JFL e os modelos da Intelbras, como o 4010R, o 2018 e o Smart AMT1000 Smart.",
+ 
   },
 ];
 

@@ -63,12 +63,13 @@ const ProductSection = () => {
             ))}
           </div>
         </section>
-        <div className="text-center">
+        {product.seriais ? <><div className="text-center">
           <p className="text-lg">Seriais Compativeis</p>
           <p className="text-stone-500">
           {product.seriais}
           </p>
-        </div>
+        </div></> : <> </>}
+        
 
         <section className="text-center w-full flex items-center justify-center">
           <button className="w-1/3 gap-1 transition-all hover:translate-x-3 gradient-background text-lg rounded-md p-2 flex items-center justify-center">

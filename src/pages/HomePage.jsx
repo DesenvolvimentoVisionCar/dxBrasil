@@ -6,14 +6,14 @@ import Pricing from "../components/Pricing";
 import Footer from "../components/Footer";
 const HomePage = () => {
   return (
-    <>
+    <div className="p-14">
       <Navbar />
       <HeroSection />
       <FeatureSection />
       <Workflow />
       <Pricing />
       <Footer />
-    </>
+    </div>
   );
 };
 

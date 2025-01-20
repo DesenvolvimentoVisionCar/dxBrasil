@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -35,12 +34,9 @@ const Pricing = () => {
       : pricingOptions.filter((option) => option.category === tab);
 
   const totalSlides = filteredOptions.length;
-  
-  // Lógica para calcular se o número de slides visíveis é menor que o total de slides
   const slidesPerView = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
 
   useEffect(() => {
-    // Atualiza a visibilidade dos botões a cada mudança no tamanho da tela
     const handleResize = () => {
       const swiper = swiperRef.current.swiper;
       if (swiper) {

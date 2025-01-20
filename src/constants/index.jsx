@@ -8,58 +8,50 @@ export const features = [
   {
     icon: <ShieldHalf />,
     text: "Segurança e Proteção",
-    description:
-      "Proporciona comunicação rápida e eficiente entre alarmes e a central de monitoramento, garantindo uma resposta imediata a qualquer evento de segurança.",
+    description: "Comunicação rápida entre alarmes e a central, garantindo respostas imediatas.",
   },
   {
     icon: <PlugZap />,
     text: "Independência de Provedores",
-    description:
-      "Funciona sem depender de telefonia fixa ou internet, o que reduz a possibilidade de falhas de comunicação em caso de problemas com provedores.",
+    description: "Opera sem depender de internet ou telefonia fixa, evitando falhas comuns.",
   },
   {
     icon: <GlobeLock />,
     text: "Cobertura em Áreas Remotas",
-    description:
-      "Ideal para áreas rurais ou de difícil acesso, onde outros tipos de comunicação são limitados.",
+    description: "Ideal para locais rurais ou de difícil acesso, onde comunicação é limitada.",
   },
   {
     icon: <BatteryCharging />,
-    text: "Redução de Custos Operacionais",
-    description:
-      "Com uma comunicação mais direta e confiável, há menos necessidade de manutenção constante.",
+    text: "Redução de Custos",
+    description: "Comunicação direta e confiável, diminuindo a necessidade de manutenção.",
   },
   {
     icon: <Fingerprint />,
-    text: "Instalação Rápida e Eficiente",
-    description:
-      "O sistema pode ser instalado rapidamente, garantindo agilidade para a ativação do serviço.",
+    text: "Instalação Rápida",
+    description: "Sistema instalado rapidamente para ativação ágil do serviço.",
   },
   {
     icon: <BotMessageSquare />,
     text: "Escalabilidade",
-    description:
-      "À medida que a necessidade de monitoramento cresce, a rede pode ser facilmente expandida com mais transmissores e repetidoras.",
+    description: "Rede expansível para atender à crescente demanda de monitoramento.",
   },
   {
     icon: <ShieldHalf />,
     text: "Monitoramento em Tempo Real",
-    description:
-      "Garante que os eventos de alarme sejam recebidos imediatamente, permitindo ações rápidas em emergências.",
+    description: "Eventos de alarme recebidos na hora, permitindo ações imediatas.",
   },
   {
     icon: <Fingerprint />,
     text: "Flexibilidade e Compatibilidade",
-    description:
-      "Integra-se facilmente com diferentes tipos de sistemas de alarme e outras tecnologias, oferecendo uma solução personalizada.",
+    description: "Integração fácil com diferentes sistemas e tecnologias de alarme.",
   },
   {
     icon: <PlugZap />,
     text: "Análise e Relatórios",
-    description:
-      "O software de análise integrado permite o monitoramento contínuo e a geração de relatórios detalhados para tomada de decisões mais assertivas.",
+    description: "Software integrado para monitoramento e geração de relatórios detalhados.",
   },
 ];
+
 
 export const checklistItems = [
   {
@@ -90,12 +82,16 @@ export const pricingOptions = [
     id: 1,
     title: "Carregador",
     category: "Transformadores",
-    features: ["Fonte Chaveada", "Própria para Transmissor"],
+    features: [
+      "Fonte Chaveada",
+      "Enrolado com fio de cobre",
+      "Própria para Transmissor",
+    ],
     tagline: "Upgrade inteligente para sua central de alarme.",
     description:
       "O Carregador DX oferece alimentação estável e segura, sem ruídos ou interferências externas. Compatível com 127V e 220V, e com saída de 12V, garante o máximo de performance e proteção para seus dispositivos!",
     feature: [
-      "Fonte Chaveada", 
+      "Fonte Chaveada",
       "Própria para Transmissor",
       "Evita ruído",
       "Sem interferências",
@@ -109,19 +105,21 @@ export const pricingOptions = [
       { name: "Potência", value: "10,8 watts" },
       { name: "Entrada", value: "127V - 220V" },
     ],
-    seriais:
-      "A linha Sprit inclui os modelos 728, 738, 748 e suas respectivas Posonic's. Além disso, há o Paradox SP via Web/JFL e os modelos da Intelbras, como o 4010R, o 2018 e o Smart AMT1000 Smart.",
   },
   {
     id: 2,
     title: "Fonte",
     category: "Transformadores",
-    features: ["Fonte Chaveada", "Própria para receptora"],
+    features: [
+      "Fonte Chaveada",
+      "Enrolado com fio de cobre",
+      "Própria para receptora",
+    ],
     tagline: "Upgrade inteligente para sua central de alarme.",
     description:
       "A fonte DX oferece alimentação estável e segura, sem ruídos ou interferências externas. Compatível com 127V e 220V, e com saída de 12 V, garante o máximo de performance e proteção para seus dispositivos!",
     feature: [
-      "Fonte Chaveada", 
+      "Fonte Chaveada",
       "Própria para receptora",
       "Evita ruído",
       "Sem interferências",
@@ -132,8 +130,6 @@ export const pricingOptions = [
       { name: "Potência", value: "18 watts" },
       { name: "Entrada", value: "127V - 220V" },
     ],
-    seriais:
-      "A linha Sprit inclui os modelos 728, 738, 748 e suas respectivas Posonic's. Além disso, há o Paradox SP via Web/JFL e os modelos da Intelbras, como o 4010R, o 2018 e o Smart AMT1000 Smart.",
   },
 
   // Transmissoras
@@ -149,28 +145,31 @@ export const pricingOptions = [
     tagline: "Upgrade inteligente para sua central de alarme.",
     description:
       "Garanta a máxima segurança para seu negócio com nosso equipamento autossuficiente, que dispensa dependência de sistemas externos e oferece monitoramento 100% independente e confiável.",
-      feature: [
-        "Não depende de fatores externos",
-        "Criptografia de ponta a ponta",
-        "Contact ID",
-        "Eventos editáveis",
-        "Número de pacotes configuráveis",
-        "Teste periódico",
-        "Comunicação universal por linha da central",
-        "Automonitoramento",
-        "Protocolos de centrais integrados",
-        "Programação descomplicada",
-      ],      
-      specs: [
-        { name: "Consumo Stand By", value: "40 mAh" },
-        { name: "Consumo em Transmissão", value: "900 mAh" },
-        { name: "Alimentação", value: "12 volts" },
-        { name: "Comunicação", value: "Ring e Tip" },
-        { name: "Sensores", value: "4 zonas duplas" },
-        { name: "Comunicação", value: "Serial" },
-        { name: "Automação", value: "Arme e desarme por iButton ou contato seco" },
-        { name: "Automação", value: "2 PGMs" },
-      ],      
+    feature: [
+      "Não depende de fatores externos",
+      "Criptografia de ponta a ponta",
+      "Contact ID",
+      "Eventos editáveis",
+      "Número de pacotes configuráveis",
+      "Teste periódico",
+      "Comunicação universal por linha da central",
+      "Automonitoramento",
+      "Protocolos de centrais integrados",
+      "Programação descomplicada",
+    ],
+    specs: [
+      { name: "Consumo Stand By", value: "40 mAh" },
+      { name: "Consumo em Transmissão", value: "900 mAh" },
+      { name: "Alimentação", value: "12 volts" },
+      { name: "Comunicação", value: "Ring e Tip" },
+      { name: "Sensores", value: "4 zonas duplas" },
+      { name: "Comunicação", value: "Serial" },
+      {
+        name: "Automação",
+        value: "Arme e desarme por iButton ou contato seco",
+      },
+      { name: "Automação", value: "2 PGMs" },
+    ],
     seriais:
       "Comunicação serial  com centrais: JFL, ViaWeb, Intelbrás 4010 e 2018E Smart, DSC 585 e DSC 1832/1864.",
   },
@@ -230,8 +229,6 @@ export const pricingOptions = [
       { name: "Alimentação", value: "12V" },
       { name: "Consumo", value: "70 mAh" },
     ],
-    seriais:
-      "Paradox, SP, Linha Sprit (728,738,748 e Posonics), ViaWeb, JFL, Intelbrás 4010R e 2018E Smart.",
   },
   {
     id: 8,
@@ -293,8 +290,6 @@ export const pricingOptions = [
       { name: "Alimentação", value: "12V" },
       { name: "Consumo", value: "70 mAh" },
     ],
-    seriais:
-      "A linha Sprit inclui os modelos 728, 738, 748 e suas respectivas Posonic's. Além disso, há o Paradox SP via Web/JFL e os modelos da Intelbras, como o 4010R, o 2018 e o Smart AMT1000 Smart.",
   },
 
   // Receptora
@@ -324,8 +319,6 @@ export const pricingOptions = [
       { name: "Alimentação", value: "12V" },
       { name: "Consumo", value: "70 mAh" },
     ],
-    seriais:
-      "A linha Sprit inclui os modelos 728, 738, 748 e suas respectivas Posonic's. Além disso, há o Paradox SP via Web/JFL e os modelos da Intelbras, como o 4010R, o 2018 e o Smart AMT1000 Smart.",
   },
   {
     id: 11,
@@ -360,10 +353,11 @@ export const pricingOptions = [
     specs: [
       { name: "Alimentação", value: "12V" },
       { name: "Audível", value: "Buzzer para alertas sonoros." },
-      { name: "Configuração", value: "Teclado integrado para ajustes rápidos e precisos." },
+      {
+        name: "Configuração",
+        value: "Teclado integrado para ajustes rápidos e precisos.",
+      },
     ],
-    seriais:
-      "A linha Sprit inclui os modelos 728, 738, 748 e suas respectivas Posonic's. Além disso, há o Paradox SP via Web/JFL e os modelos da Intelbras, como o 4010R, o 2018 e o Smart AMT1000 Smart.",
   },
   {
     id: 13,
@@ -392,10 +386,7 @@ export const pricingOptions = [
       { name: "Medição", value: "Medição de sinal do rádio do cliente" },
       { name: "Evento de bateria", value: "Bateria baixa" },
       { name: "Evento de auto-teste", value: "Auto-teste automático" },
-    ],    
-    seriais:
-      "A linha Sprit inclui os modelos 728, 738, 748 e suas respectivas Posonic's. Além disso, há o Paradox SP via Web/JFL e os modelos da Intelbras, como o 4010R, o 2018 e o Smart AMT1000 Smart.",
- 
+    ],
   },
 ];
 

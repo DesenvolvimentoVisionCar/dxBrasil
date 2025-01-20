@@ -1,13 +1,9 @@
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
-import LoginSection from "../components/ProductsSection"
+import LoginSection from "../components/LoginSection"
 
 const ProductPage = () => {
   return (
     <>
-        <Navbar />
         <LoginSection />
-        <Footer />
     </>
   )
 }

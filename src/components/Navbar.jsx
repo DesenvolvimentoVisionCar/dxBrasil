@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink } from "react-router-dom";
-import { Menu, X } from 'lucide-react';
+import { Menu, X } from "lucide-react";
 import Logo from "../assets/logo.png";
 
 const Navbar = () => {
@@ -39,16 +39,11 @@ const Navbar = () => {
     >
       <nav
         className={`${
-          isSticky
-            ? "sticky top-0 left-0 right-0 duration-300"
-            : ""
+          isSticky ? "sticky top-0 left-0 right-0 duration-300" : ""
         } container mx-auto lg:px-14 px-4 py-4`}
       >
         <div className="flex items-center justify-between w-full">
-          <RouterLink
-            to="/"
-            className="text-2xl flex items-center"
-          >
+          <RouterLink to="/" className="text-2xl flex items-center">
             <img src={Logo} alt="DX Logo" className="w-16" />
             <h2>Dx Brasil</h2>
           </RouterLink>
@@ -79,9 +74,17 @@ const Navbar = () => {
           </ul>
 
           <div className="hidden md:flex space-x-4">
-            <button className="py-2 px-3 rounded-lg border border-white bg-gradient-to-br  hover:bg-stone-800">
+            <RouterLink
+              to="/login"
+              className="cursor-pointer hover:text-[#ffe875] first:font-medium"
+            >
+              <button
+                href="/login"
+                className="py-2 px-3 rounded-lg border border-white bg-gradient-to-br  hover:bg-stone-800"
+              >
                 Entre
-            </button>
+              </button>
+            </RouterLink>
             <button className="py-2 px-2 rounded-lg gradient-background ">
               Crie uma conta
             </button>
@@ -146,4 +149,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

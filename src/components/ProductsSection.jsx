@@ -15,7 +15,7 @@ const ProductSection = () => {
     <div className="container text-start  mx-auto px-4 py-10 max-w-4xl">
       <a
         href="/"
-        className="inline-flex text-white hover:underline mb-8"
+        className="inline-flex hover:underline mb-8"
       >
         <ArrowLeft className="w-4 h-4 mr-2 mt-1" />
         Voltar ao Início
@@ -23,13 +23,13 @@ const ProductSection = () => {
       <div className="space-y-12">
         <header className="text-center">
           <h1 className="text-4xl font-bold mb-2">{product.title}</h1>
-          <span className="text-xl bg-gradient-to-r from-[#65bc3c] to-[#cad01f] bg-clip-text mb-4 text-transparent">
+          <span className="text-xl bg-gradient-to-r from-[#40b346] to-[#fff200] bg-clip-text mb-4 text-transparent">
             {product.tagline}
           </span>
           <p className="text-5xl font-semibold pt-7">{product.price}</p>
         </header>
 
-        <section className="bg-[#272727] p-6 rounded-lg">
+        <section className="shadow-md p-6 rounded-lg">
           <h2 className="text-2xl font-semibold mb-4 text-center">
             Sobre Nosso Produto
           </h2>
@@ -73,8 +73,8 @@ const ProductSection = () => {
 
         <section className="text-center w-full flex items-center justify-center">
           <button className="w-1/3 gap-1 transition-all hover:translate-x-3 gradient-background text-lg rounded-md p-2 flex items-center justify-center">
-            <ArrowRight className="transition-all" />
-            <p className="transition-all">Entre em Contato</p>
+            <ArrowRight className="transition-all text-white" />
+            <p className="transition-all text-white">Entre em Contato</p>
           </button>
         </section>
       </div>

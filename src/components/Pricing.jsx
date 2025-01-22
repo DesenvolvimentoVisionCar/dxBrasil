@@ -113,7 +113,7 @@ const Pricing = () => {
                 <p className="text-4xl mb-8">
                   {option.title}
                   {(option.title === "Transmissor Full DS" || option.title === "Módulo IP Lite") && (
-                    <span className="bg-gradient-to-r from-[#b7ff4a] to-[#cad01f] text-transparent bg-clip-text text-xl mb-4 ml-2">
+                    <span className="bg-gradient-to-r from-[#52ee5a] to-[#fff200] text-transparent bg-clip-text text-xl mb-4 ml-2">
                       (Mais Popular)
                     </span>
                   )}
@@ -132,7 +132,7 @@ const Pricing = () => {
                   onClick={() => navigate(`/produto/${option.id}`)}
                   className="inline-flex justify-center items-center text-center px-[.1em] py-1 w-full h-12 mt-16 tracking-tight text-xl hover:bg-orange-900 gradient-animation rounded-md transition duration-200"
                 >
-                  <span className="block bg-[#121212] hover:bg-[#1a1a1a] rounded-md w-full px-5 py-2">
+                  <span className="block bg-white rounded-md w-full px-5 py-2">
                     Saiba mais
                   </span>
                 </a>

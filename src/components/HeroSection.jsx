@@ -6,7 +6,7 @@ const HeroSection = () => {
     <div className="flex flex-col items-center mt-6 lg:mt-40">
       <h1 className="-3/4 text-4xl sm:text-6xl lg:text-6xl  text-center tracking-tighter">
         Dx Brasil desenvolvendo ferramentas
-        <span className="bg-gradient-to-r from-emerald-400 to-yellow-300 text-transparent bg-clip-text">
+        <span className="bg-gradient-to-r from-[#40b346] to-[#fff200] text-transparent bg-clip-text">
           {" "}
           <br /> para seu conforto
         </span>
@@ -15,10 +15,10 @@ const HeroSection = () => {
       A DX BRASIL é uma empresa sólida com mais de 40 anos de experiência, especializada em soluções tecnológicas de segurança eletrônica.
       </p>
       <div className="flex mt-7 space-x-5">
-        <button className="py-2 px-2 rounded-lg bg-gradient-to-r from-[#65bc3c] to-[#cad01f]">
+        <button className="py-2 px-2 text-white rounded-lg bg-gradient-to-r from-[#65bc3c] to-[#cad01f]">
           Comece agora
         </button>
-        <button className="py-2 px-3 rounded-lg border border-white bg-gradient-to-br  hover:bg-stone-800">
+        <button className="py-2 px-3 rounded-lg border border-black bg-gradient-to-br  hover:bg-stone-800">
           Saiba mais
         </button>
       </div>

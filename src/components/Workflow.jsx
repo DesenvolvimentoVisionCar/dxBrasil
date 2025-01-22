@@ -7,7 +7,7 @@ const Workflow = () => {
     <div className="mt-20">
       <h2 className="text-3xl mb-3 sm:text-5xl lg:text-6xl text-center mt-6 tracking-wide">
         Vantagens{" "}
-        <span className="bg-gradient-to-r from-emerald-400 to-yellow-300 text-transparent bg-clip-text">
+        <span className="bg-gradient-to-r from-[#40b346] to-[#fff200] text-transparent bg-clip-text">
         do transmissor Dx Brasil
         </span>
       </h2>
@@ -18,7 +18,7 @@ const Workflow = () => {
         <div className="pt-12 w-full lg:w-1/2">
           {checklistItems.map((item, index) => (
             <div key={index} className="flex mb-12">
-              <div className="text-green-400 mx-6 bg-stone-900 h-10 w-10 p-2 justify-center items-center rounded-full">
+              <div className="text-green-400 mx-6 shadow-md h-10 w-10 p-2 justify-center items-center rounded-full">
                 <CheckCircle2 />
               </div>
               <div>

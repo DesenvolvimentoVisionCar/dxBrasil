@@ -80,12 +80,12 @@ const Navbar = () => {
             >
               <button
                 href="/login"
-                className="py-2 px-3 rounded-lg border border-white bg-gradient-to-br  hover:bg-stone-800"
+                className="py-2 px-3 rounded-lg border border-black bg-gradient-to-br"
               >
                 Entre
               </button>
             </RouterLink>
-            <button className="py-2 px-2 rounded-lg gradient-background ">
+            <button className="py-2 px-2 text-white rounded-lg gradient-background ">
               Crie uma conta
             </button>
           </div>
@@ -136,7 +136,7 @@ const Navbar = () => {
                     Entre
                   </span>
                 </button>
-                <button className="w-1/3 lg:w-full py-2 px-2 rounded-lg gradient-background">
+                <button href="/cadastro " className="w-1/3 lg:w-full py-2 px-2 rounded-lg gradient-background">
                   Crie uma conta
                 </button>
               </li>

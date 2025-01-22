@@ -12,10 +12,10 @@ const LoginSection = () => {
 
       {/* Login form half */}
       <div className="flex w-full items-center justify-center lg:w-1/2">
-        <div className="w-full max-w-md space-y-8 px-4 sm:px-6">
+        <div className="w-full max-w-xl space-y-8 px-4 sm:px-6">
           <div className="space-y-2 text-center">
-            <h1 className="text-3xl font-bold">Bem vindo de volta!</h1>
-            <p className="text-gray-500">
+            <h1 className="text-4xl font-bold">Bem vindo de volta!</h1>
+            <p className="text-gray-500  text-lg">
              Coloque suas credenciais para acessar sua conta.
             </p>
           </div>
@@ -32,8 +32,8 @@ const LoginSection = () => {
                 id="email"
                 type="email"
                 required
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                placeholder="Enter your email"
+                className="mt-1 block w-full rounded-md border text-gray-500 border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                placeholder="nome@email.com"
               />
             </div>
             <div className="space-y-2">
@@ -41,14 +41,14 @@ const LoginSection = () => {
                 htmlFor="password"
                 className="block text-sm font-medium text-gray-500"
               >
-                Password
+                Senha
               </label>
               <input
                 id="password"
                 type="password"
                 required
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                placeholder="Enter your password"
+                className="mt-1 text-gray-500 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                placeholder="••••••••"
               />
             </div>
             <div className="flex items-center justify-between">
@@ -63,13 +63,13 @@ const LoginSection = () => {
                   htmlFor="remember-me"
                   className="ml-2 block text-sm text-[#bdce23]"
                 >
-                  Remember me
+                  Lembre de mim
                 </label>
               </div>
               <div className="text-sm">
                 <a
                   href="#"
-                  className="font-medium text-[#bdce23] hover:text-indigo-500"
+                  className="font-medium text-[#bdce23] hover:text-[#dff045]"
                 >
                   Esqueceu sua senha?
                 </a>
@@ -78,7 +78,7 @@ const LoginSection = () => {
             <div>
               <button
                 type="submit"
-                className="gradient-background flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="gradient-background flex w-full justify-center rounded-md border border-transparent px-4 py-2 text-md font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
               >
                 Entrar
               </button>
@@ -86,7 +86,7 @@ const LoginSection = () => {
           </form>
 
           <div className="text-center text-sm text-gray-500">
-            Don't have an account?{" "}
+            Não possui uma conta?{" "}
             <a
               href="#"
               className="font-medium text-[#bdce23] hover:text-[#dff045]"

@@ -54,13 +54,13 @@ const Navbar = () => {
                 {route ? (
                   <RouterLink
                     to={route}
-                    className="cursor-pointer block text-base dark:text-white hover:text-[#ffe875] first:font-medium"
+                    className="cursor-pointer block text-base dark:text-white hover:text-[#5cb41d] first:font-medium"
                   >
                     {path}
                   </RouterLink>
                 ) : (
                   <ScrollLink
-                    className="cursor-pointer block text-base dark:text-white hover:text-[#ffe875] first:font-medium"
+                    className="cursor-pointer block text-base dark:text-white hover:text-[#5cb41d] first:font-medium"
                     to={link}
                     spy={true}
                     smooth={true}
@@ -76,18 +76,23 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-4">
             <RouterLink
               to="/login"
-              className="cursor-pointer hover:text-[#ffe875] first:font-medium"
+              className="cursor-pointer hover:text-[#5cb41d] first:font-medium"
             >
-              <button
-                href="/login"
-                className="py-2 px-3 rounded-lg border border-black bg-gradient-to-br"
-              >
+              <button className="py-2 px-3 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
                 Entre
               </button>
             </RouterLink>
-            <button className="py-2 px-2 text-white rounded-lg gradient-background ">
-              Crie uma conta
-            </button>
+            <RouterLink
+              to="/cadastro"
+              className="cursor-pointer hover:text-[#5cb41d] first:font-medium"
+            >
+              <button
+                href="/login"
+                className="py-2 px-2 text-white rounded-lg gradient-background "
+              >
+                Crie uma conta
+              </button>
+            </RouterLink>
           </div>
 
           <button
@@ -136,7 +141,10 @@ const Navbar = () => {
                     Entre
                   </span>
                 </button>
-                <button href="/cadastro " className="w-1/3 lg:w-full py-2 px-2 rounded-lg gradient-background">
+                <button
+                  href="/cadastro "
+                  className="w-1/3 lg:w-full py-2 px-2 rounded-lg gradient-background"
+                >
                   Crie uma conta
                 </button>
               </li>

@@ -8,10 +8,10 @@
   font-family: "Poppins", sans-serif;
 }
 .gradient-background {
-  background: linear-gradient(to right, #5ea040, #d8de23);
+  background: linear-gradient(to right, #65bc3c, #d8de23);
 }
 .gradient-animation {
-  background: linear-gradient(45deg, #31df4b, #fff94c);
+  background: linear-gradient(45deg, #31df4b, #ffd000);
   background-size: 200% 200%;
 }
 .gradient-animation:hover {

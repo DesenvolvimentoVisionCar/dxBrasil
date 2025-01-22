@@ -15,10 +15,10 @@ const HeroSection = () => {
       A DX BRASIL é uma empresa sólida com mais de 40 anos de experiência, especializada em soluções tecnológicas de segurança eletrônica.
       </p>
       <div className="flex mt-7 space-x-5">
-        <button className="py-2 px-2 text-white rounded-lg bg-gradient-to-r from-[#65bc3c] to-[#cad01f]">
+        <button className="py-2 px-2 text-white rounded-lg bg-gradient-to-r from-[#65bc3c] to-[#cad01f] transition-all hover:-translate-y-2">
           Comece agora
         </button>
-        <button className="py-2 px-3 rounded-lg border border-black bg-gradient-to-br  hover:bg-stone-800">
+        <button className="py-2 px-3 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br hover:text-[#5cb41d] transition-all hover:-translate-y-2">
           Saiba mais
         </button>
       </div>

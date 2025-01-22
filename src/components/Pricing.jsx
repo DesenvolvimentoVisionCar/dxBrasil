@@ -84,10 +84,10 @@ const Pricing = () => {
         {/* Botões de navegação */}
         {totalSlides > slidesPerView && !isAtStart && (
           <button
-            className="absolute -left-10 top-1/2 transform -translate-y-1/2 z-10 text-white rounded-full"
+            className="absolute -left-10 top-1/2 transform -translate-y-1/2 z-10 text-black rounded-full"
             onClick={() => swiperRef.current?.slidePrev()}
           >
-            <ChevronLeft size={40} />
+            <ChevronLeft className="text-black" size={40} />
           </button>
         )}
         <Swiper
@@ -105,11 +105,11 @@ const Pricing = () => {
               slidesPerView: 3,
             },
           }}
-          className=""
+          className="min-h-[600px]"
         >
           {filteredOptions.map((option, index) => (
-            <SwiperSlide key={index}>
-              <div className="p-10 border border-stone-700 min-h-[560px] rounded-xl flex flex-col justify-between">
+            <SwiperSlide className="mt-2" key={index}>
+              <div className="transition-all hover:-translate-y-2 p-10 border shadow-md  min-h-[560px] rounded-xl flex flex-col justify-between">
                 <p className="text-4xl mb-8">
                   {option.title}
                   {(option.title === "Transmissor Full DS" || option.title === "Módulo IP Lite") && (
@@ -132,7 +132,7 @@ const Pricing = () => {
                   onClick={() => navigate(`/produto/${option.id}`)}
                   className="inline-flex justify-center items-center text-center px-[.1em] py-1 w-full h-12 mt-16 tracking-tight text-xl hover:bg-orange-900 gradient-animation rounded-md transition duration-200"
                 >
-                  <span className="block bg-white rounded-md w-full px-5 py-2">
+                  <span className="block bg-white hover:text-[#5cb41d] rounded-md w-full px-5 py-2">
                     Saiba mais
                   </span>
                 </a>
@@ -145,7 +145,7 @@ const Pricing = () => {
             className="absolute -right-10 top-1/2 transform -translate-y-1/2 z-10 text-white rounded-full"
             onClick={() => swiperRef.current?.slideNext()}
           >
-            <ChevronRight size={40} />
+            <ChevronRight className="text-black" size={40} />
           </button>
         )}
       </div>

@@ -1,5 +1,5 @@
 import SignupSection from "../components/SignupSection";
-import background from "../assets/background.png";
+import background from "../assets/escritorio.png";
 
 const SignupPage = () => {
   return (

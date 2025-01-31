@@ -110,20 +110,20 @@ const Navbar = () => {
 
         {isMenuOpen && (
           <div className="md:hidden mt-4">
-            <ul className="flex flex-col space-y-4">
+            <ul className="flex flex-col space-y-4 items-center">
               {navItems.map(({ link, path, route }) => (
                 <li key={link}>
                   {route ? (
                     <RouterLink
                       to={route}
-                      className="cursor-pointer block text-base text-white hover:text-[#fff4bf] first:font-medium"
+                      className="cursor-pointer block text-base hover:text-[#fff4bf] first:font-medium"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {path}
                     </RouterLink>
                   ) : (
                     <ScrollLink
-                      className="cursor-pointer block text-base text-white hover:text-[#fff4bf] first:font-medium"
+                      className="cursor-pointer block text-base hover:text-[#fff4bf] first:font-medium"
                       to={link}
                       spy={true}
                       smooth={true}
@@ -135,15 +135,15 @@ const Navbar = () => {
                   )}
                 </li>
               ))}
-              <li className="space-y-2 flex items-center justify-center flex-col md:flex-row">
-                <button className="w-1/3 lg:w-full py-1 px-1 rounded-full bg-gradient-to-br from-emerald-400 via-cyan-500 to-[#ddb811] hover:bg-stone-800">
-                  <span className="block bg-[#121212] hover:bg-stone-900 rounded-full py-2 px-4">
+              <li className="gap-2 flex items-center justify-center md:flex-row">
+                <button className="cursor-pointer hover:text-[#5cb41d] first:font-medium">
+                  <span className="py-2 px-3 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
                     Entre
                   </span>
                 </button>
                 <button
                   href="/cadastro "
-                  className="w-1/3 lg:w-full py-2 px-2 rounded-lg gradient-background"
+                  className="py-2 px-2 text-white rounded-lg gradient-background"
                 >
                   Crie uma conta
                 </button>

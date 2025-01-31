@@ -1,10 +1,12 @@
+import escritorio from "../assets/escritorio.png";
+
 const LoginSection = () => {
   return (
     <div className="flex min-h-screen">
       {/* Image half */}
       <div className="hidden w-1/2 bg-gray-100 lg:block">
         <img
-          src="/placeholder.svg?height=1080&width=1920"
+          src={escritorio}
           alt="Login background"
           className="h-full w-full object-cover"
         />

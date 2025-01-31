@@ -27,26 +27,11 @@ export const features = [
   },
   {
     icon: <Fingerprint />,
-    text: "Instalação Rápida",
-    description: "Sistema instalado rapidamente para ativação ágil do serviço.",
-  },
-  {
-    icon: <BotMessageSquare />,
-    text: "Escalabilidade",
-    description: "Rede expansível para atender à crescente demanda de monitoramento.",
-  },
-  {
-    icon: <ShieldHalf />,
-    text: "Monitoramento em Tempo Real",
-    description: "Eventos de alarme recebidos na hora, permitindo ações imediatas.",
-  },
-  {
-    icon: <Fingerprint />,
     text: "Flexibilidade e Compatibilidade",
     description: "Integração fácil com diferentes sistemas e tecnologias de alarme.",
   },
   {
-    icon: <PlugZap />,
+    icon: <BotMessageSquare />,
     text: "Análise e Relatórios",
     description: "Software integrado para monitoramento e geração de relatórios detalhados.",
   },
@@ -166,7 +151,7 @@ export const pricingOptions = [
       { name: "Comunicação", value: "Serial" },
       {
         name: "Automação",
-        value: "Arme e desarme por iButton ou contato seco",
+        value: "Arme e desarme iButton/contato seco",
       },
       { name: "Automação", value: "2 PGMs" },
     ],
@@ -175,29 +160,86 @@ export const pricingOptions = [
   },
   {
     id: 4,
-    title: "Transmissor Full IP",
+    title: "Transmissor Full ID",
     category: "Transmissoras",
     features: [
-      "Comunicação Ring Tip",
-      "Dupla via de comunicação",
-      "Arme e desarme remoto",
+      "Comunicação via RingTIP",
+      "Compatível com qualquer painel de alarme",
+      "Formato Contact ID",
+    ],
+    tagline: "Monitoramento fácil, seguro e transparente.",
+    description:
+      "O DX Full ID é um dispositivo que permite monitorar de maneira fácil, segura e transparente qualquer painel de alarme com comunicador telefônico em formatos Contact ID, tornando-se compatível com qualquer painel do mercado. Possui uma interface de comunicação própria, se comunica diretamente com o painel de alarme e incorpora tudo o que é necessário para funcionar como full data transfer nos formatos mencionados.",
+    feature: [
+      "Evento de auto-teste",
+      "Quatro entradas 24H com eventos editáveis",
+      "Comandos desde um telefone interno",
+      "Monitoramento de tensão DC da alimentação",
+      "Eventos gerados pelo painel de alarme (formato CID)",
+    ],
+    specs: [
+      { name: "Alimentação", value: "12 volts" },
+      { name: "Comunicação", value: "Via RingTIP" },
+      { name: "Compatibilidade", value: "Qualquer painel de alarme" },
+      { name: "Formato", value: "Contact ID" },
     ],
   },
   {
     id: 5,
-    title: "Transmissor Full ID",
+    title: "Transmissor Full IP",
     category: "Transmissoras",
     features: [
-      "Comunicação Ring Tip",
-      "Quatro zonas",
-      "Compatível com meio de backup",
+      "Comunicação via Ethernet e rádio",
+      "Acesso remoto via Babyware e Winload",
+      "Monitoramento de tensão AC e DC",
+    ],
+    tagline: "Otimize seu monitoramento com confiabilidade e eficácia.",
+    description:
+      "O Radio IP foi desenvolvido para otimizar seu monitoramento, pensando sempre na sua economia mantendo a confiabilidade e eficácia. Possui dois meios de comunicação, reportando principalmente via Ethernet os eventos do painel e usando a transmissão radial somente quando não houver comunicação Ethernet ou envio de teste periódico do equipamento.",
+    feature: [
+      "Evento de inicialização para controle de auto-teste",
+      "Monitoramento de alimentação 12V",
+      "Monitoramento de tensão AC",
+      "Programação em bancada somente com USB",
+      "Ajuste na quantidade de retransmissão de eventos",
+      "Duas entradas 24H (nível alto e baixo com eventos editáveis)",
+      "Acesso remoto na configuração da central via Babyware e Winload",
+      "Duas saídas PGM's com acionamento remoto via Gestor IPDX ou software de Monitoramento",
+      "Comunicador com a discadora da central de alarme",
+      "Monitoramento de eventos via serial em centrais JFL, ViaWeb, Intelbras (AMT-4010), e linha Spirit (728, 738 e 748)",
+    ],
+    specs: [
+      { name: "Alimentação", value: "12 volts" },
+      { name: "Comunicação", value: "Ethernet e rádio" },
+      { name: "Acesso remoto", value: "Babyware e Winload" },
+      { name: "Monitoramento", value: "Tensão AC e DC" },
     ],
   },
   {
     id: 6,
-    title: "Transmissor 45WD",
+    title: "Transmissor Full ID 45 WD",
     category: "Transmissoras",
-    features: ["Comunicação Serial", "Recursos: Duas zonas"],
+    features: [
+      "Comunicação via serial",
+      "Quatro canais de operação simultânea",
+      "Compatível com DX BRASIL, Paradox, Posonic e DSC",
+    ],
+    tagline: "Comunicação confiável via serial com múltiplos canais.",
+    description:
+      "O Transmissor 45WD conta com uma interface de comunicação própria, que comunica via serial com os painéis de alarme das marcas DX BRASIL, Paradox, Posonic e DSC. Todos os eventos podem ser transmitidos em vários canais de rádio, iguais ou diferentes (configuráveis por programação de PC), permitindo frequências de apoio (back-up) ante possíveis interferências ou bloqueios no canal de recepção principal.",
+    feature: [
+      "Evento de auto-teste",
+      "Eventos gerados pelo painel de alarme via serial",
+      "Quatro entradas 24H com eventos editáveis",
+      "Monitoramento de tensão DC da alimentação",
+      "Quatro canais de operação simultânea",
+    ],
+    specs: [
+      { name: "Alimentação", value: "12 volts" },
+      { name: "Comunicação", value: "Via serial" },
+      { name: "Compatibilidade", value: "DX BRASIL, Paradox, Posonic e DSC" },
+      { name: "Canais", value: "Quatro canais de operação simultânea" },
+    ],
   },
 
   // Módulos

@@ -51,10 +51,10 @@ const Pricing = () => {
 
   return (
     <div className="mt-20 z-0">
-      <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center my-8 tracking-wide">
-        Produtos
+      <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center my-3 lg:my-8 tracking-wide">
+        Nossos produtos
       </h2>
-      <div className="flex flex-row mt-8 w-full justify-center">
+      <div className="flex flex-row text-xs md:text-lg backdrop:mt-8 w-full justify-center">
         <TabButton
           selectTab={() => handleTab("Transmissoras")}
           active={tab === "Transmissoras"}
@@ -121,7 +121,7 @@ const Pricing = () => {
                 <ul>
                   {option.features.map((feature, idx) => (
                     <li key={idx} className="mt-8 flex items-center">
-                      <CheckCircle2 />
+                      <CheckCircle2 className="text-[#52ee5a]"/>
                       <span className="ml-2">{feature}</span>
                     </li>
                   ))}
@@ -130,9 +130,9 @@ const Pricing = () => {
                   href="#"
                   key={option.id}
                   onClick={() => navigate(`/produto/${option.id}`)}
-                  className="inline-flex justify-center items-center text-center px-[.1em] py-1 w-full h-12 mt-16 tracking-tight text-xl hover:bg-orange-900 gradient-animation rounded-md transition duration-200"
+                  className="inline-flex justify-center items-center text-center px-[.1em] py-1 w-full h-12 mt-16 tracking-tight text-xl bg-black/70 rounded-md transition duration-200"
                 >
-                  <span className="block bg-white hover:text-[#5cb41d] rounded-md w-full px-5 py-2">
+                  <span className="block bg-white rounded-md w-full px-5 py-2">
                     Saiba mais
                   </span>
                 </a>

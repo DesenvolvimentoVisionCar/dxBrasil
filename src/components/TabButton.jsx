@@ -5,7 +5,7 @@ const TabButton = ({ active, selectTab, children }) => {
     : "text-stone-400";
   return (
     <span onClick={selectTab} className="flex justify-between items-center">
-      <p className={`mr-4  ${buttonClasses}`}>
+      <p className={` mr-2 md:mr-4  ${buttonClasses}`}>
         {children}
       </p>
     </span>

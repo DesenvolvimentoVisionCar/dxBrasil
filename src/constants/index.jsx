@@ -47,12 +47,12 @@ export const checklistItems = [
   {
     title: "Testes Periódicos Configuráveis",
     description:
-      "O sistema permite testes periódicos, configurados conforme a necessidade de cada ambiente monitorado, garantindo a máxima confiabilidade e eficiência de operação.",
+      "O sistema permite testes periódicos, configurados conforme a necessidade de cada ambiente monitorado.",
   },
   {
     title: "Tecnologia de Ponta",
     description:
-      "A DX BRASIL oferece soluções completas e seguras, com tecnologia avançada em monitoramento via rádio, proporcionando um sistema de alta performance.",
+      "A DX BRASIL oferece soluções completas e seguras, com tecnologia avançada em monitoramento via rádio.",
   },
   {
     title: "Segurança e Eficiência",
@@ -368,8 +368,25 @@ export const pricingOptions = [
     category: "Receptora",
     features: [
       "Cabo serial",
-      "Display para análise de eventos",
+      "Display de análise e teclado",
       "Capacidade: 4.000 contas",
+    ],
+    tagline: "Upgrade inteligente para sua central de alarme.",
+    description:
+      "O RMV02 oferece um visor para acompanhamento de eventos em tempo real. Sua comunicação com o servidor é feita diretamente por cabo serial, garantindo uma integração eficiente. Além disso, é compatível com a ampliação de até 16 módulos externos, aumentando a capacidade de monitoramento conforme necessário.",
+    feature: [
+      "Cabo serial",
+      "Capacidade: 4.000 contas",
+      "Monitoramento contínuo da comunicação com o servidor",
+      "Compatível com os formatos Ademco 685, Surgard e Dx Net",
+    ],
+    specs: [
+      { name: "Alimentação", value: "12V" },
+      { name: "Audível", value: "Buzzer para alertas sonoros." },
+      {
+        name: "Configuração",
+        value: "Software Terminal",
+      },
     ],
   },
   {

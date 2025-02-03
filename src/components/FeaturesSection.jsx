@@ -2,12 +2,12 @@ import { features } from "../constants";
 
 const FeatureSection = () => {
   return (
-    <div className="mt-20 border-b border-stone-800">
+    <div className="mt-40 border-b border-stone-400">
       <div className="text-center">
-        <h2 className="text-2xl sm:text-5xl lg:text-6xl mt-10 lg:mt-20 tracking-wide">
+        <h2 className="text-2xl sm:text-5xl lg:text-5xl mt-10 lg:mt-20 tracking-wide">
         Monitoramento via Rádio<br/>
 
-          <span className="text-2xl lg:text-5xl bg-gradient-to-r from-[#40b346] to-[#fff200] text-transparent bg-clip-text">
+          <span className="text-2xl lg:text-4xl mt-2 bg-gradient-to-r from-[#40b346] to-[#fff200] text-transparent bg-clip-text">
           A Solução Completa para Segurança
           </span>
         </h2>

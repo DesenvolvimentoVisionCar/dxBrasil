@@ -1,4 +1,4 @@
-import { useState, useTransition, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { pricingOptions } from "../constants";
 import TabButton from "./TabButton";
@@ -11,18 +11,14 @@ import "swiper/css/navigation";
 
 const Pricing = () => {
   const [tab, setTab] = useState("all");
-  const [isPending, startTransition] = useTransition();
   const [isAtStart, setIsAtStart] = useState(true); // Estado para controlar se está no início
   const [isAtEnd, setIsAtEnd] = useState(false); // Estado para controlar se está no final
   const swiperRef = useRef(null); // Ref para o Swiper
   const navigate = useNavigate();
 
-  const handleTab = (id) => {
-    startTransition(() => {
-      setTab(id);
-    });
+  const handleTab = (tabName) => {
+    setTab((prevTab) => (prevTab === tabName ? "all" : tabName));
   };
-
   const handleSlideChange = (swiper) => {
     setIsAtStart(swiper.isBeginning);
     setIsAtEnd(swiper.isEnd);
@@ -50,9 +46,9 @@ const Pricing = () => {
   }, []);
 
   return (
-    <div className="mt-20 z-0">
-      <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center my-3 lg:my-8 tracking-wide">
-        Nossos produtos
+    <div className="mt-32 z-0">
+      <h2 className="text-3xl sm:text-5xl lg:text-5xl text-center my-3 lg:my-3 tracking-wide">
+        Produtos
       </h2>
       <div className="flex flex-row text-xs md:text-lg backdrop:mt-8 w-full justify-center">
         <TabButton
@@ -130,9 +126,9 @@ const Pricing = () => {
                   href="#"
                   key={option.id}
                   onClick={() => navigate(`/produto/${option.id}`)}
-                  className="inline-flex justify-center items-center text-center px-[.1em] py-1 w-full h-12 mt-16 tracking-tight text-xl bg-black/70 rounded-md transition duration-200"
+                  className="inline-flex justify-center items-center text-center px-[.1em] py-1 w-full h-12 mt-16 tracking-tight text-xl rounded-md transition duration-200"
                 >
-                  <span className="block bg-white rounded-md w-full px-5 py-2">
+                  <span className="block hover:bg-gray-50 bg-white rounded-md w-full px-5 py-2 border border-stone-400">
                     Saiba mais
                   </span>
                 </a>

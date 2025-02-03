@@ -3,6 +3,13 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import logo from "../assets/logos/Logo.png";
+import logo1 from "../assets/logos/Logo1.png";
+import logo2 from "../assets/logos/Logo2.png";
+import logo3 from "../assets/logos/Logo3.png";
+import logo4 from "../assets/logos/Logo4.png";
+import logo5 from "../assets/logos/Logo5.png";
+import logo6 from "../assets/logos/Logo6.png";
 
 const DropdownItem = ({ title, value, description, isOpen, onClick }) => {
   return (
@@ -73,24 +80,37 @@ export default function TimelineSection() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-center text-5xl py-5 mb-6">
-        Sobre a DxBrasil
-        <p className="text-lg mt-2 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <div className="flex justify-center items-center mt-20">
+      <div className=" mx-4">
+        <h1 className="text-center text-5xl py-5 mb-6">
+          Nossas Parcerias
+          <p className="text-xl mt-2 text-stone-500">
+            A DX Brasil possui mais de 500+ parceiros
+          </p>
+        </h1>
 
-      </h1>
+        <div className="w-screen flex justify-between px-40">
+          <img src={logo} alt="" />
+          <img src={logo3} alt="" />
+          <img src={logo4} alt="" />
+          <img src={logo5} alt="" />
+          <img src={logo6} alt="" />
+        </div>
 
-      <div className="space-y-4">
-        {items.map((item) => (
-          <DropdownItem
-            key={item.id}
-            title={item.title}
-            value={item.value}
-            description={item.description}
-            isOpen={openItem === item.id}
-            onClick={() => handleClick(item.id)}
-          />
-        ))}
+        <h1 className="text-center text-5xl py-5 mb-6 pt-10">
+        </h1>
+        <div className="max-w-2xl mx-auto p-6 space-y-4">
+          {items.map((item) => (
+            <DropdownItem
+              key={item.id}
+              title={item.title}
+              value={item.value}
+              description={item.description}
+              isOpen={openItem === item.id}
+              onClick={() => handleClick(item.id)}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

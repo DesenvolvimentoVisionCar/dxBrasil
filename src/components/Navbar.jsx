@@ -43,11 +43,37 @@ const Navbar = () => {
         } container mx-auto lg:px-14 px-4 py-4`}
       >
         <div className="flex items-center justify-between w-full">
-          <RouterLink to="/" className="text-2xl flex items-center">
-            <img src={Logo} alt="DX Logo" className="w-16" />
-            <h2>Dx Brasil</h2>
-          </RouterLink>
+          <div className="flex items-center">
+            <button
+              className="md:hidden focus:outline-none focus:text-gray-500"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6 text-neutralGray" />
+              ) : (
+                <Menu className="h-6 w-6 text-neutralGray" />
+              )}
+            </button>
+            <RouterLink to="/" className="text-2xl flex items-center">
+              <img src={Logo} alt="DX Logo" className="w-10 sm:w-16" />
+              <h2 className="text-lg sm:text-2xl">Dx Brasil</h2>
+            </RouterLink>
+          </div>
 
+        <div className="flex sm:hidden flex-row gap-2">
+          <button className="cursor-pointer hover:text-[#5cb41d] first:font-medium">
+            <span className="text-sm py-2 px-2 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
+              Entre
+            </span>
+          </button>
+          <button
+            href="/cadastro "
+            className="text-sm py-2 px-2 text-white rounded-lg gradient-background"
+          >
+            Registre-se
+          </button>
+        </div>
           <ul className="hidden md:flex space-x-8">
             {navItems.map(({ link, path, route }) => (
               <li key={link}>
@@ -90,22 +116,10 @@ const Navbar = () => {
                 href="/login"
                 className="py-2 px-2 text-white rounded-lg gradient-background "
               >
-                Crie uma conta
+                Registre-se
               </button>
             </RouterLink>
           </div>
-
-          <button
-            className="md:hidden focus:outline-none focus:text-gray-500"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? (
-              <X className="h-6 w-6 text-neutralGray" />
-            ) : (
-              <Menu className="h-6 w-6 text-neutralGray" />
-            )}
-          </button>
         </div>
 
         {isMenuOpen && (
@@ -135,19 +149,6 @@ const Navbar = () => {
                   )}
                 </li>
               ))}
-              <li className="gap-2 flex items-center justify-center md:flex-row">
-                <button className="cursor-pointer hover:text-[#5cb41d] first:font-medium">
-                  <span className="py-2 px-3 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
-                    Entre
-                  </span>
-                </button>
-                <button
-                  href="/cadastro "
-                  className="py-2 px-2 text-white rounded-lg gradient-background"
-                >
-                  Crie uma conta
-                </button>
-              </li>
             </ul>
           </div>
         )}

@@ -3,15 +3,15 @@ import video2 from "../assets/video02.mp4";
 
 const HeroSection = () => {
   return (
-    <div className="flex flex-col items-center mt-20 sm:mt-40 px-4">
-      <h1 className="text-2xl sm:text-4xl lg:text-6xl text-center tracking-tighter">
+    <div className="flex flex-col items-center mt-32 sm:mt-40 px-2">
+      <h1 className="text-3xl sm:text-4xl lg:text-6xl text-center tracking-tighter">
         Dx Brasil desenvolvendo ferramentas
         <span className="bg-gradient-to-r from-[#40b346] to-[#fff200] text-transparent bg-clip-text">
           {" "}
           <br className="hidden lg:block" /> para seu conforto
         </span>
       </h1>
-      <p className="mt-4 text-center text-[#666666] max-w-xl sm:max-w-3xl lg:max-w-4xl sm:text-base lg:text-lg leading-relaxed">
+      <p className="mt-4 text-center text-[#666666] max-w-xl sm:max-w-3xl lg:max-w-4xl text-sm sm:text-base lg:text-lg leading-relaxed">
         A DX BRASIL é uma empresa sólida com mais de 40 anos de experiência, especializada em soluções tecnológicas de segurança eletrônica.
       </p>
       <div className="flex flex-row mt-7 space-x-5">

@@ -2,7 +2,7 @@ import { features } from "../constants";
 
 const FeatureSection = () => {
   return (
-    <div className="mt-40 border-b border-stone-400">
+    <div className="mt-24 md:mt-40 border-b border-stone-400">
       <div className="text-center">
         <h2 className="text-2xl sm:text-5xl lg:text-5xl mt-10 lg:mt-20 tracking-wide">
         Monitoramento via Rádio<br/>
@@ -21,7 +21,7 @@ const FeatureSection = () => {
               </div>
               <div>
                 <h5 className="mt-1 mb-3 text-xl text-start">{feature.text}</h5>
-                <p className="text-md p-2 mb-20 text-start text-stone-500">
+                <p className="text-md p-2 mb-6 sm:mb-20 text-start text-stone-500">
                   {feature.description}
                 </p>
               </div>

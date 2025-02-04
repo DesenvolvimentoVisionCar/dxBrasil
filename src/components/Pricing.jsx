@@ -94,6 +94,9 @@ const Pricing = () => {
           slidesPerView={slidesPerView}
           navigation={false} // Desativa os controles padrão
           breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
             640: {
               slidesPerView: 2,
             },
@@ -105,7 +108,7 @@ const Pricing = () => {
         >
           {filteredOptions.map((option, index) => (
             <SwiperSlide className="mt-2" key={index}>
-              <div className="transition-all hover:-translate-y-2 p-10 border shadow-md  min-h-[560px] rounded-xl flex flex-col justify-between">
+              <div className="transition-all hover:-translate-y-2 p-4 sm:p-10 border shadow-md  min-h-[500px] sm:min-h-[560px] rounded-xl flex flex-col justify-between">
                 <p className="text-4xl mb-8">
                   {option.title}
                   {(option.title === "Transmissor Full DS" || option.title === "Módulo IP Lite") && (
@@ -117,8 +120,8 @@ const Pricing = () => {
                 <ul>
                   {option.features.map((feature, idx) => (
                     <li key={idx} className="mt-8 flex items-center">
-                      <CheckCircle2 className="text-[#52ee5a]"/>
-                      <span className="ml-2">{feature}</span>
+                      <CheckCircle2 size={24} className="text-[#52ee5a]"/>
+                      <span className="text-nowrap ml-2">{feature}</span>
                     </li>
                   ))}
                 </ul>

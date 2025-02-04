@@ -83,7 +83,7 @@ export default function TimelineSection() {
     <div className="flex justify-center items-center mt-20">
       <div className=" mx-4">
         <h1 className="text-center text-5xl py-5 mb-6">
-          Nossas Parcerias
+          Sobre Nós
           <p className="text-xl mt-2 text-stone-500">
             A DX Brasil possui mais de 500+ parceiros
           </p>
@@ -97,9 +97,7 @@ export default function TimelineSection() {
           <img src={logo6} alt="" />
         </div>
 
-        <h1 className="text-center text-5xl py-5 mb-6 pt-10">
-        </h1>
-        <div className="max-w-2xl mx-auto p-6 space-y-4">
+        <div className="max-w-2xl mx-auto p-6 space-y-4 mt-10">
           {items.map((item) => (
             <DropdownItem
               key={item.id}

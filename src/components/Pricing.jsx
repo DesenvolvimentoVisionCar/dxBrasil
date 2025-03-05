@@ -77,7 +77,6 @@ const Pricing = () => {
         </TabButton>
       </div>
       <div className="mt-8 relative">
-        {/* Botões de navegação */}
         {totalSlides > slidesPerView && !isAtStart && (
           <button
             className="absolute -left-10 top-1/2 transform -translate-y-1/2 z-10 text-black rounded-full"
@@ -87,12 +86,12 @@ const Pricing = () => {
           </button>
         )}
         <Swiper
-          onSwiper={(swiper) => (swiperRef.current = swiper)} // Ref para o Swiper
-          onSlideChange={handleSlideChange} // Atualiza os estados ao trocar de slide
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          onSlideChange={handleSlideChange} 
           modules={[Navigation]}
           spaceBetween={20}
           slidesPerView={slidesPerView}
-          navigation={false} // Desativa os controles padrão
+          navigation={false} 
           breakpoints={{
             0: {
               slidesPerView: 1,
@@ -121,7 +120,7 @@ const Pricing = () => {
                   {option.features.map((feature, idx) => (
                     <li key={idx} className="mt-8 flex items-center">
                       <CheckCircle2 size={24} className="text-[#52ee5a]"/>
-                      <span className="text-nowrap ml-2">{feature}</span>
+                      <span className="w-4/5 text-start ml-2">{feature}</span>
                     </li>
                   ))}
                 </ul>

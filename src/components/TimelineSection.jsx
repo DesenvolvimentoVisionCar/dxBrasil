@@ -88,15 +88,6 @@ export default function TimelineSection() {
             A DX Brasil possui mais de 500+ parceiros
           </p>
         </h1>
-
-        <div className="w-screen flex justify-between px-40">
-          <img src={logo} alt="" />
-          <img src={logo3} alt="" />
-          <img src={logo4} alt="" />
-          <img src={logo5} alt="" />
-          <img src={logo6} alt="" />
-        </div>
-
         <div className="max-w-2xl mx-auto p-6 space-y-4 mt-10">
           {items.map((item) => (
             <DropdownItem

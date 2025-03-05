@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import { useEffect } from "react";
+import Lenis from "lenis";
 import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
 import LoginPage from "./pages/LoginPage";
@@ -7,6 +9,15 @@ import SignupPage from "./pages/SignupPage";
 import ContactUsPage from "./pages/ContactUsPage";
 
 function App() {
+  useEffect(() => {
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  });
+
   return (
       <Routes>
         <Route path="/" element={<HomePage />} />

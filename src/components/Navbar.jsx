@@ -99,7 +99,7 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <div className="hidden md:flex space-x-4">
+          <div className="hidden sm:flex space-x-4">
             <RouterLink
               to="/login"
               className="cursor-pointer hover:text-[#5cb41d] first:font-medium"

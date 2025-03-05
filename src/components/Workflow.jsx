@@ -1,39 +1,48 @@
-import { CheckCircle2 } from "lucide-react";
-import codeImg from "../assets/comfundo.jpeg";
-import { checklistItems } from "../constants";
+import { CheckCircle2 } from "lucide-react"
+import codeImg from "../assets/comfundo.jpeg"
+import { checklistItems } from "../constants"
 
 const Workflow = () => {
   return (
-    <div className="mt-20 border-b border-stone-400">
-      <h2 className="text-3xl mb-3 sm:text-3xl lg:text-5xl text-center mt-6 tracking-wide">
-      <h2 className="text-2xl sm:text-5xl lg:text-5xl mt-10 lg:mt-20 tracking-wide">
-        Transmissor Dx Brasil<br/>
-
-          <span className="text-2xl lg:text-4xl mt-2 bg-gradient-to-r from-[#40b346] to-[#fff200] text-transparent bg-clip-text">
+    <div className="mt-10 sm:mt-16 lg:mt-20 border-b border-stone-400 pb-10 sm:pb-16">
+      <h2 className="text-2xl sm:text-3xl lg:text-5xl text-center tracking-wide px-4">
+        Transmissor Dx Brasil
+        <br />
+        <span className="text-xl sm:text-2xl lg:text-4xl mt-2 bg-gradient-to-r from-[#40b346] to-[#fff200] text-transparent bg-clip-text inline-block">
           A Melhor Escolha do Mercado
-          </span>
-        </h2>
+        </span>
       </h2>
-      <div className="flex flex-wrap justify-center">
-        <div className="w-full lg:w-2/5 mt-12 h-fit object-cover">
-          <img src={codeImg} alt="Coding" className="object-cover" />
+
+      <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-8 mt-8 px-4 sm:px-6">
+        <div className="w-full sm:w-4/5 lg:w-3/5 xl:w-2/5 relative group mx-auto lg:mx-0">
+          <div className="absolute inset-0 transition-all duration-300"></div>
+          <img
+            src={codeImg || "/placeholder.svg"}
+            alt="Transmissor Dx Brasil"
+            className="object-cover rounded-lg shadow-xl transform transition-transform duration-500 group-hover:scale-105 w-full h-auto"
+          />
+          <div className="absolute group-hover:scale-105 transition-transform bottom-4 sm:bottom-10 right-0 sm:-right-5 bg-gradient-to-r from-green-500 to-yellow-300 text-white py-1 sm:py-2 px-3 sm:px-4 rounded-full text-base sm:text-lg shadow-lg capitalize transform">
+            Qualidade Garantida
+          </div>
         </div>
-        <div className="pt-12 w-full lg:w-1/2">
+
+        <div className="w-full lg:w-1/2 pt-4 2xl:pt-12">
           {checklistItems.map((item, index) => (
-            <div key={index} className="flex mb-12">
-              <div className="text-green-400 mx-6 shadow-md h-10 w-10 p-2 justify-center items-center rounded-full">
-                <CheckCircle2 />
+            <div key={index} className="flex mb-8 sm:mb-12 lg:mb-5 xl:mb-12">
+              <div className="text-green-400 mx-3 sm:mx-6 shadow-md h-8 w-8 sm:h-10 sm:w-10 p-1 sm:p-2 flex justify-center items-center rounded-full flex-shrink-0">
+                <CheckCircle2 className="w-full h-full" />
               </div>
-              <div>
-                <h5 className="mt-1 mb-2 text-start text-xl">{item.title}</h5>
-                <p className="text-md text-start text-stone-500">{item.description}</p>
+              <div className="flex-1">
+                <h5 className="mt-0 sm:mt-1 mb-1 sm:mb-2 text-start text-lg sm:text-xl">{item.title}</h5>
+                <p className="text-sm sm:text-md text-start text-stone-500">{item.description}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Workflow;
+export default Workflow
+

@@ -4,6 +4,20 @@ import { Fingerprint } from "lucide-react";
 import { ShieldHalf } from "lucide-react";
 import { PlugZap } from "lucide-react";
 import { GlobeLock } from "lucide-react";
+
+import carregador from "../assets/products/carregador.jpeg";
+import conversor from "../assets/products/conversor.jpeg";
+import fullid from "../assets/products/fullid.jpeg";
+import fullip from "../assets/products/fullip.jpeg";
+import fullds from "../assets/products/fullds.jpeg";
+import fullid45 from "../assets/products/fullid45.jpeg";
+import ipconvencional from "../assets/products/ipconvencional.jpeg";
+import iplite from "../assets/products/iplite.jpeg";
+import rmv01 from "../assets/products/rmv01.jpeg";
+import rmv02 from "../assets/products/rmv02.jpeg";
+import rmv04 from "../assets/products/rmv04.jpeg";
+import repetidora from "../assets/products/repetidora.jpeg";
+
 export const features = [
   {
     icon: <ShieldHalf />,
@@ -66,6 +80,7 @@ export const pricingOptions = [
   {
     id: 1,
     title: "Carregador",
+    img: carregador,
     category: "Transformadores",
     features: [
       "Fonte Chaveada",
@@ -121,6 +136,7 @@ export const pricingOptions = [
   {
     id: 3,
     title: "Transmissor Full DS",
+    img: fullds,
     category: "Transmissoras",
     features: [
       "Comunicação Ring Tip e Serial",
@@ -161,6 +177,7 @@ export const pricingOptions = [
   {
     id: 4,
     title: "Transmissor Full ID",
+    img: fullid,
     category: "Transmissoras",
     features: [
       "Comunicação via RingTIP",
@@ -187,6 +204,7 @@ export const pricingOptions = [
   {
     id: 5,
     title: "Transmissor Full IP",
+    img: fullip,
     category: "Transmissoras",
     features: [
       "Comunicação via Ethernet e rádio",
@@ -218,6 +236,7 @@ export const pricingOptions = [
   {
     id: 6,
     title: "Transmissor Full ID 45 WD",
+    img: fullid45,
     category: "Transmissoras",
     features: [
       "Comunicação via serial",
@@ -246,6 +265,7 @@ export const pricingOptions = [
   {
     id: 7,
     title: "Módulo IP Lite",
+    img: iplite,
     category: "Módulos",
     features: [
       "Comunicação via Ring Tip",
@@ -275,6 +295,7 @@ export const pricingOptions = [
   {
     id: 8,
     title: "Módulo IP Convencional",
+    img: ipconvencional,
     category: "Módulos",
     features: [
       "Comunicação via Ring Tip",
@@ -308,6 +329,7 @@ export const pricingOptions = [
   {
     id: 9,
     title: "Conversor Serial IP",
+    img: conversor,
     category: "Módulos",
     features: [
       "Integração com monitoramento",
@@ -338,6 +360,7 @@ export const pricingOptions = [
   {
     id: 10,
     title: "RMV01",
+    img: rmv01,
     category: "Receptora",
     features: [
       "Comunicação: Servidor via IP",
@@ -365,6 +388,7 @@ export const pricingOptions = [
   {
     id: 11,
     title: "RMV02",
+    img: rmv02,
     category: "Receptora",
     features: [
       "Cabo serial",
@@ -392,6 +416,7 @@ export const pricingOptions = [
   {
     id: 12,
     title: "RMV04",
+    img: rmv04,
     category: "Receptora",
     features: [
       "Cabo serial",
@@ -421,6 +446,7 @@ export const pricingOptions = [
   {
     id: 13,
     title: "Repetidora",
+    img: repetidora,
     category: "Receptora",
     features: [
       "Retransmissão via rádio",
@@ -458,15 +484,13 @@ export const resourcesLinks = [
 ];
 
 export const platformLinks = [
-  { href: "#", text: "Features" },
-  { href: "#", text: "Supported Devices" },
-  { href: "#", text: "System Requirements" },
-  { href: "#", text: "Downloads" },
-  { href: "#", text: "Release Notes" },
+  { href: "#", text: "Instagram: @dxbrasil" },
+  { href: "#", text: "Email: dxbrasil@gmail.com" },
+  { href: "#", text: "WhatsApp: (46) 99922-3223" },
 ];
 
 export const communityLinks = [
-  { href: "#", text: "Events" },
+  { href: "#", text: "Sobre" },
   { href: "#", text: "Meetups" },
   { href: "#", text: "Conferences" },
   { href: "#", text: "Hackathons" },

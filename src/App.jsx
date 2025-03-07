@@ -7,6 +7,7 @@ import ProductPage from "./pages/ProductPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import ContactUsPage from "./pages/ContactUsPage";
+import AboutUsPage from "./pages/AboutUsPage";
 
 function App() {
   useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/cadastro" element={<SignupPage />} />
         <Route path="/orcamento" element={<ContactUsPage />} />
+        <Route path="/sobre" element={<AboutUsPage />} />
       </Routes>
   );
 }

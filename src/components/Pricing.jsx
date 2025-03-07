@@ -107,7 +107,7 @@ const Pricing = () => {
         >
           {filteredOptions.map((option, index) => (
             <SwiperSlide className="mt-2" key={index}>
-              <div className="transition-all hover:-translate-y-2 p-4 sm:p-10 border shadow-md  min-h-[500px] sm:min-h-[560px] rounded-xl flex flex-col justify-between">
+              <div className="transition-all hover:-translate-y-2 p-4 sm:p-10 border border-black/40 shadow-md  min-h-[500px] sm:min-h-[560px] rounded-xl flex flex-col justify-between">
                 <p className="text-4xl mb-8">
                   {option.title}
                   {(option.title === "Transmissor Full DS" || option.title === "Módulo IP Lite") && (
@@ -130,7 +130,7 @@ const Pricing = () => {
                   onClick={() => navigate(`/produto/${option.id}`)}
                   className="inline-flex justify-center items-center text-center px-[.1em] py-1 w-full h-12 mt-16 tracking-tight text-xl rounded-md transition duration-200"
                 >
-                  <span className="block hover:bg-gray-50 bg-white rounded-md w-full px-5 py-2 border border-stone-400">
+                  <span className="block hover:bg-gray-100 bg-white rounded-md w-full px-5 py-2 border border-stone-400">
                     Saiba mais
                   </span>
                 </a>

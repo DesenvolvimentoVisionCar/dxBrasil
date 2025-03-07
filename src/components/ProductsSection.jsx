@@ -13,10 +13,7 @@ const ProductSection = () => {
 
   return (
     <div className="container text-start  mx-auto px-4 py-10 max-w-4xl">
-      <a
-        href="/"
-        className="inline-flex hover:underline mb-8"
-      >
+      <a href="/" className="inline-flex hover:underline mb-8">
         <ArrowLeft className="w-4 h-4 mr-2 mt-1" />
         Voltar ao Início
       </a>
@@ -63,14 +60,20 @@ const ProductSection = () => {
             ))}
           </div>
         </section>
-        {product.seriais ? <><div className="text-center">
-          <p className="text-lg">Seriais Compativeis</p>
-          <p className="text-stone-500">
-          {product.seriais}
-          </p>
-        </div></> : <> </>}
-        
+        {product.seriais ? (
+          <>
+            <div className="text-center">
+              <p className="text-lg">Seriais Compativeis</p>
+              <p className="text-stone-500">{product.seriais}</p>
+            </div>
+          </>
+        ) : (
+          <> </>
+        )}
 
+        <section className="w-full flex items-center justify-center">
+          <img src={product.img} alt="" className=" w-2/3 object-cover rounded-lg shadow-xl" />
+        </section>
         <section className="text-center w-full flex items-center justify-center">
           <button className="w-1/3 gap-1 transition-all hover:translate-x-3 gradient-background text-lg rounded-md p-2 flex items-center justify-center">
             <ArrowRight className="transition-all text-white" />

@@ -21,9 +21,6 @@ const Workflow = () => {
             alt="Transmissor Dx Brasil"
             className="object-cover rounded-lg shadow-xl transform transition-transform duration-500 group-hover:scale-105 w-full h-auto"
           />
-          <div className="absolute group-hover:scale-105 transition-transform bottom-4 sm:bottom-10 right-0 sm:-right-5 bg-gradient-to-r from-green-500 to-yellow-300 text-white py-1 sm:py-2 px-3 sm:px-4 rounded-full text-base sm:text-lg shadow-lg capitalize transform">
-            Qualidade Garantida
-          </div>
         </div>
 
         <div className="w-full lg:w-1/2 pt-4 2xl:pt-12">

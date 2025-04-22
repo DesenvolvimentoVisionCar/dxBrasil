@@ -8,12 +8,12 @@ const Workflow = () => {
       <h2 className="text-2xl sm:text-3xl lg:text-5xl text-center tracking-wide px-4">
         Transmissor Dx Brasil
         <br />
-        <span className="text-xl sm:text-2xl lg:text-4xl mt-2 bg-gradient-to-r from-[#40b346] to-[#fff200] text-transparent bg-clip-text inline-block">
+        <span className="text-xl sm:text-2xl lg:text-4xl mt-2 text-primaryg bg-clip-text inline-block">
           A Melhor Escolha do Mercado
         </span>
       </h2>
 
-      <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-8 mt-8 px-4 sm:px-6">
+      <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-8 mt-12 px-4 sm:px-6">
         <div className="w-full sm:w-4/5 lg:w-3/5 xl:w-2/5 relative group mx-auto lg:mx-0">
           <div className="absolute inset-0 transition-all duration-300"></div>
           <img

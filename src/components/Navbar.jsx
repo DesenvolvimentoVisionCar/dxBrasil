@@ -15,7 +15,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 0) {
         setIsSticky(true);
       } else {
         setIsSticky(false);
@@ -35,7 +35,9 @@ const Navbar = () => {
 
   return (
     <header
-      className={`w-screen z-20 fixed top-0 left-0 right-0 transition-all backdrop-blur-lg duration-300 border-b border-neutral/80`}
+      className={`w-screen z-20 fixed top-0 left-0 right-0 transition-all duration-300 ${
+        isSticky ? "bg-white shadow-md" : "bg-transparent"
+      }`}
     >
       <nav
         className={`${
@@ -61,19 +63,19 @@ const Navbar = () => {
             </RouterLink>
           </div>
 
-        <div className="flex sm:hidden flex-row gap-2">
-          <button className="cursor-pointer hover:text-[#5cb41d] first:font-medium">
-            <span className="text-sm py-2 px-2 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
-              Entre
-            </span>
-          </button>
-          <button
-            href="/cadastro "
-            className="text-sm py-2 px-2 text-white rounded-lg gradient-background"
-          >
-            Registre-se
-          </button>
-        </div>
+          <div className="flex sm:hidden flex-row gap-2">
+            <button className="cursor-pointer hover:text-[#5cb41d] first:font-medium">
+              <span className="text-sm py-2 px-2 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
+                Entre
+              </span>
+            </button>
+            <button
+              href="/cadastro "
+              className="text-sm py-2 px-2 text-white rounded-lg gradient-background"
+            >
+              Registre-se
+            </button>
+          </div>
           <ul className="hidden md:flex space-x-8">
             {navItems.map(({ link, path, route }) => (
               <li key={link}>
@@ -110,11 +112,11 @@ const Navbar = () => {
             </RouterLink>
             <RouterLink
               to="/cadastro"
-              className="cursor-pointer hover:text-[#5cb41d] first:font-medium"
+              className="cursor-pointer first:font-medium hover:text-[#5cb41d]"
             >
               <button
                 href="/login"
-                className="py-2 px-2 text-white rounded-lg gradient-background "
+                className="py-2 px-2 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br"
               >
                 Registre-se
               </button>

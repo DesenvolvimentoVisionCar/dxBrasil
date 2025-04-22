@@ -19,6 +19,7 @@ export default {
         primary: "#fef432",
         neutral: "#717171",
         warm: "#e07b45",
+        primaryg: "#4CAF4F",
       },
     },
     screens: {

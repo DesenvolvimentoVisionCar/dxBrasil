@@ -46,7 +46,7 @@ const Pricing = () => {
   }, []);
 
   return (
-    <div className="mt-32 z-0">
+    <div className="mt-20 z-0 mb-14 border-b border-stone-400">
       <h2 className="text-3xl sm:text-5xl lg:text-5xl text-center my-3 lg:my-3 tracking-wide">
         Produtos
       </h2>
@@ -103,22 +103,22 @@ const Pricing = () => {
               slidesPerView: 3,
             },
           }}
-          className="min-h-[600px]"
+          className="min-h-[500px]"
         >
           {filteredOptions.map((option, index) => (
-            <SwiperSlide className="mt-2" key={index}>
-              <div className="transition-all hover:-translate-y-2 p-4 sm:p-10 border border-black/40 shadow-md  min-h-[500px] sm:min-h-[560px] rounded-xl flex flex-col justify-between">
-                <p className="text-4xl mb-8">
+            <SwiperSlide className="mt-2 mb-20" key={index}>
+              <div className="transition-all hover:-translate-y-2 p-4 sm:p-10 border border-black/40 shadow-md  min-h-[450px] sm:min-h-[450px] rounded-xl flex flex-col justify-between">
+                <p className="text-4xl">
                   {option.title}
                   {(option.title === "Transmissor Full DS" || option.title === "Módulo IP Lite") && (
-                    <span className="bg-gradient-to-r from-[#52ee5a] to-[#fff200] text-transparent bg-clip-text text-xl mb-4 ml-2">
+                    <span className="text-primaryg bg-clip-text text-xl ml-2">
                       (Mais Popular)
                     </span>
                   )}
                 </p>
                 <ul>
                   {option.features.map((feature, idx) => (
-                    <li key={idx} className="mt-8 flex items-center">
+                    <li key={idx} className="mt-4 flex items-center">
                       <CheckCircle2 size={24} className="text-[#52ee5a]"/>
                       <span className="w-4/5 text-start ml-2">{feature}</span>
                     </li>

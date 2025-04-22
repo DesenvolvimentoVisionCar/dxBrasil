@@ -3,13 +3,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import logo from "../assets/logos/Logo.png";
-import logo1 from "../assets/logos/Logo1.png";
-import logo2 from "../assets/logos/Logo2.png";
-import logo3 from "../assets/logos/Logo3.png";
-import logo4 from "../assets/logos/Logo4.png";
-import logo5 from "../assets/logos/Logo5.png";
-import logo6 from "../assets/logos/Logo6.png";
 
 const DropdownItem = ({ title, value, description, isOpen, onClick }) => {
   return (
@@ -80,7 +73,7 @@ export default function TimelineSection() {
   };
 
   return (
-    <div className="flex justify-center items-center mt-20 mb-8">
+    <div className="flex justify-center items-center mb-8">
       <div className=" mx-4">
         <h1 className="text-center text-3xl sm:text-5xl py-5 mb-10">
           Sobre Nós

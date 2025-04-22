@@ -11,6 +11,7 @@ import ContactUsPage from "./pages/ContactUsPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import UserManagerPage from "./pages/UserManagerPage";
 import RoleRoute from "./route/RoleRoute"
+import WorkInProgressPage from "./pages/WorkInProgressPage.jsx";
 
 function App() {
   useEffect(() => {
@@ -26,7 +27,8 @@ function App() {
     <>
       <AuthProvider>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<WorkInProgressPage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/produto/:id" element={<ProductPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/cadastro" element={<SignupPage />} />

@@ -306,8 +306,8 @@ const About = () => {
         </div>
       </div>
 
-      <div className="mb-20">
-        <h2 className="text-2xl sm:text-3xl tracking-tighter font-bold mb-8 text-center">
+      <div className="">
+        <h2 className="text-2xl sm:text-3xl tracking-tighter font-bold mb-10 text-center">
           Certificações e Reconhecimentos
         </h2>
         <div className="flex flex-wrap justify-center gap-8">

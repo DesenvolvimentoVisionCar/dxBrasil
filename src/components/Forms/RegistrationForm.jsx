@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../constants";
 
 /* eslint-disable-next-line react/prop-types */
 const RegistrationForm = ({ setActiveStep }) => {
@@ -25,7 +26,7 @@ const RegistrationForm = ({ setActiveStep }) => {
     setError("");
 
     try {
-      const response = await fetch("/register_user.php", {
+      const response = await fetch(API_BASE_URL + "/register_user.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

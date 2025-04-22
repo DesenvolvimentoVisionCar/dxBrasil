@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserRound, LockKeyhole } from "lucide-react";
+import { API_BASE_URL } from "../../constants";
 
 const LoginForm = () => {
   const [loginData, setLoginData] = useState({
@@ -10,7 +11,6 @@ const LoginForm = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const API_BASE_URL = 'https://visioncar.ind.br/api/login.php';
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -148,6 +148,6 @@ const LoginForm = () => {
       </div>
     </section>
   );
-};//RAFA É CHATA COM AS COISAS :(
+};
 
 export default LoginForm;

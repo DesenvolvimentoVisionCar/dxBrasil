@@ -1,6 +1,65 @@
+import { useState } from "react";
+import { LockKeyhole } from "lucide-react";
+import { API_BASE_URL } from "../constants/index";
 import escritorio from "../assets/escritorio.png";
 
+
 const LoginSection = () => {
+
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [loginData, setLoginData] = useState({
+    username: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setLoginData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(API_BASE_URL + "/login.php", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginData), // Certifique-se de enviar os nomes corretos das chaves
+      });
+
+      if (!response.ok) {
+        throw new Error("Erro ao conectar com o servidor.");
+      }
+
+      const data = await response.json();
+
+      console.log("Dados recebidos no login:", data); // Log para depuração
+
+      if (data.success) {
+        // Armazena os dados do usuário no localStorage
+        localStorage.setItem("authToken", data.token);
+        localStorage.setItem("loginTime", Date.now().toString());
+        localStorage.setItem("userRole", data.role);
+        localStorage.setItem("authorized", data.authorized || 1); // Valor padrão caso não venha da API
+        localStorage.setItem("verified", data.verified || 1); // Valor padrão caso não venha da API
+
+        // Redireciona para a página de categorias
+        navigate("/categoria");
+      } else {
+        setError(data.message || "Erro ao realizar login.");
+      }
+    } catch (err) {
+      setError(err.message || "Ocorreu um erro ao processar sua solicitação.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+
   return (
     <div className="flex min-h-screen">
       {/* Image half */}
@@ -12,17 +71,16 @@ const LoginSection = () => {
         />
       </div>
 
-      {/* Login form half */}
       <div className="flex w-full items-center justify-center lg:w-1/2">
         <div className="w-full max-w-xl space-y-8 px-4 sm:px-6">
           <div className="space-y-2 text-center">
             <h1 className="text-4xl font-bold">Bem vindo de volta!</h1>
             <p className="text-gray-500  text-lg">
-             Coloque suas credenciais para acessar sua conta.
+              Coloque suas credenciais para acessar sua conta.
             </p>
           </div>
 
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="space-y-2">
               <label
                 htmlFor="email"
@@ -31,26 +89,32 @@ const LoginSection = () => {
                 Email
               </label>
               <input
-                id="email"
-                type="email"
-                required
-                className="mt-1 block w-full rounded-md border text-gray-500 border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                type="text"
+                name="username" // Mantido como "username"
+                id="username"
+                value={loginData.username}
+                onChange={handleChange}
+                className="placeholder:text-xs placeholder:sm:text-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                 placeholder="nome@email.com"
+                required
               />
             </div>
             <div className="space-y-2">
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-500"
-              >
-                Senha
-              </label>
+              <div className="flex items-center mb-2 gap-1">
+                <LockKeyhole size={17} />
+                <label htmlFor="password" className="block text-sm font-medium text-gray-900">
+                  Senha
+                </label>
+              </div>
               <input
-                id="password"
                 type="password"
-                required
-                className="mt-1 text-gray-500 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                name="password"
+                id="password"
                 placeholder="••••••••"
+                value={loginData.password}
+                onChange={handleChange}
+                className="placeholder:text-xs placeholder:sm:text-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                required
               />
             </div>
             <div className="flex items-center justify-between">

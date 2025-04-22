@@ -18,6 +18,9 @@ import rmv02 from "../assets/products/rmv02.jpeg";
 import rmv04 from "../assets/products/rmv04.jpeg";
 import repetidora from "../assets/products/repetidora.jpeg";
 
+export const API_BASE_URL = "https://dx-brasil.ind.br/api";
+
+
 export const features = [
   {
     icon: <ShieldHalf />,

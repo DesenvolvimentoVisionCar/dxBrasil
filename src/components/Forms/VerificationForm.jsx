@@ -1,18 +1,25 @@
 import { useState } from "react";
+import { API_BASE_URL } from "../../config/constants";
 
 /* eslint-disable-next-line react/prop-types */
-const VerificationForm = ({ setActiveStep }) => {
+const VerificationForm = ({ setActiveStep, verificationType }) => {
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-  const API_BASE_URL = 'https://visioncar.ind.br/api/login.php';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(API_BASE_URL + "/verify_registration_code.php", {
+      let urlEnd =
+        verificationType === "Register"
+          ? "/verify_registration_code.php"
+          : verificationType === "Password"
+          ? "/verify_reset_code.php"
+          : "";
+      const response = await fetch(API_BASE_URL + urlEnd, {
         method: "POST",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
@@ -39,12 +46,12 @@ const VerificationForm = ({ setActiveStep }) => {
   return (
     <section className="w-full">
       <div className="flex flex-col items-center justify-center md:px-6 mx-auto lg:py-0">
-        <div className="w-full rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+        <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-3 sm:p-8">
-            <h1 className="text-xl text-center font-bold leading-tight tracking-tight md:text-3xl">
+            <h1 className="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
               Vericar o código
             </h1>
-            <p className="text-center text-sm text-gray-400">
+            <p className="text-center text-sm text-gray-700">
               Um código foi enviado para o seu e-mail. Por favor, verifique a
               caixa de entrada nos próximos 3 minutos. Caso não o receba,
               solicite o reenvio.
@@ -59,7 +66,7 @@ const VerificationForm = ({ setActiveStep }) => {
               action="#"
             >
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-500">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
                   Digite o código
                 </label>
                 <input
@@ -84,7 +91,7 @@ const VerificationForm = ({ setActiveStep }) => {
               </div>
               <button
                 type="submit"
-                className="gradient-background w-full text-white hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                className="w-full text-white bg-primaryg hover:bg-primaryg-700 focus:ring-4 focus:outline-none focus:ring-primaryg-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
               >
                 Confirmar
               </button>

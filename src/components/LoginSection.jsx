@@ -18,6 +18,10 @@ const LoginSection = () => {
     const { id, value } = e.target;
     setLoginData((prev) => ({ ...prev, [id]: value }));
   };
+  
+  const handleForgotPassword = () => {
+    navigate("/recuperacao-senha");
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -135,7 +139,7 @@ const LoginSection = () => {
               </div>
               <div className="text-sm">
                 <a
-                  href="/recuperacao-senha"
+                  onClick={handleForgotPassword}
                   className="font-medium text-[#bdce23] hover:text-[#dff045]"
                 >
                   Esqueceu sua senha?

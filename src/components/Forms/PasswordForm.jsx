@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../config/constants";
 
-const PasswordForm = () => {
+/* eslint-disable-next-line react/prop-types */
+const PasswordForm = ({setActiveStep}) => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate();
-  const API_BASE_URL = 'https://visioncar.ind.br/api/login.php';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,6 +13,7 @@ const PasswordForm = () => {
     try {
       const response = await fetch( API_BASE_URL +"/send_reset_code.php", {
         method: "POST",
+        credentials:"include",
         headers: {
           "Content-Type": "application/json",
         },
@@ -22,15 +22,12 @@ const PasswordForm = () => {
 
       const data = await response.json();
 
-      if (data.success) {
-        setMessage(data.message || "Código enviado com sucesso.");
-        if (data.redirect) {
-          navigate(data.redirect);
-        } else {
-          setMessage("Código enviado, mas a rota de redirecionamento não foi definida.");
-        }
+      if (data.status === true) {
+        setMessage("Código enviado com sucesso.");
+        setActiveStep(1);
       } else {
-        setError(data.message || "Erro ao enviar o código. Tente novamente.");
+        setError("Erro ao enviar o código. Tente novamente.");
+        setMessage("");
       }
     } catch {
       setError("Erro de conexão. Tente novamente mais tarde.");

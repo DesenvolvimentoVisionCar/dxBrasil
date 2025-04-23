@@ -28,9 +28,10 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { link: "home", path: "Início", route: "/" },
+    { link: "home", path: "Início", route: "/home" },
     { link: "sobre", path: "Sobre", route: "/sobre" },
     { link: "comercial", path: "Orçamento", route: "/orcamento" },
+    { link: "conteudos", path: "Área do Cliente", route: "/categoria" },
   ];
 
   return (

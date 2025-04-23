@@ -13,7 +13,7 @@ const ProductSection = () => {
 
   return (
     <div className="container text-start  mx-auto px-4 py-10 max-w-4xl">
-      <a href="/" className="inline-flex hover:underline mb-8">
+      <a href="/home" className="inline-flex hover:underline mb-8">
         <ArrowLeft className="w-4 h-4 mr-2 mt-1" />
         Voltar ao Início
       </a>

@@ -2,10 +2,11 @@ import { useState } from "react";
 import { LockKeyhole } from "lucide-react";
 import { API_BASE_URL } from "../constants/index";
 import escritorio from "../assets/escritorio.png";
+import { useNavigate } from "react-router-dom";
 
 
 const LoginSection = () => {
-
+  const navigate = useNavigate();
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [loginData, setLoginData] = useState({
@@ -48,7 +49,7 @@ const LoginSection = () => {
         localStorage.setItem("verified", data.verified || 1); // Valor padrão caso não venha da API
 
         // Redireciona para a página de categorias
-        navigate("/categoria");
+        navigate("/gerenciamento-usuarios");
       } else {
         setError(data.message || "Erro ao realizar login.");
       }
@@ -74,7 +75,7 @@ const LoginSection = () => {
       <div className="flex w-full items-center justify-center lg:w-1/2">
         <div className="w-full max-w-xl space-y-8 px-4 sm:px-6">
           <div className="space-y-2 text-center">
-            <h1 className="text-4xl font-bold">Bem vindo de volta!</h1>
+            <h1 className="text-4xl font-bold">Bem vindo!</h1>
             <p className="text-gray-500  text-lg">
               Coloque suas credenciais para acessar sua conta.
             </p>
@@ -154,7 +155,7 @@ const LoginSection = () => {
           <div className="text-center text-sm text-gray-500">
             Não possui uma conta?{" "}
             <a
-              href="#"
+              href="/cadastro"
               className="font-medium text-[#bdce23] hover:text-[#dff045]"
             >
               Cadastre-se

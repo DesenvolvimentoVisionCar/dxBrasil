@@ -11,6 +11,9 @@ import ContactUsPage from "./pages/ContactUsPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import UserManagerPage from "./pages/UserManagerPage";
 import RoleRoute from "./route/RoleRoute"
+import ContentManagerPage from "./pages/ContentManagerPage.jsx";
+import ContentFormPage from "./pages/ContentFormPage.jsx";
+import CategoryPage from "./pages/CategoryPage";
 import WorkInProgressPage from "./pages/WorkInProgressPage.jsx";
 
 function App() {
@@ -35,15 +38,49 @@ function App() {
           <Route path="/orcamento" element={<ContactUsPage />} />
           <Route path="/sobre" element={<AboutUsPage />} />
 
-           <Route
-            path="/gerenciamento-usuarios"
+          <Route
+            path="/categoria"
             element={
               <RoleRoute>
+                <CategoryPage />
+              </RoleRoute>
+            }
+          />
+
+          <Route
+            path="/gerenciamento-usuarios"
+            element={
+              <RoleRoute requiredRole="admin">
                 <UserManagerPage />
               </RoleRoute>
             }
-          /> 
+          />
+          <Route
+            path="/gerenciamento-conteudos"
+            element={
+              <RoleRoute requiredRole="admin">
+                <ContentManagerPage />
+              </RoleRoute>
+            }
+          />
+          <Route
+            path="/form-conteudo"
+            element={
+              <RoleRoute requiredRole="admin">
+                <ContentFormPage />
+              </RoleRoute>
+            }
+          />
+          <Route
+            path="/form-conteudo/:id"
+            element={
+              <RoleRoute requiredRole="admin">
+                <ContentFormPage />
+              </RoleRoute>
+            }
+          />
 
+          <Route path="*" element={<h1>Página não encontrada</h1>} />
         </Routes>
       </AuthProvider>
     </>

@@ -10,11 +10,12 @@ import SignupPage from "./pages/SignupPage";
 import ContactUsPage from "./pages/ContactUsPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import UserManagerPage from "./pages/UserManagerPage";
-import RoleRoute from "./route/RoleRoute"
+import RoleRoute from "./route/RoleRoute";
 import ContentManagerPage from "./pages/ContentManagerPage.jsx";
 import ContentFormPage from "./pages/ContentFormPage.jsx";
 import CategoryPage from "./pages/CategoryPage";
 import WorkInProgressPage from "./pages/WorkInProgressPage.jsx";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
 
 function App() {
   useEffect(() => {
@@ -37,6 +38,7 @@ function App() {
           <Route path="/cadastro" element={<SignupPage />} />
           <Route path="/orcamento" element={<ContactUsPage />} />
           <Route path="/sobre" element={<AboutUsPage />} />
+          <Route path="/recuperacao-senha" element={<ForgotPasswordPage />} />
 
           <Route
             path="/categoria"

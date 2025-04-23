@@ -135,7 +135,7 @@ const LoginSection = () => {
               </div>
               <div className="text-sm">
                 <a
-                  href="#"
+                  href="/recuperacao-senha"
                   className="font-medium text-[#bdce23] hover:text-[#dff045]"
                 >
                   Esqueceu sua senha?

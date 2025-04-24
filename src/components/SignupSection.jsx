@@ -68,7 +68,7 @@ const SignupSection = () => {
         </Stepper>
         <div className="mt-24 flex flex-col items-center w-full ">
           {activeStep === 0 && <RegistrationForm setActiveStep={setActiveStep}/>}
-          {activeStep === 1 && <VerificationForm setActiveStep={setActiveStep} />}
+          {activeStep === 1 && <VerificationForm setActiveStep={setActiveStep}verificationType={"Register"} />}
           {activeStep === 2 && <VerificatedForm />}
           <div className="mt-8 flex justify-between w-full">
           </div>

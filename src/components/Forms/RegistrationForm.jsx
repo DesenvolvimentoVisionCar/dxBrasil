@@ -28,6 +28,7 @@ const RegistrationForm = ({ setActiveStep }) => {
     try {
       const response = await fetch(API_BASE_URL + "/register_user.php", {
         method: "POST",
+        credentials:"include",
         headers: {
           "Content-Type": "application/json",
         },

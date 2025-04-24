@@ -72,7 +72,7 @@ const Navbar = () => {
             </button>
             <button
               href="/cadastro "
-              className="text-sm py-2 px-2 text-white rounded-lg gradient-background"
+              className="text-sm py-2 px-2 rounded-lg border border-black hover:border-[#65bc3c] hover:text-[#5cb41d] bg-gradient-to-br"
             >
               Registre-se
             </button>
@@ -107,7 +107,7 @@ const Navbar = () => {
               to="/login"
               className="cursor-pointer hover:text-[#5cb41d] first:font-medium"
             >
-              <button className="py-2 px-3 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
+              <button className="py-2 px-2 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
                 Entre
               </button>
             </RouterLink>
@@ -117,7 +117,7 @@ const Navbar = () => {
             >
               <button
                 href="/login"
-                className="py-2 px-2 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br"
+                className="text-sm py-2 px-2 rounded-lg border border-black hover:border-[#65bc3c] hover:text-[#5cb41d] bg-gradient-to-br"
               >
                 Registre-se
               </button>

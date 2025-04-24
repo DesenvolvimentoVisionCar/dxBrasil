@@ -4,7 +4,6 @@ import { API_BASE_URL } from "../constants/index";
 import escritorio from "../assets/escritorio.png";
 import { useNavigate } from "react-router-dom";
 
-
 const LoginSection = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
@@ -17,6 +16,8 @@ const LoginSection = () => {
   const handleChange = (e) => {
     const { id, value } = e.target;
     setLoginData((prev) => ({ ...prev, [id]: value }));
+    // Limpa o erro quando o usuário começa a digitar novamente
+    if (error) setError("");
   };
   
   const handleForgotPassword = () => {
@@ -25,6 +26,8 @@ const LoginSection = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    setError(""); // Limpa erros anteriores
 
     try {
       const response = await fetch(API_BASE_URL + "/login.php", {
@@ -33,7 +36,7 @@ const LoginSection = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(loginData), // Certifique-se de enviar os nomes corretos das chaves
+        body: JSON.stringify(loginData),
       });
 
       if (!response.ok) {
@@ -42,18 +45,16 @@ const LoginSection = () => {
 
       const data = await response.json();
 
-      console.log("Dados recebidos no login:", data); // Log para depuração
+      console.log("Dados recebidos no login:", data);
 
       if (data.success) {
-        // Armazena os dados do usuário no localStorage
         localStorage.setItem("authToken", data.token);
         localStorage.setItem("loginTime", Date.now().toString());
         localStorage.setItem("userRole", data.role);
-        localStorage.setItem("authorized", data.authorized || 1); // Valor padrão caso não venha da API
-        localStorage.setItem("verified", data.verified || 1); // Valor padrão caso não venha da API
+        localStorage.setItem("authorized", data.authorized || 1);
+        localStorage.setItem("verified", data.verified || 1);
 
-        // Redireciona para a página de categorias
-        navigate("/gerenciamento-usuarios");
+        navigate("/");
       } else {
         setError(data.message || "Erro ao realizar login.");
       }
@@ -63,7 +64,6 @@ const LoginSection = () => {
       setIsLoading(false);
     }
   };
-
 
   return (
     <div className="flex min-h-screen">
@@ -80,10 +80,21 @@ const LoginSection = () => {
         <div className="w-full max-w-xl space-y-8 px-4 sm:px-6">
           <div className="space-y-2 text-center">
             <h1 className="text-4xl font-bold">Bem vindo!</h1>
-            <p className="text-gray-500  text-lg">
+            <p className="text-gray-500 text-lg">
               Coloque suas credenciais para acessar sua conta.
             </p>
           </div>
+
+          {/* Exibição da mensagem de erro */}
+          {error && (
+            <div className="rounded-md bg-red-50 p-4">
+              <div className="flex">
+                <div className="ml-3">
+                  <h3 className="text-sm font-medium text-red-800">{error}</h3>
+                </div>
+              </div>
+            </div>
+          )}
 
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="space-y-2">
@@ -95,7 +106,7 @@ const LoginSection = () => {
               </label>
               <input
                 type="text"
-                name="username" // Mantido como "username"
+                name="username"
                 id="username"
                 value={loginData.username}
                 onChange={handleChange}
@@ -140,7 +151,7 @@ const LoginSection = () => {
               <div className="text-sm">
                 <a
                   onClick={handleForgotPassword}
-                  className="font-medium text-[#bdce23] hover:text-[#dff045]"
+                  className="font-medium text-[#bdce23] hover:text-[#dff045] cursor-pointer"
                 >
                   Esqueceu sua senha?
                 </a>
@@ -149,9 +160,12 @@ const LoginSection = () => {
             <div>
               <button
                 type="submit"
-                className="gradient-background flex w-full justify-center rounded-md border border-transparent px-4 py-2 text-md font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
+                disabled={isLoading}
+                className={`gradient-background flex w-full justify-center rounded-md border border-transparent px-4 py-2 text-md font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                  isLoading ? "opacity-70 cursor-not-allowed" : ""
+                }`}
               >
-                Entrar
+                {isLoading ? "Carregando..." : "Entrar"}
               </button>
             </div>
           </form>

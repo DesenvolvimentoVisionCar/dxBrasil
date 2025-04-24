@@ -92,7 +92,7 @@ const Form = () => {
           <div className="">
             <button
               type="submit"
-              className="gradient-background py-3 px-5 text-white rounded-lg bg-[#4dc567] sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300"
+              className="bg-primaryg py-3 px-5 text-white rounded-lg bg-[#4dc567] sm:w-fit hover:bg-primaryg-800 focus:ring-4 focus:outline-none focus:ring-primary-300"
             >
               Enviar Mensagem
             </button>

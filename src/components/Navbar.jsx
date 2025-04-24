@@ -59,8 +59,7 @@ const Navbar = () => {
               )}
             </button>
             <RouterLink to="/" className="text-2xl flex items-center">
-              <img src={Logo} alt="DX Logo" className="w-10 sm:w-16" />
-              <h2 className="text-lg sm:text-2xl">Dx Brasil</h2>
+              <img src={Logo} alt="DX Logo" className="sm:w-60" />
             </RouterLink>
           </div>
 

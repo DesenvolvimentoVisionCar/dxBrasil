@@ -75,7 +75,7 @@ export default function TimelineSection() {
   return (
     <div className="flex justify-center items-center mb-8">
       <div className=" mx-4">
-        <h1 className="text-center text-3xl sm:text-5xl py-5 mb-10">
+        <h1 className="text-center text-3xl sm:text-5xl  mb-10">
           Sobre Nós
           <p className="text-lg sm:text-xl mt-2 text-stone-500">
             A DX Brasil possui mais de 500+ parceiros

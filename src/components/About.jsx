@@ -6,11 +6,11 @@ const About = () => {
   const [activeTab, setActiveTab] = useState("historia")
 
   return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="flex flex-col items-center mt-10 sm:mt-16 mb-16">
+    <div className="container mx-auto px-4">
+      <div className="flex flex-col items-center sm:mt-12 mb-16">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl text-center tracking-tighter font-medium">
           Sobre a
-          <span className="bg-gradient-to-r from-[#40b346] to-[#fff200] text-transparent bg-clip-text"> Dx Brasil</span>
+          <span className="text-primaryg bg-clip-text"> Dx Brasil</span>
         </h1>
         <p className="mt-4 text-center text-[#666666] max-w-xl sm:max-w-3xl lg:max-w-4xl text-sm sm:text-base lg:text-lg leading-relaxed">
           A DX BRASIL é uma empresa sólida com mais de 40 anos de experiência, especializada em soluções tecnológicas de
@@ -38,7 +38,7 @@ const About = () => {
             Ao longo de mais de quatro décadas, desenvolvemos um portfólio completo de produtos e serviços que atendem
             às mais diversas necessidades de nossos clientes, sempre com foco na qualidade, confiabilidade e eficiência.
           </p>
-          <button className="self-start py-2 px-4 text-white rounded-lg bg-gradient-to-r from-[#65bc3c] to-[#cad01f] transition-all hover:-translate-y-2">
+          <button className="self-start py-2 px-4 bg-primaryg text-white rounded-lg transition-all hover:-translate-y-2">
             Conheça nossa história
           </button>
         </div>
@@ -65,16 +65,6 @@ const About = () => {
             onClick={() => setActiveTab("missao")}
           >
             Missão e Valores
-          </button>
-          <button
-            className={`mr-4 py-2 px-4 text-sm sm:text-base font-medium transition-all ${
-              activeTab === "equipe"
-                ? "border-b-2 border-[#65bc3c] text-[#40b346]"
-                : "text-[#666666] hover:text-[#5cb41d]"
-            }`}
-            onClick={() => setActiveTab("equipe")}
-          >
-            Nossa Equipe
           </button>
         </div>
 
@@ -191,65 +181,6 @@ const About = () => {
                     <h4 className="font-semibold mb-2 text-[#40b346]">Colaboração</h4>
                     <p className="text-[#666666] text-sm">
                       Valorizamos o trabalho em equipe e a cooperação para alcançar resultados excepcionais.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {activeTab === "equipe" && (
-            <div className="space-y-6">
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tighter">Nossa Equipe</h3>
-              <p className="text-[#666666] text-sm sm:text-base leading-relaxed mb-8">
-                Contamos com uma equipe altamente qualificada e comprometida, formada por profissionais especializados
-                em diversas áreas, que trabalham em conjunto para oferecer as melhores soluções aos nossos clientes.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
-                  <img
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
-                    alt="CEO"
-                    className="w-full h-64 object-cover"
-                  />
-                  <div className="p-4">
-                    <h4 className="font-bold text-lg">Carlos Mendes</h4>
-                    <p className="text-[#40b346] font-medium mb-2">CEO & Fundador</p>
-                    <p className="text-[#666666] text-sm">
-                      Com mais de 30 anos de experiência no setor de segurança eletrônica, lidera a Dx Brasil com visão
-                      inovadora e estratégica.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
-                  <img
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80"
-                    alt="CTO"
-                    className="w-full h-64 object-cover"
-                  />
-                  <div className="p-4">
-                    <h4 className="font-bold text-lg">Ana Silva</h4>
-                    <p className="text-[#40b346] font-medium mb-2">Diretora de Tecnologia</p>
-                    <p className="text-[#666666] text-sm">
-                      Engenheira eletrônica com mestrado em Sistemas Embarcados, responsável pelo desenvolvimento de
-                      novos produtos e soluções.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
-                  <img
-                    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
-                    alt="COO"
-                    className="w-full h-64 object-cover"
-                  />
-                  <div className="p-4">
-                    <h4 className="font-bold text-lg">Roberto Almeida</h4>
-                    <p className="text-[#40b346] font-medium mb-2">Diretor de Operações</p>
-                    <p className="text-[#666666] text-sm">
-                      Especialista em gestão de operações, com vasta experiência em otimização de processos e logística.
                     </p>
                   </div>
                 </div>

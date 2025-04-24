@@ -65,17 +65,25 @@ const Navbar = () => {
           </div>
 
           <div className="flex sm:hidden flex-row gap-2">
-            <button className="cursor-pointer hover:text-[#5cb41d] first:font-medium">
-              <span className="text-sm py-2 px-2 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
-                Entre
-              </span>
-            </button>
-            <button
-              href="/cadastro "
-              className="text-sm py-2 px-2 rounded-lg border border-black hover:border-[#65bc3c] hover:text-[#5cb41d] bg-gradient-to-br"
+            <RouterLink
+              to="/login"
+              className="cursor-pointer hover:text-[#5cb41d] first:font-medium"
             >
-              Registre-se
-            </button>
+              <button className="py-2 px-3 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
+                Entre
+              </button>
+            </RouterLink>
+            <RouterLink
+              to="/cadastro"
+              className="cursor-pointer first:font-medium hover:text-[#5cb41d]"
+            >
+              <button
+                href="/login"
+                className="py-2 px-2 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br"
+              >
+                Registre-se
+              </button>
+            </RouterLink>
           </div>
           <ul className="hidden md:flex space-x-8">
             {navItems.map(({ link, path, route }) => (
@@ -107,7 +115,7 @@ const Navbar = () => {
               to="/login"
               className="cursor-pointer hover:text-[#5cb41d] first:font-medium"
             >
-              <button className="py-2 px-2 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
+              <button className="py-2 px-3 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
                 Entre
               </button>
             </RouterLink>
@@ -117,7 +125,7 @@ const Navbar = () => {
             >
               <button
                 href="/login"
-                className="text-sm py-2 px-2 rounded-lg border border-black hover:border-[#65bc3c] hover:text-[#5cb41d] bg-gradient-to-br"
+                className="py-2 px-2 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br"
               >
                 Registre-se
               </button>

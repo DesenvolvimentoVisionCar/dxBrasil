@@ -20,40 +20,44 @@ import repetidora from "../assets/products/repetidora.jpeg";
 
 export const API_BASE_URL = "https://dx-brasil.ind.br/api";
 
-
 export const features = [
   {
     icon: <ShieldHalf />,
     text: "Segurança e Proteção",
-    description: "Comunicação rápida entre alarmes e a central, garantindo respostas imediatas.",
+    description:
+      "Comunicação rápida entre alarmes e a central, garantindo respostas imediatas.",
   },
   {
     icon: <PlugZap />,
     text: "Independência de Provedores",
-    description: "Opera sem depender de internet ou telefonia fixa, evitando falhas comuns.",
+    description:
+      "Opera sem depender de internet ou telefonia fixa, evitando falhas comuns.",
   },
   {
     icon: <GlobeLock />,
     text: "Cobertura em Áreas Remotas",
-    description: "Ideal para locais rurais ou de difícil acesso, onde comunicação é limitada.",
+    description:
+      "Ideal para locais rurais ou de difícil acesso, onde comunicação é limitada.",
   },
   {
     icon: <BatteryCharging />,
     text: "Redução de Custos",
-    description: "Comunicação direta e confiável, diminuindo a necessidade de manutenção.",
+    description:
+      "Comunicação direta e confiável, diminuindo a necessidade de manutenção.",
   },
   {
     icon: <Fingerprint />,
     text: "Flexibilidade e Compatibilidade",
-    description: "Integração fácil com diferentes sistemas e tecnologias de alarme.",
+    description:
+      "Integração fácil com diferentes sistemas e tecnologias de alarme.",
   },
   {
     icon: <BotMessageSquare />,
     text: "Análise e Relatórios",
-    description: "Software integrado para monitoramento e geração de relatórios detalhados.",
+    description:
+      "Software integrado para monitoramento e geração de relatórios detalhados.",
   },
 ];
-
 
 export const checklistItems = [
   {
@@ -90,7 +94,7 @@ export const pricingOptions = [
       "Enrolado com fio de cobre",
       "Própria para Transmissor",
     ],
-    tagline: "Proteção contra quedas de energia e máxima.",
+    tagline: "Proteção contra quedas de energia e estabilidade máxima.",
     description:
       "O Carregador DX oferece alimentação estável e segura, sem ruídos ou interferências externas. Compatível com 127V e 220V, e com saída de 12V, garante o máximo de performance e proteção para seus dispositivos!",
     feature: [
@@ -145,7 +149,7 @@ export const pricingOptions = [
     ],
     tagline: "Conectividade máxima via serial e por linha (ring tip).",
     description:
-      "Garanta máxima segurança para seu cliente utilizando nosso sistema via rádio anti-falhas.",
+      "Segurança sem Interrupções! Mantenha-se conectado sem depender de internet ou energia. proteja o que realmente importa, com o FULL DS você garante monitoramento continuo, assegurando que sua segurança nunca seja comprometida.",
     feature: [
       "Não depende de fatores externos",
       "Criptografia de ponta a ponta",
@@ -186,7 +190,7 @@ export const pricingOptions = [
     ],
     tagline: "Monitoramento fácil, seguro e transparente.",
     description:
-      "O DX Full ID é um dispositivo que permite monitorar de maneira fácil, segura e transparente qualquer painel de alarme com comunicador telefônico em formatos Contact ID, tornando-se compatível com qualquer painel do mercado. Possui uma interface de comunicação própria, se comunica diretamente com o painel de alarme e incorpora tudo o que é necessário para funcionar como full data transfer nos formatos mencionados.",
+      "Transmissor com protocolo contact id, comunicação universal com todas as centrais do mercado por ring e tip.",
     feature: [
       "Evento de auto-teste",
       "Quatro entradas 24H com eventos editáveis",

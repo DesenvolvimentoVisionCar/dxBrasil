@@ -18,20 +18,23 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm("service_t5dpl3b", "template_57sndez", ref.current, {
-        publicKey: "nadtEqt6fX_BMfprL",
-      })
-      .then(
-        () => {
-          console.log("SUCCESS!");
-          setSuccess(true);
-        },
-        (error) => {
-          console.error("FAILED...", error.text);
-          setSuccess(false);
-        }
-      );
+
+    // Cria a mensagem formatada para o WhatsApp
+    const whatsappMessage = `
+      Olá, meu nome é ${formData.name}. Gostaria de saber sobre: ${formData.subject}.
+      ${formData.message}
+    `.replace(/\s{2,}/g, " "); // Remove espaços extras
+
+    // Gera o link do WhatsApp
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=554699122810&text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+
+    // Abre o WhatsApp
+    window.open(whatsappUrl, "_blank");
+
+    // Redireciona para a página inicial após o envio
+    navigate("/");
   };
 
   return (
@@ -61,16 +64,15 @@ const Form = () => {
           </div>
           <div>
             <label className="block mb-2 text-sm font-medium text-gray-900">
-              Email
+              Assunto
             </label>
             <input
-              name="email"
-              type="email"
-              id="email"
-              value={formData.email}
+              type="text"
+              id="subject"
+              value={formData.subject}
               onChange={handleChange}
               className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500"
-              placeholder="nome@gmail.com"
+              placeholder="Deixe-nos saber como podemos ajudar"
               required
             />
           </div>

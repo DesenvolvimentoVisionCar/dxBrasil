@@ -38,9 +38,6 @@ const About = () => {
             Ao longo de mais de quatro décadas, desenvolvemos um portfólio completo de produtos e serviços que atendem
             às mais diversas necessidades de nossos clientes, sempre com foco na qualidade, confiabilidade e eficiência.
           </p>
-          <button className="self-start py-2 px-4 bg-primaryg text-white rounded-lg transition-all hover:-translate-y-2">
-            Conheça nossa história
-          </button>
         </div>
       </div>
 
@@ -234,38 +231,6 @@ const About = () => {
           <button className="py-2 px-6 border border-white rounded-lg font-medium transition-all hover:-translate-y-2">
             Conheça Nossos Produtos
           </button>
-        </div>
-      </div>
-
-      <div className="">
-        <h2 className="text-2xl sm:text-3xl tracking-tighter font-bold mb-10 text-center">
-          Certificações e Reconhecimentos
-        </h2>
-        <div className="flex flex-wrap justify-center gap-8">
-          <div className="text-center">
-            <div className="w-24 h-24 mx-auto mb-4 flex items-center justify-center bg-gray-100 rounded-full">
-              <span className="text-[#40b346] font-bold">ISO 9001</span>
-            </div>
-            <p className="text-[#666666] text-sm">Gestão de Qualidade</p>
-          </div>
-          <div className="text-center">
-            <div className="w-24 h-24 mx-auto mb-4 flex items-center justify-center bg-gray-100 rounded-full">
-              <span className="text-[#40b346] font-bold">ISO 14001</span>
-            </div>
-            <p className="text-[#666666] text-sm">Gestão Ambiental</p>
-          </div>
-          <div className="text-center">
-            <div className="w-24 h-24 mx-auto mb-4 flex items-center justify-center bg-gray-100 rounded-full">
-              <span className="text-[#40b346] font-bold">ABESE</span>
-            </div>
-            <p className="text-[#666666] text-sm">Associação Brasileira</p>
-          </div>
-          <div className="text-center">
-            <div className="w-24 h-24 mx-auto mb-4 flex items-center justify-center bg-gray-100 rounded-full">
-              <span className="text-[#40b346] font-bold">INMETRO</span>
-            </div>
-            <p className="text-[#666666] text-sm">Produtos Certificados</p>
-          </div>
         </div>
       </div>
     </div>

@@ -63,7 +63,7 @@ const ProductSection = () => {
         {product.seriais ? (
           <>
             <div className="text-center">
-              <p className="text-lg">Seriais Compativeis</p>
+              <p className="text-lg">Seriais Compatíveis</p>
               <p className="text-stone-500">{product.seriais}</p>
             </div>
           </>

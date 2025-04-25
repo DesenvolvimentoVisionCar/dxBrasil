@@ -90,7 +90,7 @@ export const pricingOptions = [
       "Enrolado com fio de cobre",
       "Própria para Transmissor",
     ],
-    tagline: "Upgrade inteligente para sua central de alarme.",
+    tagline: "Proteção contra quedas de energia e máxima.",
     description:
       "O Carregador DX oferece alimentação estável e segura, sem ruídos ou interferências externas. Compatível com 127V e 220V, e com saída de 12V, garante o máximo de performance e proteção para seus dispositivos!",
     feature: [
@@ -99,9 +99,6 @@ export const pricingOptions = [
       "Evita ruído",
       "Sem interferências",
       "Enrolado com fio de cobre",
-      "Sistema DHCP",
-      "Criptografia de ponta a ponta",
-      "Monitoramento de tensão",
     ],
     specs: [
       { name: "Saída", value: "12V 900 mA/h" },
@@ -118,7 +115,7 @@ export const pricingOptions = [
       "Enrolado com fio de cobre",
       "Própria para receptora",
     ],
-    tagline: "Upgrade inteligente para sua central de alarme.",
+    tagline: "Evite ruídos e tenha total estabilidade.",
     description:
       "A fonte DX oferece alimentação estável e segura, sem ruídos ou interferências externas. Compatível com 127V e 220V, e com saída de 12 V, garante o máximo de performance e proteção para seus dispositivos!",
     feature: [
@@ -146,9 +143,9 @@ export const pricingOptions = [
       "Edição de pacotes de eventos",
       "Suporte horário comercial",
     ],
-    tagline: "Upgrade inteligente para sua central de alarme.",
+    tagline: "Conectividade máxima via serial e por linha (ring tip).",
     description:
-      "Garanta a máxima segurança para seu negócio com nosso equipamento autossuficiente, que dispensa dependência de sistemas externos e oferece monitoramento 100% independente e confiável.",
+      "Garanta máxima segurança para seu cliente utilizando nosso sistema via rádio anti-falhas.",
     feature: [
       "Não depende de fatores externos",
       "Criptografia de ponta a ponta",
@@ -158,7 +155,7 @@ export const pricingOptions = [
       "Teste periódico",
       "Comunicação universal por linha da central",
       "Automonitoramento",
-      "Protocolos de centrais integrados",
+      "Protocolos de centrais integrados para comunicação serial",
       "Programação descomplicada",
     ],
     specs: [
@@ -167,7 +164,7 @@ export const pricingOptions = [
       { name: "Alimentação", value: "12 volts" },
       { name: "Comunicação", value: "Ring e Tip" },
       { name: "Sensores", value: "4 zonas duplas" },
-      { name: "Comunicação", value: "Serial" },
+      { name: "Conectividade", value: "Serial" },
       {
         name: "Automação",
         value: "Arme e desarme iButton/contato seco",

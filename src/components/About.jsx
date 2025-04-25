@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const  About = () => {
-  const [activeTab, setActiveTab] = useState("missao");
+const About = () => {
+  const [activeTab, setActiveTab] = useState("monitoramento");
   const navigate = useNavigate();
 
   const handleClickContactUs = () => {
@@ -58,6 +58,16 @@ const  About = () => {
 
       <div className="mb-20">
         <div className="flex flex-wrap border-b border-gray-200 mb-8">
+        <button
+            className={`mr-4 py-2 px-4 text-sm sm:text-base font-medium transition-all ${
+              activeTab === "monitoramento"
+                ? "border-b-2 border-[#65bc3c] text-[#40b346]"
+                : "text-[#666666] hover:text-[#5cb41d]"
+            }`}
+            onClick={() => setActiveTab("monitoramento")}
+          >
+            Sobre o Monitoramento
+          </button>
           <button
             className={`mr-4 py-2 px-4 text-sm sm:text-base font-medium transition-all ${
               activeTab === "missao"
@@ -72,6 +82,86 @@ const  About = () => {
 
         {/* Tab Content */}
         <div className="bg-white rounded-lg p-6 shadow-sm">
+          {activeTab === "monitoramento" && (
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold tracking-tighter mb-4">
+                  Como funciona o monitoramento via rádio
+                </h3>
+                <p className="text-[#666666] text-sm sm:text-base leading-relaxed mb-6">
+                  O sistema de monitoramento via rádio funciona de forma
+                  eficiente e segura, proporcionando proteção contínua
+                  independente de infraestruturas convencionais.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div className="bg-gray-50 p-6 rounded-lg border-l-4 border-[#65bc3c] hover:shadow-md transition-all">
+                    <h4 className="text-lg font-semibold mb-3 text-[#40b346]">
+                      Instalação e Configuração
+                    </h4>
+                    <p className="text-[#666666] text-sm leading-relaxed">
+                      A instalação do equipamento começa com a central de
+                      monitoramento, que é conectada a uma antena para ampliar o
+                      alcance do sinal. No local do cliente, um transmissor é
+                      instalado e integrado ao sistema de alarme.
+                    </p>
+                  </div>
+
+                  <div className="bg-gray-50 p-6 rounded-lg border-l-4 border-[#65bc3c] hover:shadow-md transition-all">
+                    <h4 className="text-lg font-semibold mb-3 text-[#40b346]">
+                      Processamento de Eventos
+                    </h4>
+                    <p className="text-[#666666] text-sm leading-relaxed">
+                      Quando um evento é detectado, como uma intrusão, o
+                      transmissor envia um sinal via rádio para a central. Este
+                      sinal é criptografado para garantir a segurança da
+                      comunicação.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-6">
+                  <div className="bg-gray-50 p-6 rounded-lg border-l-4 border-[#65bc3c] hover:shadow-md transition-all">
+                    <h4 className="text-lg font-semibold mb-3 text-[#40b346]">
+                      Resposta e Ações
+                    </h4>
+                    <p className="text-[#666666] text-sm leading-relaxed">
+                      A central de monitoramento recebe o sinal, verifica a
+                      integridade dos dados e analisa a origem do evento. Em
+                      seguida, gera alertas em tempo real para que a resposta
+                      possa ser imediata.
+                    </p>
+                  </div>
+
+                  <div className="bg-gray-50 p-6 rounded-lg border-l-4 border-[#65bc3c] hover:shadow-md transition-all">
+                    <h4 className="text-lg font-semibold mb-3 text-[#40b346]">
+                      Independência Operacional
+                    </h4>
+                    <p className="text-[#666666] text-sm leading-relaxed">
+                      O sistema é projetado para funcionar mesmo em situações
+                      críticas como corte de energia, internet ou linhas
+                      telefônicas, garantindo monitoramento ininterrupto 24/7.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-[#40b346] to-[#cad01f] rounded-lg p-6 text-white">
+                <h4 className="text-lg font-semibold mb-3">
+                  Vantagens do Monitoramento via Rádio
+                </h4>
+                <ul className="list-disc pl-5 space-y-2 text-sm">
+                  <li>Comunicação segura e criptografada</li>
+                  <li>Não depende de infraestrutura convencional</li>
+                  <li>Resposta imediata a eventos</li>
+                  <li>Sistema autônomo e confiável</li>
+                  <li>Cobertura em áreas remotas</li>
+                </ul>
+              </div>
+            </div>
+          )}
           {activeTab === "missao" && (
             <div className="space-y-8">
               <div>

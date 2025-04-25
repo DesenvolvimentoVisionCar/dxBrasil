@@ -10,7 +10,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
-  const { isAuthenticated, logout, forceAuthCheck } = useAuth();
+  const { isAuthenticated, logout} = useAuth();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -39,7 +39,7 @@ const Navbar = () => {
   const navItems = [
     { link: "home", path: "Início", route: "/home" },
     { link: "sobre", path: "Sobre", route: "/sobre" },
-    { link: "comercial", path: "Orçamento", route: "/orcamento" },
+    { link: "comercial", path: "Contato", route: "/contato" },
     { link: "conteudos", path: "Área do Cliente", route: "/categoria" },
   ];
 

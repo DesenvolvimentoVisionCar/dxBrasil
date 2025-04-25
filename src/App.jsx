@@ -36,7 +36,7 @@ function App() {
           <Route path="/produto/:id" element={<ProductPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/cadastro" element={<SignupPage />} />
-          <Route path="/orcamento" element={<ContactUsPage />} />
+          <Route path="/contato" element={<ContactUsPage />} />
           <Route path="/sobre" element={<AboutUsPage />} />
           <Route path="/recuperacao-senha" element={<ForgotPasswordPage />} />
 

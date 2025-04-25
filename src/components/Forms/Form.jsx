@@ -35,8 +35,8 @@ const Form = () => {
   };
 
   return (
-    <section className="bg-white py-10">
-      <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+    <section className="bg-white py-8">
+      <div className="py-8 lg:py-6 px-4 mx-auto max-w-screen-md">
         <h2 className="mb-4 text-5xl font-medium text-center text-gray-900">
           Nos Contate
         </h2>

@@ -13,7 +13,7 @@ const HomePage = () => {
         <Navbar />
         <HeroSection />
         <FeatureSection />
-        <Pricing />
+        <Pricing id="produtos" />
         <TimelineSection />
       </div>
       <Footer />

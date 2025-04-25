@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import { useEffect } from "react";
 import { AuthProvider } from "./context/AuthContext.jsx";
@@ -17,75 +17,116 @@ import CategoryPage from "./pages/CategoryPage";
 import WorkInProgressPage from "./pages/WorkInProgressPage.jsx";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
 
+// Componente para rolar para o topo ao mudar de rota
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Se não houver fragmento (parte após o #), rolar para o topo
+    if (pathname === "/home" || !window.location.hash) {
+      // Solução híbrida: tenta usar Lenis se disponível, caso contrário usa window.scrollTo
+      if (window.lenis) {
+        window.lenis.scrollTo(0, {
+          duration: 0.8,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        });
+      } else {
+        window.scrollTo(0, 0);
+      }
+    }
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   useEffect(() => {
-    const lenis = new Lenis();
+    // Inicializa o Lenis e armazena na window para acesso global
+    const lenis = new Lenis({
+      lerp: 0.1,
+      smoothWheel: true,
+      smoothTouch: false,
+      touchMultiplier: 1.5,
+    });
+
+    // Armazena a instância do Lenis globalmente para o ScrollToTop acessar
+    window.lenis = lenis;
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
+
     requestAnimationFrame(raf);
-  });
+
+    return () => {
+      // Limpeza ao desmontar
+      lenis.destroy();
+      window.lenis = null;
+    };
+  }, []);
 
   return (
-    <>
-      <AuthProvider>
-        <Routes>
-          <Route path="/" element={<WorkInProgressPage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/produto/:id" element={<ProductPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/cadastro" element={<SignupPage />} />
-          <Route path="/contato" element={<ContactUsPage />} />
-          <Route path="/sobre" element={<AboutUsPage />} />
-          <Route path="/recuperacao-senha" element={<ForgotPasswordPage />} />
+    <AuthProvider>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<WorkInProgressPage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/produto/:id" element={<ProductPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/cadastro" element={<SignupPage />} />
+        <Route path="/contato" element={<ContactUsPage />} />
+        <Route path="/sobre" element={<AboutUsPage />} />
+        <Route path="/recuperacao-senha" element={<ForgotPasswordPage />} />
 
-          <Route
-            path="/categoria"
-            element={
-              <RoleRoute>
-                <CategoryPage />
-              </RoleRoute>
-            }
-          />
+        <Route
+          path="/categoria"
+          element={
+            <RoleRoute>
+              <CategoryPage />
+            </RoleRoute>
+          }
+        />
 
-          <Route
-            path="/gerenciamento-usuarios"
-            element={
-              <RoleRoute requiredRole="admin">
-                <UserManagerPage />
-              </RoleRoute>
-            }
-          />
-          <Route
-            path="/gerenciamento-conteudos"
-            element={
-              <RoleRoute requiredRole="admin">
-                <ContentManagerPage />
-              </RoleRoute>
-            }
-          />
-          <Route
-            path="/form-conteudo"
-            element={
-              <RoleRoute requiredRole="admin">
-                <ContentFormPage />
-              </RoleRoute>
-            }
-          />
-          <Route
-            path="/form-conteudo/:id"
-            element={
-              <RoleRoute requiredRole="admin">
-                <ContentFormPage />
-              </RoleRoute>
-            }
-          />
+        <Route
+          path="/gerenciamento-usuarios"
+          element={
+            <RoleRoute requiredRole="admin">
+              <UserManagerPage />
+            </RoleRoute>
+          }
+        />
+        
+        <Route
+          path="/gerenciamento-conteudos"
+          element={
+            <RoleRoute requiredRole="admin">
+              <ContentManagerPage />
+            </RoleRoute>
+          }
+        />
+        
+        <Route
+          path="/form-conteudo"
+          element={
+            <RoleRoute requiredRole="admin">
+              <ContentFormPage />
+            </RoleRoute>
+          }
+        />
+        
+        <Route
+          path="/form-conteudo/:id"
+          element={
+            <RoleRoute requiredRole="admin">
+              <ContentFormPage />
+            </RoleRoute>
+          }
+        />
 
-          <Route path="*" element={<h1>Página não encontrada</h1>} />
-        </Routes>
-      </AuthProvider>
-    </>
+        <Route path="*" element={<h1>Página não encontrada</h1>} />
+      </Routes>
+    </AuthProvider>
   );
 }
 

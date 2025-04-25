@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const About = () => {
-  const [activeTab, setActiveTab] = useState("historia");
+const  About = () => {
+  const [activeTab, setActiveTab] = useState("missao");
   const navigate = useNavigate();
 
   const handleClickContactUs = () => {
@@ -60,16 +60,6 @@ const About = () => {
         <div className="flex flex-wrap border-b border-gray-200 mb-8">
           <button
             className={`mr-4 py-2 px-4 text-sm sm:text-base font-medium transition-all ${
-              activeTab === "historia"
-                ? "border-b-2 border-[#65bc3c] text-[#40b346]"
-                : "text-[#666666] hover:text-[#5cb41d]"
-            }`}
-            onClick={() => setActiveTab("historia")}
-          >
-            Nossa História
-          </button>
-          <button
-            className={`mr-4 py-2 px-4 text-sm sm:text-base font-medium transition-all ${
               activeTab === "missao"
                 ? "border-b-2 border-[#65bc3c] text-[#40b346]"
                 : "text-[#666666] hover:text-[#5cb41d]"
@@ -82,79 +72,6 @@ const About = () => {
 
         {/* Tab Content */}
         <div className="bg-white rounded-lg p-6 shadow-sm">
-          {activeTab === "historia" && (
-            <div className="space-y-6">
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tighter">
-                Nossa Trajetória
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <div className="mb-6">
-                    <h4 className="text-lg font-semibold mb-2 text-[#40b346]">
-                      1980 - Fundação
-                    </h4>
-                    <p className="text-[#666666] text-sm sm:text-base leading-relaxed">
-                      A Dx Brasil foi fundada com o objetivo de trazer soluções
-                      inovadoras em segurança eletrônica para o mercado
-                      brasileiro.
-                    </p>
-                  </div>
-                  <div className="mb-6">
-                    <h4 className="text-lg font-semibold mb-2 text-[#40b346]">
-                      1995 - Expansão Nacional
-                    </h4>
-                    <p className="text-[#666666] text-sm sm:text-base leading-relaxed">
-                      Ampliamos nossa atuação para todo o território nacional,
-                      estabelecendo parcerias estratégicas com distribuidores em
-                      todas as regiões.
-                    </p>
-                  </div>
-                  <div className="mb-6">
-                    <h4 className="text-lg font-semibold mb-2 text-[#40b346]">
-                      2005 - Inovação Tecnológica
-                    </h4>
-                    <p className="text-[#666666] text-sm sm:text-base leading-relaxed">
-                      Lançamos nossa primeira linha de produtos com tecnologia
-                      própria, desenvolvida inteiramente por nossa equipe de
-                      engenharia.
-                    </p>
-                  </div>
-                </div>
-                <div>
-                  <div className="mb-6">
-                    <h4 className="text-lg font-semibold mb-2 text-[#40b346]">
-                      2010 - Centro de Pesquisa
-                    </h4>
-                    <p className="text-[#666666] text-sm sm:text-base leading-relaxed">
-                      Inauguramos nosso Centro de Pesquisa e Desenvolvimento,
-                      dedicado à criação de novas tecnologias e aprimoramento de
-                      nossos produtos.
-                    </p>
-                  </div>
-                  <div className="mb-6">
-                    <h4 className="text-lg font-semibold mb-2 text-[#40b346]">
-                      2018 - Certificação ISO
-                    </h4>
-                    <p className="text-[#666666] text-sm sm:text-base leading-relaxed">
-                      Conquistamos a certificação ISO 9001, reconhecendo nosso
-                      compromisso com a qualidade e a melhoria contínua.
-                    </p>
-                  </div>
-                  <div className="mb-6">
-                    <h4 className="text-lg font-semibold mb-2 text-[#40b346]">
-                      2023 - Presente
-                    </h4>
-                    <p className="text-[#666666] text-sm sm:text-base leading-relaxed">
-                      Hoje, somos referência em soluções de segurança
-                      eletrônica, com uma linha completa de produtos e serviços
-                      que atendem às mais diversas necessidades.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
           {activeTab === "missao" && (
             <div className="space-y-8">
               <div>
@@ -243,39 +160,6 @@ const About = () => {
               </div>
             </div>
           )}
-        </div>
-      </div>
-
-      {/* Stats Section */}
-      <div className="bg-gray-50 rounded-lg p-8 mb-20">
-        <h2 className="text-2xl sm:text-3xl tracking-tighter font-bold mb-8 text-center">
-          Dx Brasil em Números
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="text-center">
-            <p className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-[#40b346] to-[#fff200] text-transparent bg-clip-text">
-              40+
-            </p>
-            <p className="text-[#666666] mt-2">Anos de experiência</p>
-          </div>
-          <div className="text-center">
-            <p className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-[#40b346] to-[#fff200] text-transparent bg-clip-text">
-              500+
-            </p>
-            <p className="text-[#666666] mt-2">Colaboradores</p>
-          </div>
-          <div className="text-center">
-            <p className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-[#40b346] to-[#fff200] text-transparent bg-clip-text">
-              10k+
-            </p>
-            <p className="text-[#666666] mt-2">Clientes atendidos</p>
-          </div>
-          <div className="text-center">
-            <p className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-[#40b346] to-[#fff200] text-transparent bg-clip-text">
-              100+
-            </p>
-            <p className="text-[#666666] mt-2">Produtos desenvolvidos</p>
-          </div>
         </div>
       </div>
 

@@ -110,11 +110,6 @@ const Pricing = () => {
               <div className="transition-all hover:-translate-y-2 p-4 sm:p-10 border border-black/40 shadow-md  min-h-[450px] sm:min-h-[450px] rounded-xl flex flex-col justify-between">
                 <p className="text-4xl">
                   {option.title}
-                  {(option.title === "Transmissor Full DS" || option.title === "Módulo IP Lite") && (
-                    <span className="text-primaryg bg-clip-text text-xl ml-2">
-                      (Mais Popular)
-                    </span>
-                  )}
                 </p>
                 <ul>
                   {option.features.map((feature, idx) => (

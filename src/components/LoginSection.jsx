@@ -54,7 +54,7 @@ const LoginSection = () => {
         localStorage.setItem("authorized", data.authorized || 1);
         localStorage.setItem("verified", data.verified || 1);
 
-        navigate("/");
+        navigate("/categoria");
       } else {
         setError(data.message || "Erro ao realizar login.");
       }

@@ -67,7 +67,7 @@ const Navbar = () => {
                 <Menu className="h-6 w-6 text-neutralGray" />
               )}
             </button>
-            <RouterLink to="/" className="text-2xl flex items-center">
+            <RouterLink to="/home" className="text-2xl flex items-center">
               <img src={Logo} alt="DX Logo" className="sm:w-60" />
             </RouterLink>
           </div>

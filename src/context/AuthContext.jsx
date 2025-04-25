@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem("authToken");
     checkAuth();
-    navigate("/");
+    navigate("/home");
   };
 
   return (

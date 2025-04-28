@@ -147,9 +147,9 @@ export const pricingOptions = [
       "Edição de pacotes de eventos",
       "Suporte horário comercial",
     ],
-    tagline: "Conectividade máxima via serial e por linha (ring tip).",
+    tagline: "Tecnologia Avançada para Monitoramento Seguro e Eficiente.",
     description:
-      "Segurança sem Interrupções! Mantenha-se conectado sem depender de internet ou energia. proteja o que realmente importa, com o FULL DS você garante monitoramento continuo, assegurando que sua segurança nunca seja comprometida.",
+      "O Transmissor Full DS é um equipamento de alta performance desenvolvido para integrar sistemas de alarme, garantindo comunicação confiável, rápida e independente de internet ou telefonia fixa. Combinando versatilidade e segurança, ele é ideal para aplicações residenciais, comerciais e industriais.",
     feature: [
       "Não depende de fatores externos",
       "Criptografia de ponta a ponta",
@@ -217,7 +217,7 @@ export const pricingOptions = [
     ],
     tagline: "Otimize seu monitoramento com confiabilidade e eficácia.",
     description:
-      "O Radio IP foi desenvolvido para otimizar seu monitoramento, pensando sempre na sua economia mantendo a confiabilidade e eficácia. Possui dois meios de comunicação, reportando principalmente via Ethernet os eventos do painel e usando a transmissão radial somente quando não houver comunicação Ethernet ou envio de teste periódico do equipamento.",
+      "Upgrade em seu monitoramento: Full IP disponibiliza dois meios de comunicação — Ethernet como meio principal e rádio para redundância e máxima segurança. Conta ainda com comandos remotos e acesso às configurações.",
     feature: [
       "Evento de inicialização para controle de auto-teste",
       "Monitoramento de alimentação 12V",

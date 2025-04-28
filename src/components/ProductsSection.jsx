@@ -72,10 +72,19 @@ const ProductSection = () => {
         )}
 
         <section className="w-full flex items-center justify-center">
-          <img src={product.img} alt="" className=" w-2/3 object-cover rounded-lg shadow-xl" />
+          <img
+            src={product.img}
+            alt=""
+            className=" w-2/3 object-cover rounded-lg shadow-xl"
+          />
         </section>
-        <section className="text-center w-full flex items-center justify-center">
-          <button className="w-1/3 gap-1 transition-all hover:translate-x-3 gradient-background text-lg rounded-md p-2 flex items-center justify-center">
+        <section className="text-center w-full flex flex-col items-center justify-center">
+          <p className="text-stone-500 max-w-xl mb-5">
+            Com o Full DS, a DX Brasil oferece uma solução robusta e escalável,
+            alinhada às necessidades modernas de segurança eletrônica. Para mais
+            detalhes técnicos ou suporte à instalação, consulte nossa equipe!
+          </p>
+          <button className="mt-4 w-1/3 gap-1 transition-all hover:translate-x-3 gradient-background text-lg rounded-md p-2 flex items-center justify-center">
             <ArrowRight className="transition-all text-white" />
             <p className="transition-all text-white">Entre em Contato</p>
           </button>

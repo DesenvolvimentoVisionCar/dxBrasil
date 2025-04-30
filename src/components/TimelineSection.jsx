@@ -57,7 +57,7 @@ export default function TimelineSection() {
       title: "Clientes",
       value: "2.000+",
       description:
-        "Nossa equipe é composta por mais de 2.000 profissionais altamente capacitados, dedicados a fornecer o melhor serviço em segurança eletrônica.",
+        "Com +2.000 empresas de monitoramento utilizando nossos sistemas, nos consolidamos como referência em confiabilidade, inovação e desempenho.",
     },
     {
       id: "inovacao",

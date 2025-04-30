@@ -217,7 +217,7 @@ export const pricingOptions = [
     ],
     tagline: "Otimize seu monitoramento com confiabilidade e eficácia.",
     description:
-      "Upgrade em seu monitoramento: Full IP disponibiliza dois meios de comunicação — Ethernet como meio principal e rádio para redundância e máxima segurança. Conta ainda com comandos remotos e acesso às configurações.",
+      "Upgrade em seu monitoramento: Full IP disponibiliza de dois meios de comunicação — Ethernet como meio principal e rádio para redundância e máxima segurança. Conta ainda com comandos remotos e acesso às configurações.",
     feature: [
       "Evento de inicialização para controle de auto-teste",
       "Monitoramento de alimentação 12V",
@@ -289,7 +289,7 @@ export const pricingOptions = [
     ],
     specs: [
       { name: "Comunicação", value: "Ring e Tip" },
-      { name: "Automatização", value: "Babyware e Winload" },
+      { name: "Acesso", value: "Babyware e Winload" },
       { name: "Comandos", value: "4 PGMs" },
       { name: "Controle", value: "2 Sensores" },
       { name: "Alimentação", value: "12V" },
@@ -321,7 +321,7 @@ export const pricingOptions = [
     ],
     specs: [
       { name: "Comunicação", value: "Ring e Tip" },
-      { name: "Automatização", value: "Babyware e Winload" },
+      { name: "Acesso", value: "Babyware e Winload" },
       { name: "Comandos", value: "2 PGMs" },
       { name: "Controle", value: "2 Sensores" },
       { name: "Alimentação", value: "12V" },
@@ -340,7 +340,7 @@ export const pricingOptions = [
       "Protocolos Ademco e DX Net",
       "Comunicação com repetidoras",
     ],
-    tagline: "Upgrade inteligente para sua central de alarme.",
+    tagline: "Upgrade para seu monitoramento.",
     description:
       "O Conversor Serial IP foi desenvolvido para proporcionar máxima segurança ao seu monitoramento, garantindo eficiência e tranquilidade no envio dos eventos diretamente para o servidor ou software de monitoramento. Quando utilizado em conjunto com receptoras, oferece uma solução robusta e confiável. Além disso, a integração com a repetidora reduz o consumo e fluxo de eventos, enquanto a comunicação em dupla via assegura a continuidade do serviço, eliminando riscos de falhas e garantindo a operação sem interrupções.",
     feature: [
@@ -371,7 +371,7 @@ export const pricingOptions = [
       "Acesso: Direto ao servidor",
       "Capacidade: Até 4.000 contas",
     ],
-    tagline: "Upgrade inteligente para sua central de alarme.",
+    tagline: "Monitoramento sempre online.",
     description:
       "RMV01 é a solução perfeita para ampliar sua cobertura com máxima eficiência e segurança. Ela permite receber até 4.000 contas via rádio e encaminhá-las diretamente para o servidor viá internet, proporcionando conectividade sem falhas. Além disso, pode ser instalado fora da base, garantindo uma área de cobertura mais ampla e maior flexibilidade para atender às suas necessidades.",
     feature: [

@@ -1,23 +1,66 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { pricingOptions } from "../constants";
 import { useParams } from "react-router-dom";
-import { Check, ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 const ProductSection = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
-  const productId = parseInt(id, 10); // Converte id para número
+  const productId = parseInt(id, 10);
   const product = pricingOptions.find((option) => option.id === productId);
+  const [selectedProduct, setSelectedProduct] = useState(product);
+
+  useEffect(() => {
+    setSelectedProduct(product);
+  }, [product]);
 
   if (!product) {
     return <div>Produto não encontrado.</div>;
   }
 
   return (
-    <div className="container text-start  mx-auto px-4 py-10 max-w-4xl">
-      <a href="/home" className="inline-flex hover:underline mb-8">
-        <ArrowLeft className="w-4 h-4 mr-2 mt-1" />
-        Voltar ao Início
-      </a>
-      <div className="space-y-12">
+    <div className="md:flex container mx-auto px-4 py-8 space-x-6">
+      {/* Sidebar com botão "Voltar ao Início" */}
+      <div className="w-full md:w-1/4 space-y-4">
+        <a
+          href="/home"
+          className="inline-flex items-center px-4 py-2 rounded-md text-green-800 hover:bg-green-200 transition-colors w-full justify-center font-semibold"
+        >
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Voltar ao Início
+        </a>
+
+        <div className="bg-white shadow-md rounded-lg overflow-hidden">
+          <div className="bg-green-600 text-white p-4 mb-2">
+            <h2 className="text-xl font-bold">Produtos</h2>
+          </div>
+          <div>
+            <ul className="divide-y divide-gray-200 max-h-[600px] overflow-auto">
+              {[...pricingOptions]
+                .sort((a, b) => a.title.localeCompare(b.title))
+                .map((option) => (
+                  <li key={option.id}>
+                    <button
+                      onClick={() => navigate(`/produto/${option.id}`)}
+                      className={`block w-full text-left p-4 rounded-md transition-colors duration-200 
+            ${
+              selectedProduct?.id === option.id
+                ? "bg-primaryg text-white"
+                : "bg-white hover:bg-gray-100 text-gray-800"
+            }`}
+                    >
+                      <h3 className="text-md font-semibold">{option.title}</h3>
+                    </button>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Seção principal do produto */}
+      <div className="w-full md:w-3/4 bg-gray-50 rounded-lg shadow-md px-6 py-8 space-y-12">
         <header className="text-center">
           <h1 className="text-4xl font-bold mb-2">{product.title}</h1>
           <span className="text-xl bg-gradient-to-r from-[#40b346] to-[#fff200] bg-clip-text mb-4 text-transparent">
@@ -26,7 +69,7 @@ const ProductSection = () => {
           <p className="text-5xl font-semibold pt-7">{product.price}</p>
         </header>
 
-        <section className="shadow-md p-6 rounded-lg">
+        <section className="p-6">
           <h2 className="text-2xl font-semibold mb-4 text-center">
             Sobre Nosso Produto
           </h2>
@@ -60,24 +103,22 @@ const ProductSection = () => {
             ))}
           </div>
         </section>
-        {product.seriais ? (
-          <>
-            <div className="text-center">
-              <p className="text-lg">Seriais Compatíveis</p>
-              <p className="text-stone-500">{product.seriais}</p>
-            </div>
-          </>
-        ) : (
-          <> </>
+
+        {product.seriais && (
+          <div className="text-center">
+            <p className="text-lg">Seriais Compatíveis</p>
+            <p className="text-stone-500">{product.seriais}</p>
+          </div>
         )}
 
         <section className="w-full flex items-center justify-center">
           <img
             src={product.img}
             alt=""
-            className=" w-2/3 object-cover rounded-lg shadow-xl"
+            className="w-2/3 object-cover rounded-lg shadow-xl"
           />
         </section>
+
         <section className="text-center w-full flex flex-col items-center justify-center">
           <p className="text-stone-500 max-w-xl mb-5">
             Com o Full DS, a DX Brasil oferece uma solução robusta e escalável,

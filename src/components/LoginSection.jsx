@@ -53,8 +53,9 @@ const LoginSection = () => {
         localStorage.setItem("userRole", data.role);
         localStorage.setItem("authorized", data.authorized || 1);
         localStorage.setItem("verified", data.verified || 1);
+        console.log("OZAMBELÊ:");
 
-        navigate("/categoria");
+        navigate("/home");
       } else {
         setError(data.message || "Erro ao realizar login.");
       }

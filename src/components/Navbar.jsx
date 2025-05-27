@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import Logo from "../assets/logo.png";
 
 const Navbar = () => {
+  const userRole = localStorage.getItem("userRole");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
@@ -45,6 +46,20 @@ const Navbar = () => {
     { link: "sobre", path: "Sobre", route: "/sobre" },
     { link: "comercial", path: "Contato", route: "/contato" },
     { link: "conteudos", path: "Área do Cliente", route: "/categoria" },
+    
+    ...(isAuthenticated
+      ? [
+          { link: "categoria", path: "Acesso do Cliente", route: "/categoria" },
+          ...(userRole === "admin"
+            ? [
+                {
+                  link: "admin",
+                  path: "Gerenciamento",
+                  route: "/gerenciamento-usuarios",
+                },
+              ]
+            : [])
+    ] : [])
   ];
 
   return (
@@ -117,14 +132,6 @@ const Navbar = () => {
                     Entre
                   </button>
                 </RouterLink>
-                <RouterLink
-                  to="/cadastro"
-                  className="cursor-pointer first:font-medium hover:text-[#5cb41d]"
-                >
-                  <button className="py-2 px-2 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
-                    Registre-se
-                  </button>
-                </RouterLink>
               </>
             )}
           </div>
@@ -170,14 +177,6 @@ const Navbar = () => {
                 >
                   <button className="py-2 px-3 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
                     Entre
-                  </button>
-                </RouterLink>
-                <RouterLink
-                  to="/cadastro"
-                  className="cursor-pointer first:font-medium hover:text-[#5cb41d]"
-                >
-                  <button className="py-2 px-2 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
-                    Registre-se
                   </button>
                 </RouterLink>
               </>

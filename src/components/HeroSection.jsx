@@ -1,3 +1,4 @@
+import { Link as RouterLink } from "react-router-dom";
 import video1 from "../assets/video01.mp4";
 import video2 from "../assets/video02.mp4";
 
@@ -5,16 +6,15 @@ const HeroSection = () => {
   return (
     <div className="flex flex-col items-center mt-32 sm:mt-14 px-2">
       <h1 className="text-3xl sm:text-4xl lg:text-6xl text-center tracking-tighter">
-        Monitoramento Inteligente via <br />
-        <span className="text-primaryg bg-clip-text"> RÁDIO</span> e{" "}
-        <span className="text-primaryg bg-clip-text">INTERNET</span>
+      Soluções Completas do <br />
+        <span className="text-primaryg bg-clip-text"> PROJETO</span> à{" "}
+        <span className="text-primaryg bg-clip-text">PRODUÇÃO</span>
       </h1>
       <p className="mt-4 text-center text-[#666666] max-w-xl sm:max-w-3xl lg:max-w-4xl text-sm sm:text-base lg:text-lg leading-relaxed">
-        A DX Brasil oferece tecnologia avançada de monitoramento via rádio
-        frequência e internet, garantindo comunicação instantânea,
-        confiabilidade e cobertura em áreas remotas.
+      Do hardware ao software, desenvolvemos e fabricamos nossos próprios equipamentos com linha SMT e equipe de P&D. Mais controle, qualidade e inovação em cada detalhe.
       </p>
       <div className="flex flex-col sm:flex-row mt-8 justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+        <RouterLink to="/sobre" className="flex flex-col sm:flex-row mt-8 justify-center space-y-4 sm:space-y-0 sm:space-x-4">
         <video
           autoPlay
           loop
@@ -33,6 +33,7 @@ const HeroSection = () => {
           <source className="object-cover" src={video2} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        </RouterLink>
       </div>
     </div>
   );

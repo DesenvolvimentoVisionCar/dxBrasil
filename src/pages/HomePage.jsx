@@ -11,13 +11,11 @@ import Home from "../components/Home";
 const HomePage = () => {
   return (
     <>
-      <div className="p-3 lg:p-8 srl">
         <Navbar />
         <Home/>
         <HeroSection />
         <FeatureSection />
         <Pricing id="produtos" />
-      </div>
       <Footer />
       <WhatsAppPopUp />
     </>

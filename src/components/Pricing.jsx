@@ -18,7 +18,7 @@ const Pricing = () => {
       : pricingOptions.filter((option) => option.category === tab);
 
   return (
-    <div className="mt-20 z-0 mb-14 border-b border-stone-400 px-4">
+    <div className="mt-20 z-0 mb-14 px-4">
       <h2 className="text-3xl sm:text-5xl text-center my-6 tracking-wide">
         Produtos
       </h2>

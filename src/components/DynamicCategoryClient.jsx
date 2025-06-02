@@ -3,27 +3,30 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { Menu } from "lucide-react";
 import { pdfjs } from "react-pdf";
 import { API_BASE_URL } from "../constants/index";
-import { 
-  FaFilePdf, 
-  FaFileImage, 
-  FaFileVideo, 
-  FaFileAudio, 
-  FaFileAlt, 
+import {
+  FaFilePdf,
+  FaFileImage,
+  FaFileVideo,
+  FaFileAudio,
+  FaFileAlt,
   FaDownload,
   FaSearch,
-  FaTimes 
+  FaTimes,
 } from "react-icons/fa";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
-
 const CategoryClient = () => {
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const inputRef = useRef(null);
   const [selectedContent, setSelectedContent] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
   const [clientContents, setClientContents] = useState([]);
   const [error, setError] = useState(null);
+  const [filteredContents, setFilteredContents] = useState(clientContents);
 
   // Fetch de conteúdos
   useEffect(() => {
@@ -79,6 +82,23 @@ const CategoryClient = () => {
     return <FaFileAlt className={iconClass} />;
   };
 
+  const handleSearchClick = () => {
+    setShowSearch(true);
+    // Timeout para garantir que o input exista no DOM antes de focar
+    setTimeout(() => inputRef.current?.focus(), 0);
+  };
+
+  const handleCloseSearch = () => {
+    setShowSearch(false);
+    setSearchTerm("");
+  };
+
+  useEffect(() => {
+    if (showSearch && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [showSearch]);
+
   // Componente de Card de Arquivo
   const FileCard = ({ file }) => {
     const [fileSize, setFileSize] = useState(null);
@@ -87,9 +107,12 @@ const CategoryClient = () => {
     // Calcular tamanho do arquivo
     const getFileSize = useCallback(() => {
       try {
-        const blob = new Blob([Uint8Array.from(atob(file.file), c => c.charCodeAt(0))], {
-          type: file.type,
-        });
+        const blob = new Blob(
+          [Uint8Array.from(atob(file.file), (c) => c.charCodeAt(0))],
+          {
+            type: file.type,
+          }
+        );
         const size = (blob.size / (1024 * 1024)).toFixed(2);
         setFileSize(size);
       } catch (error) {
@@ -104,33 +127,31 @@ const CategoryClient = () => {
     }, [getFileSize]);
 
     // Criar URL do blob
-    const blob = new Blob([Uint8Array.from(atob(file.file), c => c.charCodeAt(0))], {
-      type: file.type,
-    });
+    const blob = new Blob(
+      [Uint8Array.from(atob(file.file), (c) => c.charCodeAt(0))],
+      {
+        type: file.type,
+      }
+    );
     const url = URL.createObjectURL(blob);
 
     // Renderizar prévia
     const renderPreview = () => {
-      if (file.type.startsWith('image/')) {
+      if (file.type.startsWith("image/")) {
         return (
-          <img 
-            src={url} 
-            alt={file.content} 
-            className="max-w-full max-h-[80vh] object-contain" 
+          <img
+            src={url}
+            alt={file.content}
+            className="max-w-full max-h-[80vh] object-contain"
           />
         );
       }
 
-      if (file.type === 'application/pdf') {
+      if (file.type === "application/pdf") {
         return (
-          <iframe 
-            src={url} 
-            className="w-full h-full"
-            title={file.content}
-          />
+          <iframe src={url} className="w-full h-full" title={file.content} />
         );
       }
-      
 
       return null;
     };
@@ -138,16 +159,16 @@ const CategoryClient = () => {
     // Modal de prévia
     const PreviewModal = () => {
       return (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-90 z-[9999] flex items-center justify-center p-4"
           onClick={() => setIsPreviewOpen(false)}
         >
-          <div 
+          <div
             className="relative w-full max-w-6xl h-[90vh] bg-white rounded shadow overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {renderPreview()}
-            <button 
+            <button
               className="absolute top-2 right-2 text-white bg-red-500 p-2 rounded-full z-10"
               onClick={() => setIsPreviewOpen(false)}
             >
@@ -157,22 +178,29 @@ const CategoryClient = () => {
         </div>
       );
     };
-    
+
     // Verificar se pode pre-visualizar
-    const canPreview = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf'].includes(file.type);
+    const canPreview = [
+      "image/jpeg",
+      "image/png",
+      "image/gif",
+      "application/pdf",
+    ].includes(file.type);
 
     return (
       <>
         <div className="flex items-center gap-4 bg-white shadow-md rounded-lg p-4 border-l-4 border-green-500 hover:shadow-xl transition-all duration-300">
           {getFileIcon(file.type)}
           <div className="flex-1">
-            <h3 className="text-sm font-semibold text-gray-800 break-all">{file.content}</h3>
+            <h3 className="text-sm font-semibold text-gray-800 break-all">
+              {file.content}
+            </h3>
             <p className="text-xs text-gray-500">
               Tamanho: {fileSize ? `${fileSize} MB` : "Carregando..."}
             </p>
           </div>
           {canPreview && (
-            <button 
+            <button
               onClick={() => setIsPreviewOpen(true)}
               className="p-2 rounded-full text-green-600 hover:bg-green-50 transition-colors mr-2"
               title="Pré-visualizar"
@@ -189,7 +217,7 @@ const CategoryClient = () => {
             <FaDownload size={18} />
           </a>
         </div>
-        
+
         {isPreviewOpen && <PreviewModal />}
       </>
     );
@@ -200,7 +228,9 @@ const CategoryClient = () => {
     if (!files || files.length === 0) return null;
     return (
       <div className="space-y-4 mt-6">
-        <h3 className="text-xl font-semibold text-green-700 mb-4">Arquivos Disponíveis</h3>
+        <h3 className="text-xl font-semibold text-green-700 mb-4">
+          Arquivos Disponíveis
+        </h3>
         {files.map((file) => (
           <FileCard key={file.id} file={file} />
         ))}
@@ -210,7 +240,8 @@ const CategoryClient = () => {
 
   // Renderizar descrição com suporte a vídeos do YouTube
   const renderDescription = (text) => {
-    const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/g;
+    const youtubeRegex =
+      /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/g;
     const parts = [];
     let lastIndex = 0;
     let match;
@@ -221,7 +252,10 @@ const CategoryClient = () => {
       // Texto antes do link
       if (start > lastIndex) {
         parts.push(
-          <p key={`text-${index}`} className="text-gray-700 text-lg mb-4 leading-relaxed">
+          <p
+            key={`text-${index}`}
+            className="text-gray-700 text-lg mb-4 leading-relaxed"
+          >
             {text.substring(lastIndex, start)}
           </p>
         );
@@ -229,7 +263,10 @@ const CategoryClient = () => {
       }
       // Player do YouTube
       parts.push(
-        <div key={`video-${index}`} className="aspect-video w-full max-w-xl mb-4 mt-4 shadow-lg rounded-lg overflow-hidden">
+        <div
+          key={`video-${index}`}
+          className="aspect-video w-full max-w-xl mb-4 mt-4 shadow-lg rounded-lg overflow-hidden"
+        >
           <iframe
             className="w-full h-full"
             src={`https://www.youtube.com/embed/${videoId}`}
@@ -245,7 +282,10 @@ const CategoryClient = () => {
     // Texto restante após o último link
     if (lastIndex < text.length) {
       parts.push(
-        <p key={`text-${index}`} className="text-gray-700 text-lg whitespace-pre-wrap leading-relaxed">
+        <p
+          key={`text-${index}`}
+          className="text-gray-700 text-lg whitespace-pre-wrap leading-relaxed"
+        >
           {text.substring(lastIndex)}
         </p>
       );
@@ -276,23 +316,74 @@ const CategoryClient = () => {
         <div className="hidden md:block w-1/4 pr-8">
           <div className="bg-white shadow-md rounded-lg overflow-hidden">
             <div className="bg-green-600 text-white p-4">
-              <h2 className="text-xl font-bold">Categorias</h2>
+              {showSearch ? (
+                <div className="flex items-center relative">
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    placeholder="Digite para pesquisar..."
+                    className="w-full bg-transparent text-white border-0 border-b-2 border-white focus:outline-none focus:border-white focus:ring-0 placeholder-green-300 pb-1"
+                    value={searchTerm}
+                    onChange={(e) => {
+                      const value = e.target.value.slice(0, 20);
+                      setSearchTerm(value);
+
+                      // Se o campo estiver vazio, mostra todos os itens
+                      if (value.trim() === "") {
+                        setFilteredContents(clientContents);
+                      } else {
+                        // Caso contrário, filtra normalmente
+                        setFilteredContents(
+                          clientContents.filter((item) =>
+                            item.title
+                              .toLowerCase()
+                              .includes(value.toLowerCase())
+                          )
+                        );
+                      }
+                    }}
+                    maxLength={20} // Limite físico (opcional, mas recomendado)
+                  />
+                  <button
+                    onClick={handleCloseSearch}
+                    className="absolute right-0 text-white hover:text-green-200 ml-2"
+                  >
+                    <FaTimes />
+                  </button>
+                </div>
+              ) : (
+                <div className="flex justify-between items-center">
+                  <h2 className="text-xl font-bold">Categorias</h2>
+                  <button
+                    onClick={handleSearchClick}
+                    className="hover:text-green-200 transition-colors"
+                  >
+                    <FaSearch className="text-lg" />
+                  </button>
+                </div>
+              )}
             </div>
             <ul className="divide-y divide-gray-200">
-              {clientContents.map((item) => (
-                <li key={item.title}>
-                  <button
-                    onClick={() => setSelectedContent(item)}
-                    className={`w-full text-left p-4 hover:bg-green-50 transition-colors ${
-                      selectedContent?.title === item.title
-                      ? 'bg-green-100 text-green-800'
-                      : 'text-gray-700'
-                    }`}
-                  >
-                    {item.title}
-                  </button>
-                </li>
-              ))}
+              {clientContents
+                .filter(
+                  (item) =>
+                    searchTerm.trim() === "" || // Se vazio, mostra tudo
+                    item.title.toLowerCase().includes(searchTerm.toLowerCase()) // Caso contrário, filtra
+                )
+                .map((item) => (
+                  <li key={item.title}>
+                    <button
+                      onClick={() => setSelectedContent(item)}
+                      className={`w-full text-left p-4 hover:bg-green-50 transition-colors ${
+                        selectedContent?.title === item.title
+                          ? "bg-green-100 text-green-800"
+                          : "text-gray-700"
+                      }`}
+                    >
+                      {item.title}
+                    </button>
+                  </li>
+                ))}
             </ul>
           </div>
         </div>
@@ -308,7 +399,7 @@ const CategoryClient = () => {
           className={`
             md:hidden fixed inset-y-0 left-0 w-64 bg-white shadow-xl z-50 transform
             transition-transform duration-300 ease-in-out
-            ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}
+            ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}
           `}
         >
           <div className="bg-green-600 text-white p-4">
@@ -324,8 +415,8 @@ const CategoryClient = () => {
                   }}
                   className={`w-full text-left p-4 hover:bg-green-50 transition-colors ${
                     selectedContent?.title === item.title
-                    ? 'bg-green-100 text-green-800'
-                    : 'text-gray-700'
+                      ? "bg-green-100 text-green-800"
+                      : "text-gray-700"
                   }`}
                 >
                   {item.title}

@@ -96,7 +96,7 @@ function App() {
             </RoleRoute>
           }
         />
-        
+
         <Route
           path="/gerenciamento-conteudos"
           element={
@@ -105,7 +105,7 @@ function App() {
             </RoleRoute>
           }
         />
-        
+
         <Route
           path="/form-conteudo"
           element={
@@ -114,7 +114,7 @@ function App() {
             </RoleRoute>
           }
         />
-        
+
         <Route
           path="/form-conteudo/:id"
           element={

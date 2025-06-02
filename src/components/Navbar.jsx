@@ -45,11 +45,10 @@ const Navbar = () => {
     { link: "home", path: "Início", route: "/home" },
     { link: "sobre", path: "Sobre", route: "/sobre" },
     { link: "comercial", path: "Contato", route: "/contato" },
-    { link: "conteudos", path: "Área do Cliente", route: "/categoria" },
     
     ...(isAuthenticated
       ? [
-          { link: "categoria", path: "Acesso do Cliente", route: "/categoria" },
+          { link: "categoria", path: "Área do Cliente", route: "/categoria" },
           ...(userRole === "admin"
             ? [
                 {

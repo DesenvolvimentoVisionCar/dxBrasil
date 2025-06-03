@@ -5,14 +5,15 @@ import { ShieldHalf } from "lucide-react";
 import { PlugZap } from "lucide-react";
 import { GlobeLock } from "lucide-react";
 
-import carregador from "../assets/products/carregador.jpeg";
-import conversor from "../assets/products/conversor.jpeg";
+import carregador from "../assets/products/carregador.JPG";
+import conversor from "../assets/products/conversor.JPG";
+import fonte from "../assets/products/fonte.JPG";
 import fullid from "../assets/products/fullid.jpeg";
 import fullip from "../assets/products/fullip.jpeg";
 import fullds from "../assets/products/fullds.jpeg";
 import fullid45 from "../assets/products/fullid45.jpeg";
-import ipconvencional from "../assets/products/ipconvencional.jpeg";
-import iplite from "../assets/products/iplite.jpeg";
+import ipconvencional from "../assets/products/ipconvencional.JPG";
+import iplite from "../assets/products/iplite.JPG";
 import rmv01 from "../assets/products/rmv01.jpeg";
 import rmv02 from "../assets/products/rmv02.jpeg";
 import rmv04 from "../assets/products/rmv04.jpeg";
@@ -275,6 +276,7 @@ export const pricingOptions = [
   {
     id: 7,
     title: "Fonte",
+    img: fonte,
     category: "Transformadores",
     features: [
       "Fonte Chaveada",

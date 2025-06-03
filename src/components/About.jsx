@@ -12,7 +12,7 @@ const About = () => {
   };
 
   const handleClickProducts = () => {
-    navigate("/home/#produtos");
+    navigate("/home#produtos");
   };
 
   return (

@@ -23,7 +23,7 @@ function ScrollToTop() {
 
   useEffect(() => {
     // Se a rota for "/home" e NÃO houver fragmento (hash), rola para o topo
-    if (pathname === "/home" && !window.location.hash || pathname != "/home") {
+    if ((pathname === "/home" && !window.location.hash)) {
       if (window.lenis) {
         window.lenis.scrollTo(0, {
           duration: 0.8,

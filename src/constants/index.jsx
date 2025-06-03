@@ -97,6 +97,7 @@ export const pricingOptions = [
     tagline: "Upgrade para sua central de alarme",
     description:
       "Nosso Módulo Ethernet oferece uma solução eficiente para aprimorar a comunicação dos sistemas de alarme de seus clientes. Este produto é compatível com todos os painéis de alarme disponíveis no mercado, destacando-se pela sua facilidade de programação e instalação.",
+    descriptionExtra: "modulo ip na parte final Com o Módulo IP Lite, a DX Brasil entrega uma solução inteligente e acessível para modernizar seu sistema de alarme. Para mais detalhes técnicos ou suporte à instalação, consulte nossa equipe!.",
     feature: [
       "Sistema de HCP",
       "Monitoramento da Tensão",
@@ -128,6 +129,7 @@ export const pricingOptions = [
     tagline: "Tecnologia Avançada para Monitoramento Seguro e Eficiente.",
     description:
       "O Transmissor Full DS é um equipamento de alta performance desenvolvido para integrar sistemas de alarme, garantindo comunicação confiável, rápida e independente de internet ou telefonia fixa. Combinando versatilidade e segurança, ele é ideal para aplicações residenciais, comerciais e industriais.",
+    descriptionExtra: "Com o Full DS, a DX Brasil oferece uma solução robusta e escalável alinhada às necessidades modernas de segurança eletrônica. Para mais detalhes técnicos ou suporte à instalação, consulte nossa equipe!.",
     feature: [
       "Não depende de fatores externos",
       "Criptografia de ponta a ponta",
@@ -170,7 +172,8 @@ export const pricingOptions = [
     tagline: "Monitoramento sempre online.",
     description:
       "RMV01 é a solução perfeita para ampliar sua cobertura com máxima eficiência e segurança. Ela permite receber até 4.000 contas via rádio e encaminhá-las diretamente para o servidor viá internet, proporcionando conectividade sem falhas. Além disso, pode ser instalado fora da base, garantindo uma área de cobertura mais ampla e maior flexibilidade para atender às suas necessidades.",
-    feature: [
+    descriptionExtra: "teste",
+      feature: [
       "Comunicação: Servidor via IP",
       "Acesso: Direto ao servidor",
       "Capacidade: Até 4.000 contas",
@@ -198,7 +201,8 @@ export const pricingOptions = [
     tagline: "Monitoramento fácil, seguro e transparente.",
     description:
       "Transmissor com protocolo contact id, comunicação universal com todas as centrais do mercado por ring e tip.",
-    feature: [
+    descriptionExtra: "teste",
+      feature: [
       "Evento de auto-teste",
       "Quatro entradas 24H com eventos editáveis",
       "Comandos desde um telefone interno",
@@ -226,7 +230,8 @@ export const pricingOptions = [
     tagline: "Proteção contra quedas de energia e estabilidade máxima.",
     description:
       "O Carregador DX oferece alimentação estável e segura, sem ruídos ou interferências externas. Compatível com 127V e 220V, e com saída de 12V, garante o máximo de performance e proteção para seus dispositivos!",
-    feature: [
+    descriptionExtra: "teste",
+      feature: [
       "Fonte Chaveada",
       "Própria para Transmissor",
       "Evita ruído",
@@ -252,7 +257,8 @@ export const pricingOptions = [
     tagline: "Comunicação confiável via serial com múltiplos canais.",
     description:
       "O Transmissor 45WD conta com uma interface de comunicação própria, que comunica via serial com os painéis de alarme das marcas DX BRASIL, Paradox, Posonic e DSC. Todos os eventos podem ser transmitidos em vários canais de rádio, iguais ou diferentes (configuráveis por programação de PC), permitindo frequências de apoio (back-up) ante possíveis interferências ou bloqueios no canal de recepção principal.",
-    feature: [
+    descriptionExtra: "teste",
+      feature: [
       "Evento de auto-teste",
       "Eventos gerados pelo painel de alarme via serial",
       "Quatro entradas 24H com eventos editáveis",
@@ -278,7 +284,8 @@ export const pricingOptions = [
     tagline: "Evite ruídos e tenha total estabilidade.",
     description:
       "A fonte DX oferece alimentação estável e segura, sem ruídos ou interferências externas. Compatível com 127V e 220V, e com saída de 12 V, garante o máximo de performance e proteção para seus dispositivos!",
-    feature: [
+    descriptionExtra: "teste",
+      feature: [
       "Fonte Chaveada",
       "Própria para receptora",
       "Evita ruído",
@@ -304,7 +311,8 @@ export const pricingOptions = [
     tagline: "Upgrade para sua central de alarme",
     description:
       "O módulo IPDX convencional oferece uma solução eficiente para aprimorar a comunicação dos sistemas de alarme de seus clientes. É perfeito para a substituição de linhas telefônicas, permitindo ao cliente a comodidade de realizar o arme e desarme remoto do sistema.",
-    feature: [
+    descriptionExtra: "modulo ip na parte final Com o Módulo IP Lite, a DX Brasil entrega uma solução inteligente e acessível para modernizar seu sistema de alarme. Para mais detalhes técnicos ou suporte à instalação, consulte nossa equipe!.",
+      feature: [
       "Sistema DHCP",
       "Monitoramento de Tensão",
       "Criptografado de ponta a ponta",
@@ -338,7 +346,8 @@ export const pricingOptions = [
     tagline: "Upgrade para seu monitoramento.",
     description:
       "O Conversor Serial IP foi desenvolvido para proporcionar máxima segurança ao seu monitoramento, garantindo eficiência e tranquilidade no envio dos eventos diretamente para o servidor ou software de monitoramento. Quando utilizado em conjunto com receptoras, oferece uma solução robusta e confiável. Além disso, a integração com a repetidora reduz o consumo e fluxo de eventos, enquanto a comunicação em dupla via assegura a continuidade do serviço, eliminando riscos de falhas e garantindo a operação sem interrupções.",
-    feature: [
+    descriptionExtra: "teste",
+      feature: [
       "Envia eventos via IP direto para o servidor",
       "Integração completa com receptora/repetidora",
       "Protocolos Ademco e DX Net",
@@ -367,7 +376,8 @@ export const pricingOptions = [
     tagline: "Otimize seu monitoramento com confiabilidade e eficácia.",
     description:
       "Upgrade em seu monitoramento: Full IP disponibiliza de dois meios de comunicação — Ethernet como meio principal e rádio para redundância e máxima segurança. Conta ainda com comandos remotos e acesso às configurações.",
-    feature: [
+    descriptionExtra: "teste",
+      feature: [
       "Evento de inicialização para controle de auto-teste",
       "Monitoramento de alimentação 12V",
       "Monitoramento de tensão AC",
@@ -399,7 +409,8 @@ export const pricingOptions = [
     tagline: "Upgrade inteligente para sua central de alarme.",
     description:
       "O RMV02 oferece um visor para acompanhamento de eventos em tempo real. Sua comunicação com o servidor é feita diretamente por cabo serial, garantindo uma integração eficiente. Além disso, é compatível com a ampliação de até 16 módulos externos, aumentando a capacidade de monitoramento conforme necessário.",
-    feature: [
+    descriptionExtra: "teste",
+      feature: [
       "Cabo serial",
       "Capacidade: 4.000 contas",
       "Monitoramento contínuo da comunicação com o servidor",
@@ -427,7 +438,8 @@ export const pricingOptions = [
     tagline: "Upgrade inteligente para sua central de alarme.",
     description:
       "O RMV04 oferece um visor e teclado para acompanhamento de eventos em tempo real, além de permitir o acesso ao histórico dos últimos 200 eventos. Sua comunicação com o servidor é feita diretamente por cabo serial, garantindo uma integração eficiente. Além disso, é compatível com a ampliação de até 16 módulos externos, aumentando a capacidade de monitoramento conforme necessário.",
-    feature: [
+    descriptionExtra: "teste",
+      feature: [
       "Cabo serial",
       "Display de análise e teclado",
       "Capacidade: 4.000 contas",
@@ -457,7 +469,8 @@ export const pricingOptions = [
     tagline: "Upgrade inteligente para sua central de alarme.",
     description:
       "A Repetidora DX recebe eventos via rádio de áreas remotas e distantes, retransmitindo-os diretamente para a base. Com isso, garante a segurança e evita falhas, ampliando a área de monitoramento e assegurando que os dados cheguem de forma confiável.",
-    feature: [
+    descriptionExtra: "teste",
+      feature: [
       "Retransmissão de eventos via rádio",
       "Expande área de monitoramento",
       "Máxima segurança",

@@ -10,15 +10,16 @@ const ProductSection = () => {
   const productId = parseInt(id, 10);
   const product = pricingOptions.find((option) => option.id === productId);
   const [selectedProduct, setSelectedProduct] = useState(product);
-
+  
   useEffect(() => {
     setSelectedProduct(product);
   }, [product]);
-
+  
   if (!product) {
     return <div>Produto não encontrado.</div>;
   }
-
+  
+  console.log("Produto atual:", product);
   return (
     <div className="md:flex container mx-auto px-4 py-8 space-x-6">
       {/* Sidebar com botão "Voltar ao Início" */}
@@ -120,11 +121,7 @@ const ProductSection = () => {
         </section>
 
         <section className="text-center w-full flex flex-col items-center justify-center">
-          <p className="text-stone-500 max-w-xl mb-5">
-            Com o Full DS, a DX Brasil oferece uma solução robusta e escalável,
-            alinhada às necessidades modernas de segurança eletrônica. Para mais
-            detalhes técnicos ou suporte à instalação, consulte nossa equipe!
-          </p>
+          <p className="text-stone-500 leading-relaxed text-center">{product.descriptionExtra}</p>
           <button className="mt-4 w-1/3 gap-1 transition-all hover:translate-x-3 gradient-background text-lg rounded-md p-2 flex items-center justify-center">
             <ArrowRight className="transition-all text-white" />
             <p className="transition-all text-white">Entre em Contato</p>

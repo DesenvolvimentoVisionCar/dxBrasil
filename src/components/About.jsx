@@ -8,57 +8,75 @@ const About = () => {
   const navigate = useNavigate();
 
   const handleClickContactUs = () => {
-    navigate("/contato"); // Redireciona para a tela inicial
+    navigate("/contato");
   };
 
   const handleClickProducts = () => {
-    navigate("/home/#produtos"); // Redireciona para a tela inicial
+    navigate("/home/#produtos");
   };
 
   return (
     <div className="container mx-auto px-4">
-      <div className="flex flex-col items-center sm:mt-12 mb-16">
+      <div className="flex flex-col items-center sm:mt-20 mb-12">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl text-center tracking-tighter font-medium">
           Sobre a<span className="text-primaryg bg-clip-text"> Dx Brasil</span>
         </h1>
         <p className="mt-4 text-center text-[#666666] max-w-xl sm:max-w-3xl lg:max-w-4xl text-sm sm:text-base lg:text-lg leading-relaxed">
-          A DX BRASIL é uma empresa sólida com mais de 40 anos de experiência,
-          especializada em soluções tecnológicas de segurança eletrônica.
+          Tecnologia <span className="font-bold">nacional</span> desenvolvida
+          para proteger o seu patrimônio com máxima{" "}
+          <span className="font-bold">inteligência</span>, total{" "}
+          <span className="font-bold">confiabilidade</span> e precisão.
         </p>
       </div>
 
       {/* Company Overview */}
-      <div className="flex flex-col lg:flex-row gap-8 mb-20">
-        <div className="lg:w-1/2">
-          <img
-            src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
-            alt="Sede da Dx Brasil"
-            className="w-full h-auto rounded-lg border border-emerald-400 object-cover"
-          />
-        </div>
-        <div className="lg:w-1/2 flex flex-col justify-center">
-          <h2 className="text-2xl sm:text-3xl tracking-tighter font-bold mb-4">
-            Excelência em Segurança Eletrônica
+      <div className="w-full mb-16">
+        <img
+          src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
+          alt="Sede da Dx Brasil"
+          className="w-full h-[400px] sm:h-[500px] lg:h-[400px] object-cover rounded-lg border border-emerald-400"
+        />
+
+        <div className="bg-white rounded-2xl p-8 shadow-xl border border-green-100 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] justify-center mt-16">
+          <h2 className="text-2xl sm:text-3xl tracking-tighter font-bold mb-4 text-green-600">
+            Liderança em Segurança Eletrônica
           </h2>
           <p className="text-[#666666] text-sm sm:text-base leading-relaxed mb-6">
-            Fundada em 1980, a Dx Brasil se consolidou como referência no
-            mercado de segurança eletrônica, oferecendo soluções inovadoras e de
-            alta qualidade para residências, empresas e indústrias em todo o
-            Brasil. Nossa trajetória é marcada pelo compromisso com a excelência
-            e pela constante busca por inovação tecnológica.
+            <span className="font-semibold">Fundada há mais de 40 anos</span>, a{" "}
+            <span className="font-semibold">Dx Brasil</span> se consolidou como
+            referência no mercado de{" "}
+            <span className="font-semibold">segurança eletrônica</span>,
+            oferecendo soluções inovadoras e de alta qualidade para residências,
+            empresas e indústrias em todo o Brasil. Nossa trajetória é marcada
+            pelo compromisso com a eficiência e pela constante busca por
+            inovação tecnológica.
           </p>
-          <p className="text-[#666666] text-sm sm:text-base leading-relaxed mb-8">
-            Ao longo de mais de quatro décadas, desenvolvemos um portfólio
-            completo de produtos e serviços que atendem às mais diversas
-            necessidades de nossos clientes, sempre com foco na qualidade,
-            confiabilidade e eficiência.
+
+          <p className="text-[#666666] text-sm sm:text-base leading-relaxed mb-6">
+            Ao longo de mais de quatro décadas, desenvolvemos um{" "}
+            <span className="font-semibold">
+              portfólio completo de produtos e serviços
+            </span>{" "}
+            que atendem às mais diversas necessidades de nossos clientes. Sempre
+            priorizamos a <span className="font-semibold">qualidade</span>, a{" "}
+            <span className="font-semibold">confiabilidade</span> e a{" "}
+            <span className="font-semibold">eficiência</span> em todas as nossas
+            entregas.
+          </p>
+
+          <p className="text-[#666666] text-sm sm:text-base leading-relaxed mb-5">
+            Com uma equipe técnica qualificada e em constante atualização,
+            buscamos oferecer um atendimento personalizado e soluções
+            tecnológicas que realmente façam a diferença. A{" "}
+            <span className="font-semibold">Dx Brasil</span> é sinônimo de
+            tradição, inovação e compromisso com a segurança de seus clientes.
           </p>
         </div>
       </div>
 
-      <div className="mb-20">
-        <div className="flex flex-wrap border-b border-gray-200 mb-8">
-        <button
+      <div className="mb-16">
+        <div className="flex flex-wrap border-b border-gray-200 mb-6">
+          <button
             className={`mr-4 py-2 px-4 text-sm sm:text-base font-medium transition-all ${
               activeTab === "monitoramento"
                 ? "border-b-2 border-[#65bc3c] text-[#40b346]"
@@ -206,7 +224,7 @@ const About = () => {
                       Qualidade
                     </h4>
                     <p className="text-[#666666] text-sm">
-                      Comprometemo-nos com a excelência em todos os nossos
+                      Comprometemo-nos com o profissionalismo em todos os nossos
                       produtos e serviços.
                     </p>
                   </div>
@@ -253,7 +271,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-[#40b346] to-[#cad01f] rounded-lg p-8 text-white text-center mb-20">
+      <div className="bg-gradient-to-r from-[#40b346] to-[#cad01f] rounded-lg p-8 text-white text-center mb-16">
         <h2 className="text-2xl sm:text-3xl font-bold mb-4">
           Quer conhecer mais sobre a Dx Brasil?
         </h2>

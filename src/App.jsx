@@ -22,9 +22,8 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Se não houver fragmento (parte após o #), rolar para o topo
-    if (pathname === "/home" || !window.location.hash) {
-      // Solução híbrida: tenta usar Lenis se disponível, caso contrário usa window.scrollTo
+    // Se a rota for "/home" e NÃO houver fragmento (hash), rola para o topo
+    if (pathname === "/home" && !window.location.hash || pathname != "/home") {
       if (window.lenis) {
         window.lenis.scrollTo(0, {
           duration: 0.8,
@@ -35,8 +34,6 @@ function ScrollToTop() {
       }
     }
   }, [pathname]);
-
-  return null;
 }
 
 function App() {

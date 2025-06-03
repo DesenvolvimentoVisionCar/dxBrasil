@@ -60,7 +60,7 @@ const Home = () => {
           />
         </svg>
 
-        <div className="container mx-auto h-full flex flex-col md:flex-row relative z-10 pt-20">
+        <div className="container mx-auto h-full flex flex-col md:flex-row relative z-10">
           <div className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8 order-2 md:order-none">
             <motion.div
               variants={textVariants}

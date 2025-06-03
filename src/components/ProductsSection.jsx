@@ -1,25 +1,45 @@
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { pricingOptions } from "../constants";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaSearch, FaTimes } from "react-icons/fa";
 
 const ProductSection = () => {
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const inputRef = useRef(null);
   const navigate = useNavigate();
   const { id } = useParams();
   const productId = parseInt(id, 10);
   const product = pricingOptions.find((option) => option.id === productId);
   const [selectedProduct, setSelectedProduct] = useState(product);
-  
+
+  const handleSearchClick = () => {
+    setShowSearch(true);
+    // Timeout para garantir que o input exista no DOM antes de focar
+    setTimeout(() => inputRef.current?.focus(), 0);
+  };
+
+  const handleCloseSearch = () => {
+    setShowSearch(false);
+    setSearchTerm("");
+  };
+
+  useEffect(() => {
+    if (showSearch && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [showSearch]);
+
   useEffect(() => {
     setSelectedProduct(product);
   }, [product]);
-  
+
   if (!product) {
     return <div>Produto não encontrado.</div>;
   }
-  
-  console.log("Produto atual:", product);
+
   return (
     <div className="md:flex container mx-auto px-4 py-8 space-x-6">
       {/* Sidebar com botão "Voltar ao Início" */}
@@ -33,23 +53,62 @@ const ProductSection = () => {
         </a>
 
         <div className="bg-white shadow-md rounded-lg overflow-hidden">
-          <div className="bg-green-600 text-white p-4 mb-2">
-            <h2 className="text-xl font-bold">Produtos</h2>
+          <div className="bg-green-600 text-white p-4">
+            {showSearch ? (
+              <div className="flex items-center relative">
+                <input
+                  ref={inputRef}
+                  type="text"
+                  placeholder="Digite para pesquisar..."
+                  className="w-full bg-transparent text-white border-0 border-b-2 border-white focus:outline-none focus:border-white focus:ring-0 placeholder-green-300 pb-1"
+                  value={searchTerm}
+                  onChange={(e) => {
+                    const value = e.target.value.slice(0, 20);
+                    setSearchTerm(value);
+                  }}
+                  maxLength={20} // Limite físico (opcional, mas recomendado)
+                />
+                <button
+                  onClick={handleCloseSearch}
+                  className="absolute right-0 text-white hover:text-green-200 ml-2"
+                >
+                  <FaTimes />
+                </button>
+              </div>
+            ) : (
+              <div className="flex justify-between items-center">
+                <h2 className="text-xl font-bold">Produtos</h2>
+                <button
+                  onClick={handleSearchClick}
+                  className="hover:text-green-200 transition-colors"
+                >
+                  <FaSearch className="text-lg" />
+                </button>
+              </div>
+            )}
           </div>
+
           <div>
             <ul className="divide-y divide-gray-200 max-h-[600px] overflow-auto">
               {[...pricingOptions]
+                .filter((option) =>
+                  searchTerm.trim() === ""
+                    ? true
+                    : option.title
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase())
+                )
                 .sort((a, b) => a.title.localeCompare(b.title))
                 .map((option) => (
                   <li key={option.id}>
                     <button
                       onClick={() => navigate(`/produto/${option.id}`)}
                       className={`block w-full text-left p-4 rounded-md transition-colors duration-200 
-            ${
-              selectedProduct?.id === option.id
-                ? "bg-primaryg text-white"
-                : "bg-white hover:bg-gray-100 text-gray-800"
-            }`}
+              ${
+                selectedProduct?.id === option.id
+                  ? "bg-primaryg text-white"
+                  : "bg-white hover:bg-gray-100 text-gray-800"
+              }`}
                     >
                       <h3 className="text-md font-semibold">{option.title}</h3>
                     </button>
@@ -121,7 +180,9 @@ const ProductSection = () => {
         </section>
 
         <section className="text-center w-full flex flex-col items-center justify-center">
-          <p className="text-stone-500 leading-relaxed text-center">{product.descriptionExtra}</p>
+          <p className="text-stone-500 leading-relaxed text-center">
+            {product.descriptionExtra}
+          </p>
           <button className="mt-4 w-1/3 gap-1 transition-all hover:translate-x-3 gradient-background text-lg rounded-md p-2 flex items-center justify-center">
             <ArrowRight className="transition-all text-white" />
             <p className="transition-all text-white">Entre em Contato</p>

@@ -16,6 +16,8 @@ import ContentFormPage from "./pages/ContentFormPage.jsx";
 import CategoryPage from "./pages/CategoryPage";
 import WorkInProgressPage from "./pages/WorkInProgressPage.jsx";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
+import CookiePolicyPage from "./pages/CookiePolicyPage.jsx";
+import CookiePopup from "./components/CookiePopUp.jsx";
 
 // Componente para rolar para o topo ao mudar de rota
 function ScrollToTop() {
@@ -66,6 +68,7 @@ function App() {
   return (
     <AuthProvider>
       <ScrollToTop />
+      <CookiePopup />
       <Routes>
         <Route path="/" element={<WorkInProgressPage />} />
         <Route path="/home" element={<HomePage />} />
@@ -74,6 +77,7 @@ function App() {
         <Route path="/cadastro" element={<SignupPage />} />
         <Route path="/contato" element={<ContactUsPage />} />
         <Route path="/sobre" element={<AboutUsPage />} />
+        <Route path="/politica-de-cookies" element={<CookiePolicyPage />} />
         <Route path="/recuperacao-senha" element={<ForgotPasswordPage />} />
 
         <Route

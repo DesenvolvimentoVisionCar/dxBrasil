@@ -37,7 +37,7 @@ const About = () => {
           className="w-full h-[400px] sm:h-[500px] lg:h-[400px] object-cover rounded-lg border border-emerald-400"
         />
 
-        <div className="bg-white rounded-2xl p-8 shadow-xl border border-green-100 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] justify-center mt-16">
+        <div className="bg-white rounded-2xl p-8 shadow-xl border border-green-100 justify-center mt-16">
           <h2 className="text-2xl sm:text-3xl tracking-tighter font-bold mb-4 text-green-600">
             Liderança em Segurança Eletrônica
           </h2>

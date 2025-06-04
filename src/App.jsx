@@ -23,14 +23,14 @@ function ScrollToTop() {
 
   useEffect(() => {
     // Se a rota for "/home" e NÃO houver fragmento (hash), rola para o topo
-    if ((pathname === "/home" && !window.location.hash)) {
+    if (pathname === "/home" && window.location.hash) {
+      window.scrollTo(0, 0);
+    } else {
       if (window.lenis) {
         window.lenis.scrollTo(0, {
           duration: 0.8,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
-      } else {
-        window.scrollTo(0, 0);
       }
     }
   }, [pathname]);

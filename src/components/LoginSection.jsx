@@ -3,6 +3,7 @@ import { LockKeyhole } from "lucide-react";
 import { API_BASE_URL } from "../constants/index";
 import escritorio from "../assets/escritorio.png";
 import { useNavigate } from "react-router-dom";
+import { FiArrowLeft } from "react-icons/fi";
 
 const LoginSection = () => {
   const navigate = useNavigate();
@@ -19,9 +20,13 @@ const LoginSection = () => {
     // Limpa o erro quando o usuário começa a digitar novamente
     if (error) setError("");
   };
-  
+
   const handleForgotPassword = () => {
     navigate("/recuperacao-senha");
+  };
+
+  const handleReturnHome = () => {
+    navigate("/home");
   };
 
   const handleSubmit = async (e) => {
@@ -69,12 +74,21 @@ const LoginSection = () => {
   return (
     <div className="flex min-h-screen">
       {/* Image half */}
-      <div className="hidden w-1/2 bg-gray-100 lg:block">
+      <div className="hidden w-1/2 bg-gray-100 lg:block relative">
         <img
           src={escritorio}
           alt="Login background"
           className="h-full w-full object-cover"
         />
+
+        {/* Botão Voltar */}
+        <button
+          onClick={handleReturnHome}
+          className="absolute top-4 left-4 bg-white text-gray-800 px-3 py-2 rounded-md shadow-md hover:bg-gray-200 transition-colors flex items-center space-x-1"
+        >
+          <FiArrowLeft className="text-lg" />
+          <span>Voltar</span>
+        </button>
       </div>
 
       <div className="flex w-full items-center justify-center lg:w-1/2">
@@ -119,7 +133,10 @@ const LoginSection = () => {
             <div className="space-y-2">
               <div className="flex items-center mb-2 gap-1">
                 <LockKeyhole size={17} />
-                <label htmlFor="password" className="block text-sm font-medium text-gray-900">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-900"
+                >
                   Senha
                 </label>
               </div>

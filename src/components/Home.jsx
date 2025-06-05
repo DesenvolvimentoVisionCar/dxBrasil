@@ -206,7 +206,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="min-h-[80vh] w-full relative py-8">
+      <section className="min-h-[80vh] w-full relative py-8" >
         {/* Linhas animadas */}
         <svg className="absolute inset-0 w-full h-full z-0" xmlns="http://www.w3.org/2000/svg">
           <motion.path

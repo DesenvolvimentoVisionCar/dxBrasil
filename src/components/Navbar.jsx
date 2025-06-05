@@ -71,6 +71,7 @@ const Navbar = () => {
     { link: "home", path: "Início", route: "/home" },
     { link: "sobre", path: "Sobre", route: "/sobre" },
     { link: "comercial", path: "Contato", route: "/contato" },
+    { link: "produtos", path: "Produtos", route: null }, 
 
     ...(isAuthenticated
       ? [

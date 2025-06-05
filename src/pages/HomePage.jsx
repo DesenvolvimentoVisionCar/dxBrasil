@@ -23,6 +23,20 @@ const HomePage = () => {
     }
   }, [location]);
 
+  useEffect(() => {
+    const section = sessionStorage.getItem("scrollToSection");
+    if (section) {
+      sessionStorage.removeItem("scrollToSection");
+      setTimeout(() => {
+        const el = document.getElementById(section);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 300);
+    }
+  }, []);
+  
+
   return (
     <>
       <Navbar />

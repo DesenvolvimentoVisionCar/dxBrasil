@@ -1,12 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { Menu, X } from "lucide-react";
 import Logo from "../assets/logo.png";
-import { useLocation, useNavigate } from "react-router-dom";
-
 
 const Navbar = () => {
   const userRole = localStorage.getItem("userRole");
@@ -29,14 +27,9 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (route) => {
-    if (pathname === route) {
-      scrollToTop();
-    } else {
-      navigate(route);
-    }
-    setIsMenuOpen(false);
-  };
+  useEffect(() => {
+    forceAuthCheck();
+  }, []);
 
   const scrollToTop = () => {
     if (window.lenis) {
@@ -48,10 +41,6 @@ const Navbar = () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
-
-  useEffect(() => {
-    forceAuthCheck();
-  }, []);
 
   const handleLogout = () => {
     setIsMenuOpen(false);
@@ -67,41 +56,46 @@ const Navbar = () => {
     setShowLogoutModal(false);
   };
 
+  const handleScrollToSection = (sectionId) => {
+    if (pathname !== "/home") {
+      sessionStorage.setItem("scrollToSection", sectionId);
+      navigate("/home");
+    } else {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    setIsMenuOpen(false);
+  };
+
   const navItems = [
     { link: "home", path: "Início", route: "/home" },
     { link: "sobre", path: "Sobre", route: "/sobre" },
     { link: "comercial", path: "Contato", route: "/contato" },
-    { link: "produtos", path: "Produtos", route: null }, 
+    { link: "produtos", path: "Produtos", route: null },
 
     ...(isAuthenticated
       ? [
-        { link: "categoria", path: "Área do Cliente", route: "/categoria" },
-        ...(userRole === "admin"
-          ? [
-            {
-              link: "admin",
-              path: "Gerenciamento",
-              route: "/gerenciamento-usuarios",
-            },
-          ]
-          : [])
-      ] : [])
+          { link: "categoria", path: "Área do Cliente", route: "/categoria" },
+          ...(userRole === "admin"
+            ? [{ link: "admin", path: "Gerenciamento", route: "/gerenciamento-usuarios" }]
+            : []),
+        ]
+      : []),
   ];
 
   return (
     <header
-      className={`w-screen z-20 fixed top-0 left-0 right-0 transition-all duration-300 ${isSticky ? "bg-white shadow-md" : "bg-transparent"
-        }`}
+      className={`w-screen z-20 fixed top-0 left-0 right-0 transition-all duration-300 ${
+        isSticky ? "bg-white shadow-md" : "bg-transparent"
+      }`}
     >
       {showLogoutModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center">
           <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 w-[90%] max-w-md">
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">
-              Deseja realmente sair?
-            </h3>
-            <p className="text-gray-600 mb-6">
-              Sua sessão será encerrada. Tem certeza que deseja continuar?
-            </p>
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Deseja realmente sair?</h3>
+            <p className="text-gray-600 mb-6">Sua sessão será encerrada. Tem certeza que deseja continuar?</p>
             <div className="flex justify-end space-x-4">
               <button
                 onClick={cancelLogout}
@@ -148,16 +142,14 @@ const Navbar = () => {
                 Sair
               </button>
             ) : (
-              <>
-                <RouterLink
-                  to="/login"
-                  className="cursor-pointer hover:text-[#5cb41d] first:font-medium"
-                >
-                  <button className="py-2 px-3 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
-                    Entre
-                  </button>
-                </RouterLink>
-              </>
+              <RouterLink
+                to="/login"
+                className="cursor-pointer hover:text-[#5cb41d] first:font-medium"
+              >
+                <button className="py-2 px-3 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
+                  Entre
+                </button>
+              </RouterLink>
             )}
           </div>
 
@@ -166,21 +158,22 @@ const Navbar = () => {
               <li key={link}>
                 {route ? (
                   <button
-                    onClick={() => handleNavClick(route)}
+                    onClick={() => {
+                      if (pathname === route) scrollToTop();
+                      else navigate(route);
+                      setIsMenuOpen(false);
+                    }}
                     className="cursor-pointer block text-base dark:text-white hover:text-[#5cb41d] first:font-medium"
                   >
                     {path}
                   </button>
                 ) : (
-                  <ScrollLink
+                  <button
+                    onClick={() => handleScrollToSection(link)}
                     className="cursor-pointer block text-base dark:text-white hover:text-[#5cb41d] first:font-medium"
-                    to={link}
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
                   >
                     {path}
-                  </ScrollLink>
+                  </button>
                 )}
               </li>
             ))}
@@ -195,16 +188,14 @@ const Navbar = () => {
                 Sair
               </button>
             ) : (
-              <>
-                <RouterLink
-                  to="/login"
-                  className="cursor-pointer hover:text-[#5cb41d] first:font-medium"
-                >
-                  <button className="py-2 px-3 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
-                    Entre
-                  </button>
-                </RouterLink>
-              </>
+              <RouterLink
+                to="/login"
+                className="cursor-pointer hover:text-[#5cb41d] first:font-medium"
+              >
+                <button className="py-2 px-3 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
+                  Entre
+                </button>
+              </RouterLink>
             )}
           </div>
         </div>
@@ -216,23 +207,22 @@ const Navbar = () => {
                 <li key={link}>
                   {route ? (
                     <button
-                    onClick={() => handleNavClick(route)}
-                    className="cursor-pointer block text-base hover:text-[#fff4bf] first:font-medium"
-                  >
-                    {path}
-                  </button>
-                  
-                  ) : (
-                    <ScrollLink
+                      onClick={() => {
+                        if (pathname === route) scrollToTop();
+                        else navigate(route);
+                        setIsMenuOpen(false);
+                      }}
                       className="cursor-pointer block text-base hover:text-[#fff4bf] first:font-medium"
-                      to={link}
-                      spy={true}
-                      smooth={true}
-                      offset={-100}
-                      onClick={() => setIsMenuOpen(false)}
                     >
                       {path}
-                    </ScrollLink>
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => handleScrollToSection(link)}
+                      className="cursor-pointer block text-base hover:text-[#fff4bf] first:font-medium"
+                    >
+                      {path}
+                    </button>
                   )}
                 </li>
               ))}

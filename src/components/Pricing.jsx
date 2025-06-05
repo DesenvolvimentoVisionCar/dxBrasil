@@ -46,9 +46,18 @@ const Pricing = () => {
               key={index}
               className="transition-all hover:-translate-y-2 p-6 border border-black/40 shadow-md min-h-[450px] rounded-xl flex flex-col justify-between"
             >
-              <p className="text-2xl font-semibold mb-4">{option.title}</p>
+              <p className="text-2xl font-semibold text-center">{option.title}</p>
 
-              <ul className="flex-1 mb-2">
+              {/* Imagem ajustada */}
+              <div className="w-full mt-3 overflow-hidden rounded-lg">
+                <img
+                  src={option.img}
+                  alt={option.title}
+                  className="w-full h-40 object-cover"
+                />
+              </div>
+
+              <ul className="flex-1 mb-4 mt-2">
                 {option.features.map((feature, idx) => (
                   <li key={idx} className="mt-4 flex items-center">
                     <CheckCircle2 size={24} className="text-[#52ee5a]" />
@@ -56,13 +65,6 @@ const Pricing = () => {
                   </li>
                 ))}
               </ul>
-
-              {/* Imagem centralizada */}
-              <img
-                src={option.img}
-                alt={option.title}
-                className="mx-auto my-4 max-h-40 object-contain"
-              />
 
               <button
                 onClick={() => navigate(`/produto/${option.id}`)}

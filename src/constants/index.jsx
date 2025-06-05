@@ -5,19 +5,15 @@ import { ShieldHalf } from "lucide-react";
 import { PlugZap } from "lucide-react";
 import { GlobeLock } from "lucide-react";
 
-import carregador from "../assets/products/carregador.JPG";
-import conversor from "../assets/products/conversor.JPG";
-import fonte from "../assets/products/fonte.JPG";
-import fullid from "../assets/products/fullid.jpeg";
-import fullip from "../assets/products/fullip.jpeg";
+import carregador from "../assets/products/carregador.PNG";
+import conversor from "../assets/products/conversor.PNG";
+import fonte from "../assets/products/fonte.PNG";
 import fullds from "../assets/products/fullds.jpeg";
-import fullid45 from "../assets/products/fullid45.jpeg";
 import ipconvencional from "../assets/products/ipconvencional.JPG";
-import iplite from "../assets/products/iplite.JPG";
-import rmv01 from "../assets/products/rmv01.jpeg";
+import iplite from "../assets/products/iplite.PNG";
+import rmv01 from "../assets/products/rmv01.PNG";
 import rmv02 from "../assets/products/rmv02.jpeg";
-import rmv04 from "../assets/products/rmv04.jpeg";
-import repetidora from "../assets/products/repetidora.jpeg";
+import rmv04 from "../assets/products/rmv04.PNG";
 
 export const API_BASE_URL = "https://dx-brasil.ind.br/api";
 

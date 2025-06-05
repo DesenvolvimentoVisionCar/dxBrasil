@@ -5,6 +5,8 @@ import { Link as RouterLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { Menu, X } from "lucide-react";
 import Logo from "../assets/logo.png";
+import { useLocation, useNavigate } from "react-router-dom";
+
 
 const Navbar = () => {
   const userRole = localStorage.getItem("userRole");
@@ -12,6 +14,10 @@ const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const { isAuthenticated, logout, forceAuthCheck } = useAuth();
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const pathname = location.pathname;
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -22,6 +28,26 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavClick = (route) => {
+    if (pathname === route) {
+      scrollToTop();
+    } else {
+      navigate(route);
+    }
+    setIsMenuOpen(false);
+  };
+
+  const scrollToTop = () => {
+    if (window.lenis) {
+      window.lenis.scrollTo(0, {
+        duration: 0.8,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     forceAuthCheck();
@@ -45,27 +71,26 @@ const Navbar = () => {
     { link: "home", path: "Início", route: "/home" },
     { link: "sobre", path: "Sobre", route: "/sobre" },
     { link: "comercial", path: "Contato", route: "/contato" },
-    
+
     ...(isAuthenticated
       ? [
-          { link: "categoria", path: "Área do Cliente", route: "/categoria" },
-          ...(userRole === "admin"
-            ? [
-                {
-                  link: "admin",
-                  path: "Gerenciamento",
-                  route: "/gerenciamento-usuarios",
-                },
-              ]
-            : [])
-    ] : [])
+        { link: "categoria", path: "Área do Cliente", route: "/categoria" },
+        ...(userRole === "admin"
+          ? [
+            {
+              link: "admin",
+              path: "Gerenciamento",
+              route: "/gerenciamento-usuarios",
+            },
+          ]
+          : [])
+      ] : [])
   ];
 
   return (
     <header
-      className={`w-screen z-20 fixed top-0 left-0 right-0 transition-all duration-300 ${
-        isSticky ? "bg-white shadow-md" : "bg-transparent"
-      }`}
+      className={`w-screen z-20 fixed top-0 left-0 right-0 transition-all duration-300 ${isSticky ? "bg-white shadow-md" : "bg-transparent"
+        }`}
     >
       {showLogoutModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center">
@@ -139,12 +164,12 @@ const Navbar = () => {
             {navItems.map(({ link, path, route }) => (
               <li key={link}>
                 {route ? (
-                  <RouterLink
-                    to={route}
+                  <button
+                    onClick={() => handleNavClick(route)}
                     className="cursor-pointer block text-base dark:text-white hover:text-[#5cb41d] first:font-medium"
                   >
                     {path}
-                  </RouterLink>
+                  </button>
                 ) : (
                   <ScrollLink
                     className="cursor-pointer block text-base dark:text-white hover:text-[#5cb41d] first:font-medium"
@@ -189,13 +214,13 @@ const Navbar = () => {
               {navItems.map(({ link, path, route }) => (
                 <li key={link}>
                   {route ? (
-                    <RouterLink
-                      to={route}
-                      className="cursor-pointer block text-base hover:text-[#fff4bf] first:font-medium"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {path}
-                    </RouterLink>
+                    <button
+                    onClick={() => handleNavClick(route)}
+                    className="cursor-pointer block text-base hover:text-[#fff4bf] first:font-medium"
+                  >
+                    {path}
+                  </button>
+                  
                   ) : (
                     <ScrollLink
                       className="cursor-pointer block text-base hover:text-[#fff4bf] first:font-medium"

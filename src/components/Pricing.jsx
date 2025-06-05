@@ -44,16 +44,18 @@ const Pricing = () => {
           {filteredOptions.slice(0, 3).map((option, index) => (
             <div
               key={index}
-              className="transition-all hover:-translate-y-2 p-6 border border-black/40 shadow-md min-h-[450px] rounded-xl flex flex-col justify-between"
+              className="transition-all hover:-translate-y-2 p-6 border border-black/40 shadow-md min-h-[480px] rounded-xl flex flex-col justify-between" // Aumentei o min-h para 480px
             >
-              <p className="text-2xl font-semibold text-center">{option.title}</p>
+              <p className="text-2xl font-semibold text-center">
+                {option.title}
+              </p>
 
               {/* Imagem ajustada */}
               <div className="w-full mt-3 overflow-hidden rounded-lg">
                 <img
                   src={option.img}
                   alt={option.title}
-                  className="w-full h-40 object-cover"
+                  className="w-full h-48 object-cover" // Mudei para h-48 (equivalente a 192px)
                 />
               </div>
 

@@ -133,26 +133,6 @@ const Navbar = () => {
             </RouterLink>
           </div>
 
-          <div className="flex sm:hidden flex-row gap-2">
-            {isAuthenticated ? (
-              <button
-                onClick={handleLogout}
-                className="py-2 px-3 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br hover:text-[#5cb41d]"
-              >
-                Sair
-              </button>
-            ) : (
-              <RouterLink
-                to="/login"
-                className="cursor-pointer hover:text-[#5cb41d] first:font-medium"
-              >
-                <button className="py-2 px-3 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
-                  Entre
-                </button>
-              </RouterLink>
-            )}
-          </div>
-
           <ul className="hidden md:flex space-x-8">
             {navItems.map(({ link, path, route }) => (
               <li key={link}>
@@ -200,8 +180,9 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Menu mobile com fundo branco */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4">
+          <div className="md:hidden mt-4 bg-white rounded-lg shadow-lg p-4 -mx-4">
             <ul className="flex flex-col space-y-4 items-center">
               {navItems.map(({ link, path, route }) => (
                 <li key={link}>
@@ -212,30 +193,42 @@ const Navbar = () => {
                         else navigate(route);
                         setIsMenuOpen(false);
                       }}
-                      className="cursor-pointer block text-base hover:text-[#fff4bf] first:font-medium"
+                      className="cursor-pointer block text-base text-gray-800 hover:text-[#5cb41d] first:font-medium"
                     >
                       {path}
                     </button>
                   ) : (
                     <button
                       onClick={() => handleScrollToSection(link)}
-                      className="cursor-pointer block text-base hover:text-[#fff4bf] first:font-medium"
+                      className="cursor-pointer block text-base text-gray-800 hover:text-[#5cb41d] first:font-medium"
                     >
                       {path}
                     </button>
                   )}
                 </li>
               ))}
-              {isAuthenticated && (
-                <li>
+              
+              {/* Botão Entre/Sair sempre visível no menu mobile */}
+              <li>
+                {isAuthenticated ? (
                   <button
                     onClick={handleLogout}
                     className="py-2 px-3 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br hover:text-[#5cb41d]"
                   >
                     Sair
                   </button>
-                </li>
-              )}
+                ) : (
+                  <RouterLink
+                    to="/login"
+                    className="cursor-pointer hover:text-[#5cb41d] first:font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <button className="py-2 px-3 rounded-lg border border-black hover:border-[#65bc3c] bg-gradient-to-br">
+                      Entre
+                    </button>
+                  </RouterLink>
+                )}
+              </li>
             </ul>
           </div>
         )}

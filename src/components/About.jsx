@@ -16,8 +16,8 @@ const About = () => {
   };
 
   return (
-    <div className="container mx-auto px-4">
-      <div className="flex flex-col items-center sm:mt-20 mb-12">
+    <div className="container mx-auto px-4 w-full relative pt-20 md:pt-0">
+      <div className="flex flex-col items-center md:mt-20 mb-12">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl text-center tracking-tighter font-medium">
           Sobre a<span className="text-primaryg bg-clip-text"> Dx Brasil</span>
         </h1>

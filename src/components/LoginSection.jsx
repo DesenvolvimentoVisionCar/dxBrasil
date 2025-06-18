@@ -84,7 +84,7 @@ const LoginSection = () => {
         {/* Botão Voltar */}
         <button
           onClick={handleReturnHome}
-          className="absolute top-4 left-4 bg-white text-gray-800 px-3 py-2 rounded-md shadow-md hover:bg-gray-200 transition-colors flex items-center space-x-1"
+          className="absolute top-4 left-4  px-3 py-2 hover:font-medium text-white transition-colors flex items-center space-x-1"
         >
           <FiArrowLeft className="text-lg" />
           <span>Voltar</span>

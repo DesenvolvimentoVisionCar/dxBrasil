@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
-import { Menu } from "lucide-react";
+import { Menu, ChevronDown, ChevronUp } from "lucide-react";
 import { pdfjs } from "react-pdf";
 import { API_BASE_URL } from "../constants/index";
 import {
@@ -27,6 +27,8 @@ const CategoryClient = () => {
   const [clientContents, setClientContents] = useState([]);
   const [error, setError] = useState(null);
   const [filteredContents, setFilteredContents] = useState(clientContents);
+  const [showFiles, setShowFiles] = useState(false); // Estado para controlar exibição dos arquivos
+  const [isLoadingFiles, setIsLoadingFiles] = useState(false); // Estado para loading dos arquivos
 
   // Fetch de conteúdos
   useEffect(() => {
@@ -71,6 +73,12 @@ const CategoryClient = () => {
       document.removeEventListener("mousedown", closeMenu);
     };
   }, [isMenuOpen, closeMenu]);
+
+  // Reset showFiles quando trocar de conteúdo
+  useEffect(() => {
+    setShowFiles(false);
+    setIsLoadingFiles(false);
+  }, [selectedContent]);
 
   // Ícones para tipos de arquivo
   const getFileIcon = (type) => {
@@ -223,17 +231,55 @@ const CategoryClient = () => {
     );
   };
 
-  // Renderizar seção de arquivos
+  // Renderizar seção de arquivos com label expansível
   const renderFilesSection = (files) => {
     if (!files || files.length === 0) return null;
+
+    const handleToggleFiles = () => {
+      if (!showFiles) {
+        setIsLoadingFiles(true);
+        // Simula o carregamento dos arquivos
+        setTimeout(() => {
+          setShowFiles(true);
+          setIsLoadingFiles(false);
+        }, 1000); // 1 segundo de delay para simular carregamento
+      } else {
+        setShowFiles(false);
+      }
+    };
+
     return (
-      <div className="space-y-4 mt-6">
-        <h3 className="text-xl font-semibold text-green-700 mb-4">
-          Arquivos Disponíveis
-        </h3>
-        {files.map((file) => (
-          <FileCard key={file.id} file={file} />
-        ))}
+      <div className="mt-8">
+        {/* Label clicável com setinha */}
+        <button
+          onClick={handleToggleFiles}
+          disabled={isLoadingFiles}
+          className={`flex items-center gap-2 w-full text-left bg-green-50 hover:bg-green-100 transition-colors duration-200 p-4 rounded-lg border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 ${
+            isLoadingFiles ? 'cursor-wait opacity-75' : ''
+          }`}
+        >
+          <span className="text-green-700 font-semibold text-lg">
+            Arquivos para download
+          </span>
+          {isLoadingFiles ? (
+            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-green-600"></div>
+          ) : showFiles ? (
+            <ChevronUp className="text-green-600 w-5 h-5" />
+          ) : (
+            <ChevronDown className="text-green-600 w-5 h-5" />
+          )}
+        </button>
+
+        {/* Seção dos arquivos - só renderiza quando showFiles for true */}
+        {showFiles && (
+          <div className="mt-4 bg-gray-50 rounded-lg p-4 border border-gray-200 animate-in slide-in-from-top-2 duration-200">
+            <div className="space-y-4">
+              {files.map((file) => (
+                <FileCard key={file.id} file={file} />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     );
   };

@@ -14,7 +14,7 @@ import RoleRoute from "./route/RoleRoute";
 import ContentManagerPage from "./pages/ContentManagerPage.jsx";
 import ContentFormPage from "./pages/ContentFormPage.jsx";
 import CategoryPage from "./pages/CategoryPage";
-import WorkInProgressPage from "./pages/WorkInProgressPage.jsx";
+// import WorkInProgressPage from "./pages/WorkInProgressPage.jsx";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
 import CookiePolicyPage from "./pages/CookiePolicyPage.jsx";
 import CookiePopup from "./components/CookiePopUp.jsx";
@@ -70,7 +70,7 @@ function App() {
       <ScrollToTop />
       <CookiePopup />
       <Routes>
-        <Route path="/" element={<WorkInProgressPage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/produto/:id" element={<ProductPage />} />
         <Route path="/login" element={<LoginPage />} />

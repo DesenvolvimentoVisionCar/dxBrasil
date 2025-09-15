@@ -176,7 +176,6 @@ export const pricingOptions = [
       "Capacidade: Até 4.000 contas",
       "Intranet e Internet",
       "Aceita uso de domínio",
-      "Sistema DHCP",
       "Criptografia de ponta a ponta",
       "Monitoramento de tensão",
     ],
@@ -255,7 +254,6 @@ export const pricingOptions = [
       "O módulo IPDX convencional oferece uma solução eficiente para aprimorar a comunicação dos sistemas de alarme de seus clientes. É perfeito para a substituição de linhas telefônicas, permitindo ao cliente a comodidade de realizar o arme e desarme remoto do sistema.",
     descriptionExtra: "modulo ip na parte final Com o Módulo IP Lite, a DX Brasil entrega uma solução inteligente e acessível para modernizar seu sistema de alarme. Para mais detalhes técnicos ou suporte à instalação, consulte nossa equipe!.",
       feature: [
-      "Sistema DHCP",
       "Monitoramento de Tensão",
       "Criptografado de ponta a ponta",
       "Automatização da Central",
@@ -295,7 +293,6 @@ export const pricingOptions = [
       "Protocolos Ademco e DX Net",
       "Intranet e Internet",
       "Aceita uso de domínio",
-      "Sistema DHCP",
       "Criptografia de ponta a ponta",
       "Monitoramento de tensão",
     ],

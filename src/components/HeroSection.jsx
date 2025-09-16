@@ -11,7 +11,7 @@ const HeroSection = () => {
         <span className="text-primaryg bg-clip-text">PRODUÇÃO</span>
       </h1>
       <p className="mt-4 text-center text-[#666666] max-w-xl sm:max-w-3xl lg:max-w-4xl text-sm sm:text-base lg:text-lg leading-relaxed">
-      Do hardware ao software, desenvolvemos e fabricamos nossos próprios equipamentos com linha SMT e equipe de P&D. Mais controle, qualidade e inovação em cada detalhe.
+      Do hardware ao software, desenvolvemos e fabricamos nossos próprios equipamentos com linha SMT e equipe de PTH. Mais controle, qualidade e inovação em cada detalhe.
       </p>
       <div className="flex flex-col sm:flex-row mt-8 justify-center space-y-4 sm:space-y-0 sm:space-x-4">
         <RouterLink to="/sobre" className="flex flex-col sm:flex-row mt-8 justify-center space-y-4 sm:space-y-0 sm:space-x-4">

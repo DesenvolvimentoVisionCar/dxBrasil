@@ -17,6 +17,23 @@ import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
+// Hook de debounce
+const useDebounce = (value, delay) => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+};
+
 const CategoryClient = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -26,26 +43,64 @@ const CategoryClient = () => {
   const menuRef = useRef(null);
   const [clientContents, setClientContents] = useState([]);
   const [error, setError] = useState(null);
-  const [filteredContents, setFilteredContents] = useState(clientContents);
-  const [showFiles, setShowFiles] = useState(false); // Estado para controlar exibição dos arquivos
-  const [isLoadingFiles, setIsLoadingFiles] = useState(false); // Estado para loading dos arquivos
+  const [filteredContents, setFilteredContents] = useState([]);
+  const [showFiles, setShowFiles] = useState(false);
+  const [isLoadingFiles, setIsLoadingFiles] = useState(false);
 
-  // Fetch de conteúdos
+  // Novos estados para otimização
+  const [currentPage, setCurrentPage] = useState(1);
+  const [visibleFileIds, setVisibleFileIds] = useState([]);
+  const [loadingMoreFiles, setLoadingMoreFiles] = useState(false);
+
+  const ITEMS_PER_PAGE = 5;
+
+  // Debounce da pesquisa
+  const debouncedSearchTerm = useDebounce(searchTerm, 300);
+
+  // Fetch de conteúdos otimizado
   useEffect(() => {
     fetchClientContents();
   }, []);
 
   const fetchClientContents = async () => {
     try {
+      setError(null);
+
       const response = await fetch(API_BASE_URL + "/get_contents_&_files.php", {
         credentials: "include",
       });
+
       const data = await response.json();
+
       if (data.success) {
-        setClientContents(data.clientContent);
-        // Seleciona o primeiro conteúdo por padrão
-        if (data.clientContent.length > 0) {
-          setSelectedContent(data.clientContent[0]);
+        // Processa os dados em chunks para não travar a UI
+        const processInChunks = (items, chunkSize = 10) => {
+          return new Promise((resolve) => {
+            let index = 0;
+            const result = [];
+
+            const processChunk = () => {
+              const chunk = items.slice(index, index + chunkSize);
+              result.push(...chunk);
+              index += chunkSize;
+
+              if (index < items.length) {
+                setTimeout(processChunk, 0);
+              } else {
+                resolve(result);
+              }
+            };
+
+            processChunk();
+          });
+        };
+
+        const processedContents = await processInChunks(data.clientContent);
+        setClientContents(processedContents);
+        setFilteredContents(processedContents);
+
+        if (processedContents.length > 0) {
+          setSelectedContent(processedContents[0]);
         }
       } else {
         setError(data.message || "Erro ao carregar conteúdos.");
@@ -54,6 +109,19 @@ const CategoryClient = () => {
       setError("Erro de conexão. Tente novamente mais tarde.");
     }
   };
+
+  // Filtragem com debounce
+  useEffect(() => {
+    if (debouncedSearchTerm.trim() === "") {
+      setFilteredContents(clientContents);
+    } else {
+      setFilteredContents(
+        clientContents.filter((item) =>
+          item.title.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
+        )
+      );
+    }
+  }, [debouncedSearchTerm, clientContents]);
 
   // Fechar menu ao clicar fora
   const closeMenu = useCallback((e) => {
@@ -78,6 +146,8 @@ const CategoryClient = () => {
   useEffect(() => {
     setShowFiles(false);
     setIsLoadingFiles(false);
+    setCurrentPage(1);
+    setVisibleFileIds([]);
   }, [selectedContent]);
 
   // Ícones para tipos de arquivo
@@ -92,7 +162,6 @@ const CategoryClient = () => {
 
   const handleSearchClick = () => {
     setShowSearch(true);
-    // Timeout para garantir que o input exista no DOM antes de focar
     setTimeout(() => inputRef.current?.focus(), 0);
   };
 
@@ -107,60 +176,103 @@ const CategoryClient = () => {
     }
   }, [showSearch]);
 
-  // Componente de Card de Arquivo
-  const FileCard = ({ file }) => {
+  // Componente de Card de Arquivo otimizado
+  const FileCard = ({ file, isVisible }) => {
     const [fileSize, setFileSize] = useState(null);
     const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+    const [blobUrl, setBlobUrl] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
-    // Calcular tamanho do arquivo
-    const getFileSize = useCallback(() => {
-      try {
-        const blob = new Blob(
-          [Uint8Array.from(atob(file.file), (c) => c.charCodeAt(0))],
-          {
-            type: file.type,
-          }
-        );
-        const size = (blob.size / (1024 * 1024)).toFixed(2);
-        setFileSize(size);
-      } catch (error) {
-        console.error("Erro ao calcular tamanho:", error);
-        setFileSize("Erro");
-      }
-    }, [file]);
-
-    // Calcular tamanho ao montar
+    // Só processa o arquivo quando ele se torna visível
     useEffect(() => {
-      getFileSize();
-    }, [getFileSize]);
+      if (!isVisible) return;
 
-    // Criar URL do blob
-    const blob = new Blob(
-      [Uint8Array.from(atob(file.file), (c) => c.charCodeAt(0))],
-      {
-        type: file.type,
-      }
-    );
-    const url = URL.createObjectURL(blob);
+      const processFile = async () => {
+        try {
+          setIsLoading(true);
+
+          // Use requestIdleCallback para não bloquear a UI
+          await new Promise((resolve) => {
+            if (window.requestIdleCallback) {
+              window.requestIdleCallback(resolve);
+            } else {
+              setTimeout(resolve, 0);
+            }
+          });
+
+          const blob = new Blob(
+            [Uint8Array.from(atob(file.file), (c) => c.charCodeAt(0))],
+            { type: file.type }
+          );
+
+          const url = URL.createObjectURL(blob);
+          const size = (blob.size / (1024 * 1024)).toFixed(2);
+
+          setBlobUrl(url);
+          setFileSize(size);
+        } catch (error) {
+          console.error("Erro ao processar arquivo:", error);
+          setFileSize("Erro");
+        } finally {
+          setIsLoading(false);
+        }
+      };
+
+      processFile();
+
+      // Cleanup
+      return () => {
+        if (blobUrl) {
+          URL.revokeObjectURL(blobUrl);
+        }
+      };
+    }, [isVisible, file.file, file.type]);
+
+    // Cleanup quando componente desmonta
+    useEffect(() => {
+      return () => {
+        if (blobUrl) {
+          URL.revokeObjectURL(blobUrl);
+        }
+      };
+    }, [blobUrl]);
+
+    if (!isVisible || isLoading) {
+      return (
+        <div className="flex items-center gap-4 bg-white shadow-md rounded-lg p-4 border-l-4 border-green-500">
+          <div className="animate-pulse">
+            <div className="w-8 h-8 bg-gray-300 rounded"></div>
+          </div>
+          <div className="flex-1 animate-pulse">
+            <div className="h-4 bg-gray-300 rounded mb-2"></div>
+            <div className="h-3 bg-gray-200 rounded w-1/2"></div>
+          </div>
+        </div>
+      );
+    }
 
     // Renderizar prévia
     const renderPreview = () => {
+      if (!blobUrl) return null;
+
       if (file.type.startsWith("image/")) {
         return (
           <img
-            src={url}
+            src={blobUrl}
             alt={file.content}
             className="max-w-full max-h-[80vh] object-contain"
           />
         );
       }
-
       if (file.type === "application/pdf") {
         return (
-          <iframe src={url} className="w-full h-full" title={file.content} />
+          <iframe
+            src={blobUrl}
+            className="w-full h-full"
+            title={file.content}
+          />
         );
       }
-
       return null;
     };
 
@@ -207,7 +319,7 @@ const CategoryClient = () => {
               Tamanho: {fileSize ? `${fileSize} MB` : "Carregando..."}
             </p>
           </div>
-          {canPreview && (
+          {canPreview && blobUrl && (
             <button
               onClick={() => setIsPreviewOpen(true)}
               className="p-2 rounded-full text-green-600 hover:bg-green-50 transition-colors mr-2"
@@ -216,50 +328,75 @@ const CategoryClient = () => {
               <FaSearch size={18} />
             </button>
           )}
-          <a
-            href={url}
-            download={file.content}
-            className="p-2 rounded-full text-green-600 hover:bg-green-50 transition-colors"
-            title="Baixar"
-          >
-            <FaDownload size={18} />
-          </a>
+          {blobUrl && (
+            <a
+              href={blobUrl}
+              download={file.content}
+              className="p-2 rounded-full text-green-600 hover:bg-green-50 transition-colors"
+              title="Baixar"
+            >
+              <FaDownload size={18} />
+            </a>
+          )}
         </div>
-
         {isPreviewOpen && <PreviewModal />}
       </>
     );
   };
 
-  // Renderizar seção de arquivos com label expansível
+  // Renderizar seção de arquivos com paginação
   const renderFilesSection = (files) => {
     if (!files || files.length === 0) return null;
 
     const handleToggleFiles = () => {
       if (!showFiles) {
         setIsLoadingFiles(true);
-        // Simula o carregamento dos arquivos
+        // Carrega apenas os primeiros arquivos
         setTimeout(() => {
           setShowFiles(true);
+          setCurrentPage(1);
+          setVisibleFileIds(files.slice(0, ITEMS_PER_PAGE).map((f) => f.id));
           setIsLoadingFiles(false);
-        }, 1000); // 1 segundo de delay para simular carregamento
+        }, 100);
       } else {
         setShowFiles(false);
+        setCurrentPage(1);
+        setVisibleFileIds([]);
       }
     };
 
+    const loadMoreFiles = async () => {
+      setLoadingMoreFiles(true);
+
+      // Simula um pequeno delay para dar feedback visual
+      await new Promise((resolve) => setTimeout(resolve, 300));
+
+      const nextPage = currentPage + 1;
+      const startIndex = (nextPage - 1) * ITEMS_PER_PAGE;
+      const endIndex = startIndex + ITEMS_PER_PAGE;
+      const newFiles = files.slice(startIndex, endIndex);
+
+      setVisibleFileIds((prev) => [...prev, ...newFiles.map((f) => f.id)]);
+      setCurrentPage(nextPage);
+      setLoadingMoreFiles(false);
+    };
+
+    const visibleFiles = files.filter((file) =>
+      visibleFileIds.includes(file.id)
+    );
+    const hasMoreFiles = files.length > visibleFiles.length;
+
     return (
       <div className="mt-8">
-        {/* Label clicável com setinha */}
         <button
           onClick={handleToggleFiles}
           disabled={isLoadingFiles}
           className={`flex items-center gap-2 w-full text-left bg-green-50 hover:bg-green-100 transition-colors duration-200 p-4 rounded-lg border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 ${
-            isLoadingFiles ? 'cursor-wait opacity-75' : ''
+            isLoadingFiles ? "cursor-wait opacity-75" : ""
           }`}
         >
           <span className="text-green-700 font-semibold text-lg">
-            Arquivos para download
+            Arquivos para download ({files.length})
           </span>
           {isLoadingFiles ? (
             <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-green-600"></div>
@@ -270,14 +407,38 @@ const CategoryClient = () => {
           )}
         </button>
 
-        {/* Seção dos arquivos - só renderiza quando showFiles for true */}
         {showFiles && (
           <div className="mt-4 bg-gray-50 rounded-lg p-4 border border-gray-200 animate-in slide-in-from-top-2 duration-200">
             <div className="space-y-4">
-              {files.map((file) => (
-                <FileCard key={file.id} file={file} />
+              {visibleFiles.map((file) => (
+                <FileCard
+                  key={file.id}
+                  file={file}
+                  isVisible={visibleFileIds.includes(file.id)}
+                />
               ))}
             </div>
+
+            {hasMoreFiles && (
+              <div className="mt-4 text-center">
+                <button
+                  onClick={loadMoreFiles}
+                  disabled={loadingMoreFiles}
+                  className="bg-green-500 hover:bg-green-600 disabled:bg-green-300 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2 mx-auto"
+                >
+                  {loadingMoreFiles ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                      Carregando...
+                    </>
+                  ) : (
+                    `Carregar mais arquivos (${
+                      files.length - visibleFiles.length
+                    } restantes)`
+                  )}
+                </button>
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -292,9 +453,11 @@ const CategoryClient = () => {
     let lastIndex = 0;
     let match;
     let index = 0;
+
     while ((match = youtubeRegex.exec(text)) !== null) {
       const videoId = match[1];
       const start = match.index;
+
       // Texto antes do link
       if (start > lastIndex) {
         parts.push(
@@ -307,6 +470,7 @@ const CategoryClient = () => {
         );
         index++;
       }
+
       // Player do YouTube
       parts.push(
         <div
@@ -325,6 +489,7 @@ const CategoryClient = () => {
       lastIndex = youtubeRegex.lastIndex;
       index++;
     }
+
     // Texto restante após o último link
     if (lastIndex < text.length) {
       parts.push(
@@ -336,6 +501,7 @@ const CategoryClient = () => {
         </p>
       );
     }
+
     return <div className="flex flex-col space-y-4">{parts}</div>;
   };
 
@@ -343,6 +509,22 @@ const CategoryClient = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  if (error) {
+    return (
+      <div className="pt-16 min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-red-600 mb-4">{error}</p>
+          <button
+            onClick={fetchClientContents}
+            className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg"
+          >
+            Tentar novamente
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="pt-16 relative min-h-screen bg-gray-50">
@@ -357,6 +539,7 @@ const CategoryClient = () => {
           <Menu size={24} />
         </div>
       </button>
+
       <div className="md:flex container mx-auto px-4 py-8">
         {/* Sidebar para telas maiores */}
         <div className="hidden md:block w-1/4 pr-8">
@@ -373,22 +556,8 @@ const CategoryClient = () => {
                     onChange={(e) => {
                       const value = e.target.value.slice(0, 20);
                       setSearchTerm(value);
-
-                      // Se o campo estiver vazio, mostra todos os itens
-                      if (value.trim() === "") {
-                        setFilteredContents(clientContents);
-                      } else {
-                        // Caso contrário, filtra normalmente
-                        setFilteredContents(
-                          clientContents.filter((item) =>
-                            item.title
-                              .toLowerCase()
-                              .includes(value.toLowerCase())
-                          )
-                        );
-                      }
                     }}
-                    maxLength={20} // Limite físico (opcional, mas recomendado)
+                    maxLength={20}
                   />
                   <button
                     onClick={handleCloseSearch}
@@ -410,29 +579,24 @@ const CategoryClient = () => {
               )}
             </div>
             <ul className="divide-y divide-gray-200">
-              {clientContents
-                .filter(
-                  (item) =>
-                    searchTerm.trim() === "" || // Se vazio, mostra tudo
-                    item.title.toLowerCase().includes(searchTerm.toLowerCase()) // Caso contrário, filtra
-                )
-                .map((item) => (
-                  <li key={item.title}>
-                    <button
-                      onClick={() => setSelectedContent(item)}
-                      className={`w-full text-left p-4 hover:bg-green-50 transition-colors ${
-                        selectedContent?.title === item.title
-                          ? "bg-green-100 text-green-800"
-                          : "text-gray-700"
-                      }`}
-                    >
-                      {item.title}
-                    </button>
-                  </li>
-                ))}
+              {filteredContents.map((item) => (
+                <li key={item.title}>
+                  <button
+                    onClick={() => setSelectedContent(item)}
+                    className={`w-full text-left p-4 hover:bg-green-50 transition-colors ${
+                      selectedContent?.title === item.title
+                        ? "bg-green-100 text-green-800"
+                        : "text-gray-700"
+                    }`}
+                  >
+                    {item.title}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
+
         {/* Menu mobile */}
         {isMenuOpen && (
           <div
@@ -440,6 +604,7 @@ const CategoryClient = () => {
             onClick={closeMenu}
           />
         )}
+
         <div
           ref={menuRef}
           className={`
@@ -452,7 +617,7 @@ const CategoryClient = () => {
             <h2 className="text-xl font-bold">Categorias</h2>
           </div>
           <ul className="divide-y divide-gray-200">
-            {clientContents.map((item) => (
+            {filteredContents.map((item) => (
               <li key={item.title}>
                 <button
                   onClick={() => {
@@ -471,7 +636,7 @@ const CategoryClient = () => {
             ))}
           </ul>
         </div>
-        {/* Conteúdo principal */}
+
         <div className="w-full md:w-3/4 bg-white rounded-lg shadow-md p-6">
           {selectedContent ? (
             <>
@@ -484,7 +649,10 @@ const CategoryClient = () => {
               {renderFilesSection(selectedContent.files)}
             </>
           ) : (
-            <p className="text-gray-500 text-center">Carregando conteúdo...</p>
+            <div className="text-center py-8">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
+              <p className="text-gray-500">Carregando conteúdo...</p>
+            </div>
           )}
         </div>
       </div>

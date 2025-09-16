@@ -41,10 +41,11 @@ const Form = () => {
     <section className="bg-white py-8">
       <div className="py-8 lg:py-6 px-4 mx-auto max-w-screen-md">
         <h2 className="mb-4 text-5xl font-medium text-center text-gray-900">
-          Nos Contate
+          Contate-nos
         </h2>
         <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl">
-          Precisa de detalhes sobre os produtos Dx Brasil? Está com alguma dúvida? Quer enviar feedback sobre um recurso beta? Deixe-nos saber.
+          Precisa de detalhes sobre os produtos Dx Brasil? Está com alguma
+          dúvida? Quer enviar feedback sobre um recurso beta? Deixe-nos saber.
         </p>
         <form ref={ref} onSubmit={handleSubmit} className="space-y-8">
           <div>
@@ -100,7 +101,11 @@ const Form = () => {
             </button>
           </div>
         </form>
-        {success && <div className="text-green-600 text-center mt-4">Sua mensagem foi enviada com sucesso!</div>}
+        {success && (
+          <div className="text-green-600 text-center mt-4">
+            Sua mensagem foi enviada com sucesso!
+          </div>
+        )}
       </div>
     </section>
   );

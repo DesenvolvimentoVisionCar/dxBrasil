@@ -63,9 +63,9 @@ export const checklistItems = [
       "Com bateria e carregador, o transmissor se torna totalmente autônomo, sem a dependência de fontes externas de energia.",
   },
   {
-    title: "Testes Periódicos Configuráveis",
+    title: "s Periódicos Configuráveis",
     description:
-      "O sistema permite testes periódicos, configurados conforme a necessidade de cada ambiente monitorado.",
+      "O sistema permite s periódicos, configurados conforme a necessidade de cada ambiente monitorado.",
   },
   {
     title: "Tecnologia de Ponta",
@@ -94,9 +94,10 @@ export const pricingOptions = [
     tagline: "Upgrade para sua central de alarme",
     description:
       "Nosso Módulo Ethernet oferece uma solução eficiente para aprimorar a comunicação dos sistemas de alarme de seus clientes. Este produto é compatível com todos os painéis de alarme disponíveis no mercado, destacando-se pela sua facilidade de programação e instalação.",
-    descriptionExtra: "modulo ip na parte final Com o Módulo IP Lite, a DX Brasil entrega uma solução inteligente e acessível para modernizar seu sistema de alarme. Para mais detalhes técnicos ou suporte à instalação, consulte nossa equipe!.",
+    descriptionExtra:
+      "Com o Módulo IP Lite, a DX Brasil entrega uma solução inteligente e acessível para modernizar seu sistema de alarme. Para mais detalhes técnicos ou suporte à instalação, consulte nossa equipe!.",
     feature: [
-      "Sistema de HCP",
+      "Sistema DHCP",
       "Monitoramento da Tensão",
       "Aceita uso de domínio",
       "Criptografia de ponta a ponta",
@@ -121,19 +122,20 @@ export const pricingOptions = [
     features: [
       "Comunicação Ring Tip e Serial",
       "Edição de pacotes de eventos",
-      "Suporte horário comercial",
+      "Protocolo Contact ID",
     ],
     tagline: "Tecnologia Avançada para Monitoramento Seguro e Eficiente.",
     description:
       "O Transmissor Full DS é um equipamento de alta performance desenvolvido para integrar sistemas de alarme, garantindo comunicação confiável, rápida e independente de internet ou telefonia fixa. Combinando versatilidade e segurança, ele é ideal para aplicações residenciais, comerciais e industriais.",
-    descriptionExtra: "Com o Full DS, a DX Brasil oferece uma solução robusta e escalável alinhada às necessidades modernas de segurança eletrônica. Para mais detalhes técnicos ou suporte à instalação, consulte nossa equipe!.",
+    descriptionExtra:
+      "Com o Full DS, a DX Brasil oferece uma solução robusta e escalável alinhada às necessidades modernas de segurança eletrônica. Para mais detalhes técnicos ou suporte à instalação, consulte nossa equipe!",
     feature: [
       "Não depende de fatores externos",
       "Criptografia de ponta a ponta",
       "Contact ID",
       "Eventos editáveis",
       "Número de pacotes configuráveis",
-      "Teste periódico",
+      " periódico",
       "Comunicação universal por linha da central",
       "Automonitoramento",
       "Protocolos de centrais integrados para comunicação serial",
@@ -158,7 +160,7 @@ export const pricingOptions = [
   // Receptora
   {
     id: 3,
-    title: "RMV01",
+    title: "RMV-01",
     img: rmv01,
     category: "Receptora",
     features: [
@@ -168,9 +170,9 @@ export const pricingOptions = [
     ],
     tagline: "Monitoramento sempre online.",
     description:
-      "RMV01 é a solução perfeita para ampliar sua cobertura com máxima eficiência e segurança. Ela permite receber até 4.000 contas via rádio e encaminhá-las diretamente para o servidor viá internet, proporcionando conectividade sem falhas. Além disso, pode ser instalado fora da base, garantindo uma área de cobertura mais ampla e maior flexibilidade para atender às suas necessidades.",
-    descriptionExtra: "teste",
-      feature: [
+      "RMV-01 é a solução perfeita para ampliar sua cobertura com máxima eficiência e segurança. Ela permite receber até 4.000 contas via rádio e encaminhá-las diretamente para o servidor viá internet, proporcionando conectividade sem falhas. Além disso, pode ser instalado fora da base, garantindo uma área de cobertura mais ampla e maior flexibilidade para atender às suas necessidades.",
+    descriptionExtra: "",
+    feature: [
       "Comunicação: Servidor via IP",
       "Acesso: Direto ao servidor",
       "Capacidade: Até 4.000 contas",
@@ -198,8 +200,8 @@ export const pricingOptions = [
     tagline: "Proteção contra quedas de energia e estabilidade máxima.",
     description:
       "O Carregador DX oferece alimentação estável e segura, sem ruídos ou interferências externas. Compatível com 127V e 220V, e com saída de 12V, garante o máximo de performance e proteção para seus dispositivos!",
-    descriptionExtra: "teste",
-      feature: [
+    descriptionExtra: "",
+    feature: [
       "Fonte Chaveada",
       "Própria para Transmissor",
       "Evita ruído",
@@ -225,8 +227,8 @@ export const pricingOptions = [
     tagline: "Evite ruídos e tenha total estabilidade.",
     description:
       "A fonte DX oferece alimentação estável e segura, sem ruídos ou interferências externas. Compatível com 127V e 220V, e com saída de 12 V, garante o máximo de performance e proteção para seus dispositivos!",
-    descriptionExtra: "teste",
-      feature: [
+    descriptionExtra: "",
+    feature: [
       "Fonte Chaveada",
       "Própria para receptora",
       "Evita ruído",
@@ -252,8 +254,9 @@ export const pricingOptions = [
     tagline: "Upgrade para sua central de alarme",
     description:
       "O módulo IPDX convencional oferece uma solução eficiente para aprimorar a comunicação dos sistemas de alarme de seus clientes. É perfeito para a substituição de linhas telefônicas, permitindo ao cliente a comodidade de realizar o arme e desarme remoto do sistema.",
-    descriptionExtra: "modulo ip na parte final Com o Módulo IP Lite, a DX Brasil entrega uma solução inteligente e acessível para modernizar seu sistema de alarme. Para mais detalhes técnicos ou suporte à instalação, consulte nossa equipe!.",
-      feature: [
+    descriptionExtra:
+      "modulo ip na parte final Com o Módulo IP Lite, a DX Brasil entrega uma solução inteligente e acessível para modernizar seu sistema de alarme. Para mais detalhes técnicos ou suporte à instalação, consulte nossa equipe!.",
+    feature: [
       "Monitoramento de Tensão",
       "Criptografado de ponta a ponta",
       "Automatização da Central",
@@ -286,8 +289,8 @@ export const pricingOptions = [
     tagline: "Upgrade para seu monitoramento.",
     description:
       "O Conversor Serial IP foi desenvolvido para proporcionar máxima segurança ao seu monitoramento, garantindo eficiência e tranquilidade no envio dos eventos diretamente para o servidor ou software de monitoramento. Quando utilizado em conjunto com receptoras, oferece uma solução robusta e confiável. Além disso, a integração com a repetidora reduz o consumo e fluxo de eventos, enquanto a comunicação em dupla via assegura a continuidade do serviço, eliminando riscos de falhas e garantindo a operação sem interrupções.",
-    descriptionExtra: "teste",
-      feature: [
+    descriptionExtra: "",
+    feature: [
       "Envia eventos via IP direto para o servidor",
       "Integração completa com receptora/repetidora",
       "Protocolos Ademco e DX Net",
@@ -304,7 +307,7 @@ export const pricingOptions = [
   },
   {
     id: 8,
-    title: "RMV02",
+    title: "RMV-02",
     img: rmv02,
     category: "Receptora",
     features: [
@@ -312,11 +315,11 @@ export const pricingOptions = [
       "Display de análise e teclado",
       "Capacidade: 4.000 contas",
     ],
-    tagline: "Upgrade inteligente para sua central de alarme.",
+    tagline: "Receptora RMV-02.",
     description:
-      "O RMV02 oferece um visor para acompanhamento de eventos em tempo real. Sua comunicação com o servidor é feita diretamente por cabo serial, garantindo uma integração eficiente. Além disso, é compatível com a ampliação de até 16 módulos externos, aumentando a capacidade de monitoramento conforme necessário.",
-    descriptionExtra: "teste",
-      feature: [
+      "O RMV-02 oferece um visor para acompanhamento de eventos em tempo real. Sua comunicação com o servidor é feita diretamente por cabo serial, garantindo uma integração eficiente. Além disso, é compatível com a ampliação de até 16 módulos externos, aumentando a capacidade de monitoramento conforme necessário.",
+    descriptionExtra: "",
+    feature: [
       "Cabo serial",
       "Capacidade: 4.000 contas",
       "Monitoramento contínuo da comunicação com o servidor",
@@ -333,7 +336,7 @@ export const pricingOptions = [
   },
   {
     id: 9,
-    title: "RMV04",
+    title: "RMV-04",
     img: rmv04,
     category: "Receptora",
     features: [
@@ -341,11 +344,11 @@ export const pricingOptions = [
       "Display de análise e teclado",
       "Capacidade: 4.000 contas",
     ],
-    tagline: "Upgrade inteligente para sua central de alarme.",
+    tagline: "Receptora com teclado e display para monitoramento.",
     description:
-      "O RMV04 oferece um visor e teclado para acompanhamento de eventos em tempo real, além de permitir o acesso ao histórico dos últimos 200 eventos. Sua comunicação com o servidor é feita diretamente por cabo serial, garantindo uma integração eficiente. Além disso, é compatível com a ampliação de até 16 módulos externos, aumentando a capacidade de monitoramento conforme necessário.",
-    descriptionExtra: "teste",
-      feature: [
+      "O RMV-04 oferece um visor e teclado para acompanhamento de eventos em tempo real, além de permitir o acesso ao histórico dos últimos 200 eventos. Sua comunicação com o servidor é feita diretamente por cabo serial, garantindo uma integração eficiente. Além disso, é compatível com a ampliação de até 16 módulos externos, aumentando a capacidade de monitoramento conforme necessário.",
+    descriptionExtra: "",
+    feature: [
       "Cabo serial",
       "Display de análise e teclado",
       "Capacidade: 4.000 contas",

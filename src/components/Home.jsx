@@ -75,7 +75,6 @@ const Home = () => {
               className="max-w-2xl"
             >
               <h1
-                style={{ color: "rgba(246, 59, 221, 0.5)" }}
                 className="text-2xl md:text-3x1 lg:text-5xl font-semibold mb-4"
               >
                 Soluções Completas em Monitoramento e Automação

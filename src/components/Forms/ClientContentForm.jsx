@@ -21,12 +21,18 @@ const ClientContentForm = () => {
   const [error, setError] = useState("");
   const [previewFile, setPreviewFile] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  // Inicia como true quando há ID (modo edição)
+  const [isLoadingData, setIsLoadingData] = useState(!!id);
   const [showResult, setShowResult] = useState(false);
-  const [resultType, setResultType] = useState(null); // 'success' ou 'error'
+  const [resultType, setResultType] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (id) {
+      // Garante que o loading esteja ativo
+      setIsLoadingData(true);
+      setError(""); // Limpa erros anteriores
+
       fetch(`${API_BASE_URL}/get_content_by_id.php/${id}`)
         .then((response) => response.json())
         .then((data) => {
@@ -45,7 +51,14 @@ const ClientContentForm = () => {
             setError("Erro ao carregar conteúdo.");
           }
         })
-        .catch(() => setError("Erro de conexão. Tente novamente mais tarde."));
+        .catch((err) => {
+          console.error("Erro ao carregar dados:", err);
+          setError("Erro de conexão. Tente novamente mais tarde.");
+        })
+        .finally(() => {
+          // Garante que o loading seja removido
+          setIsLoadingData(false);
+        });
     }
   }, [id]);
 
@@ -57,7 +70,6 @@ const ClientContentForm = () => {
   const handleFileUpload = (e) => {
     const files = Array.from(e.target.files);
     const newFiles = [];
-
     files.forEach((file) => {
       const reader = new FileReader();
       reader.readAsDataURL(file);
@@ -101,15 +113,12 @@ const ClientContentForm = () => {
           body: JSON.stringify({ ...formData, id }),
         }
       );
-
       const data = await response.json();
-
       setIsLoading(false);
 
       if (data.success) {
         setResultType("success");
         setShowResult(true);
-        // Aguarda 2 segundos antes de redirecionar
         setTimeout(() => {
           navigate("/gerenciamento-conteudos");
         }, 2000);
@@ -119,7 +128,6 @@ const ClientContentForm = () => {
         setError(
           data.message || "Erro ao processar conteúdo. Tente novamente."
         );
-        // Esconde o card de erro após 5 segundos
         setTimeout(() => {
           setShowResult(false);
         }, 5000);
@@ -130,7 +138,6 @@ const ClientContentForm = () => {
       setShowResult(true);
       setError("Erro de conexão. Tente novamente mais tarde.");
       console.log(error);
-      // Esconde o card de erro após 5 segundos
       setTimeout(() => {
         setShowResult(false);
       }, 5000);
@@ -147,6 +154,27 @@ const ClientContentForm = () => {
       document.body.removeChild(link);
     }
   };
+
+  // Tela de loading para carregamento de dados (modo edição)
+  if (isLoadingData) {
+    return (
+      <section className="w-full px-3 py-4 sm:px-6 md:px-8 lg:px-20 mt-16 sm:mt-4 md:mt-8">
+        <div className="flex flex-col items-center justify-center min-h-[60vh]">
+          <div className="bg-white rounded-lg shadow-lg p-8 text-center max-w-md w-full mx-4">
+            <FaSpinner className="animate-spin text-5xl text-green-600 mx-auto mb-6" />
+            <h2 className="text-2xl font-bold text-gray-800 mb-3">
+              Carregando Dados...
+            </h2>
+            <div className="flex justify-center">
+              <div className="animate-pulse text-sm text-gray-500">
+                Isso pode levar alguns segundos...
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="w-full px-3 py-4 sm:px-6 md:px-8 lg:px-20 mt-16 sm:mt-4 md:mt-8">
@@ -206,7 +234,6 @@ const ClientContentForm = () => {
                 </div>
               </div>
 
-              {/* Lista de arquivos - otimizada para mobile */}
               {formData.files.length > 0 && (
                 <div className="space-y-2">
                   <p className="text-sm font-medium text-gray-700">

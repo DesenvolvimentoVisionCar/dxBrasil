@@ -96,7 +96,7 @@ const RibbonMonth = () => {
       bgColor: "bg-yellow-500",
       textColor: "text-yellow-600",
       image: AgostoDouradoImg,
-      title: "Agosto Dourado — Aleitamento é Ouro",
+      title: "Agosto Dourado — Amamentação é Ouro",
       message:
         "Agosto reluz dourado, exaltando o leite materno como o alimento mais precioso. Amamentar é nutrir de saúde e amor.",
       placeholder: "Dourado",

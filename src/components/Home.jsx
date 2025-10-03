@@ -30,9 +30,7 @@ const Home = () => {
         background: "radial-gradient(circle at center, #ffffff, #f0f0f0)",
       }}
     >
-      {/* Seção 1 - Texto esquerda, Imagem direita */}
       <section className="min-h-[80vh] w-full relative py-8 mt-20">
-        {/* Linhas animadas */}
         <svg
           className="absolute inset-0 w-full h-full z-0"
           xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +38,7 @@ const Home = () => {
           <motion.path
             d="M0 100 Q 280 50 500 120 T 1700 10"
             fill="none"
-            stroke="rgba(246, 59, 221, 0.2)"
+            stroke="rgba(59, 246, 137, 0.2)"
             strokeWidth="3"
             variants={lineVariants}
             initial="hidden"
@@ -49,7 +47,7 @@ const Home = () => {
           <motion.path
             d="M0 200 Q 240 170 520 230 T 1800 80"
             fill="none"
-            stroke="rgba(246, 59, 221, 0.2)"
+            stroke="rgba(59, 246, 137, 0.2)"
             strokeWidth="3"
             variants={lineVariants}
             initial="hidden"
@@ -74,9 +72,7 @@ const Home = () => {
               animate="visible"
               className="max-w-2xl"
             >
-              <h1
-                className="text-2xl md:text-3x1 lg:text-5xl font-semibold mb-4"
-              >
+              <h1 className="text-2xl md:text-3x1 lg:text-5xl font-semibold mb-4">
                 Soluções Completas em Monitoramento e Automação
                 <span className="block font-medium  text-xl sm:text-xl lg:text-4xl text-primaryg">
                   Tecnologia própria com segurança, praticidade e controle total{" "}
@@ -114,7 +110,7 @@ const Home = () => {
           <motion.path
             d="M0 100 Q 280 50 500 120 T 1700 10"
             fill="none"
-            stroke="rgba(59, 246, 112, 0.2)"
+            stroke="rgba(59, 246, 137, 0.2)"
             strokeWidth="3"
             variants={lineVariants}
             initial="hidden"
@@ -123,7 +119,7 @@ const Home = () => {
           <motion.path
             d="M0 200 Q 240 170 520 230 T 1800 80"
             fill="none"
-            stroke="rgba(246, 59, 221, 0.2)"
+            stroke="rgba(59, 246, 137, 0.2)"
             strokeWidth="3"
             variants={lineVariants}
             initial="hidden"
@@ -179,7 +175,7 @@ const Home = () => {
           <motion.path
             d="M0 100 Q 280 50 500 120 T 1700 10"
             fill="none"
-            stroke="rgba(246, 59, 221, 0.2)"
+            stroke="rgba(59, 246, 137, 0.2)"
             strokeWidth="3"
             variants={lineVariants}
             initial="hidden"
@@ -245,7 +241,7 @@ const Home = () => {
           <motion.path
             d="M0 100 Q 280 50 500 120 T 1700 10"
             fill="none"
-            stroke="rgba(246, 59, 221, 0.2)"
+            stroke="rgba(59, 246, 137, 0.2)"
             strokeWidth="3"
             variants={lineVariants}
             initial="hidden"

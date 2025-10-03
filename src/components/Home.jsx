@@ -24,17 +24,21 @@ const Home = () => {
   };
 
   return (
-    <div className="w-full relative" style={{
-      background: "radial-gradient(circle at center, #ffffff, #f0f0f0)"
-    }}>
-      {/* Seção 1 - Texto esquerda, Imagem direita */}
+    <div
+      className="w-full relative"
+      style={{
+        background: "radial-gradient(circle at center, #ffffff, #f0f0f0)",
+      }}
+    >
       <section className="min-h-[80vh] w-full relative py-8 mt-20">
-        {/* Linhas animadas */}
-        <svg className="absolute inset-0 w-full h-full z-0" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className="absolute inset-0 w-full h-full z-0"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <motion.path
             d="M0 100 Q 280 50 500 120 T 1700 10"
             fill="none"
-            stroke="rgba(59, 246, 112, 0.2)"
+            stroke="rgba(59, 246, 137, 0.2)"
             strokeWidth="3"
             variants={lineVariants}
             initial="hidden"
@@ -68,13 +72,18 @@ const Home = () => {
               animate="visible"
               className="max-w-2xl"
             >
-              <h1 className="text-2xl md:text-3x1 lg:text-5xl font-semibold mb-4 text-gray-900">
+              <h1 className="text-2xl md:text-3x1 lg:text-5xl font-semibold mb-4">
                 Soluções Completas em Monitoramento e Automação
-                <span className="block font-medium  text-xl sm:text-xl lg:text-4xl">
-                  Tecnologia própria com segurança, praticidade e controle total                </span>
+                <span className="block font-medium  text-xl sm:text-xl lg:text-4xl text-primaryg">
+                  Tecnologia própria com segurança, praticidade e controle total{" "}
+                </span>
               </h1>
               <p className="text-gray-900 text-base lg:text-lg mb-8">
-                Disponibilizamos uma linha completa de equipamentos para monitoramento e automação, com comunicação via rádio e sistemas inteligentes integrados. Controle seus dispositivos com facilidade: ative ou desative alarmes, abra portões, acione luzes e muito mais — tudo com rapidez, segurança e autonomia.
+                Disponibilizamos uma linha completa de equipamentos para
+                monitoramento e automação, com comunicação via rádio e sistemas
+                inteligentes integrados. Controle seus dispositivos com
+                facilidade: ative ou desative alarmes, abra portões, acione
+                luzes e muito mais — tudo com rapidez, segurança e autonomia.
               </p>
             </motion.div>
           </div>
@@ -94,11 +103,14 @@ const Home = () => {
       {/* Seção 2 - Imagem esquerda, Texto direita */}
       <section className="min-h-[80vh] w-full relative py-8">
         {/* Linhas animadas */}
-        <svg className="absolute inset-0 w-full h-full z-0" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className="absolute inset-0 w-full h-full z-0"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <motion.path
             d="M0 100 Q 280 50 500 120 T 1700 10"
             fill="none"
-            stroke="rgba(59, 246, 112, 0.2)"
+            stroke="rgba(59, 246, 137, 0.2)"
             strokeWidth="3"
             variants={lineVariants}
             initial="hidden"
@@ -135,12 +147,18 @@ const Home = () => {
             >
               <h1 className="text-2xl md:text-3xl lg:text-5xl font-semibold mb-4 text-gray-900">
                 Transmissão Segura e Instantânea
-                <span className="block font-medium text-green-900 text-xl sm:text-xl lg:text-4xl mt-2">
-                  Envio rápido e confiável de eventos, sem depender de redes de terceiros
+                <span className="block font-medium text-green-900 text-xl sm:text-xl lg:text-4xl mt-2 text-primaryg">
+                  Envio rápido e confiável de eventos, sem depender de redes de
+                  terceiros
                 </span>
               </h1>
               <p className="text-gray-900 text-base lg:text-lg mb-8">
-                Nosso transmissor oferece comunicação rápida e segura com a central de monitoramento, utilizando rede própria via rádio. Sem depender de internet ou redes de terceiros, ele garante operação contínua mesmo em locais remotos ou com instabilidade. É a escolha ideal para quem busca autonomia, eficiência e segurança na transmissão de eventos.
+                Nosso transmissor oferece comunicação rápida e segura com a
+                central de monitoramento, utilizando rede própria via rádio. Sem
+                depender de internet ou redes de terceiros, ele garante operação
+                contínua mesmo em locais remotos ou com instabilidade. É a
+                escolha ideal para quem busca autonomia, eficiência e segurança
+                na transmissão de eventos.
               </p>
             </motion.div>
           </div>
@@ -150,11 +168,14 @@ const Home = () => {
       {/* Seção 3 - Texto esquerda, Imagem direita */}
       <section className="min-h-[80vh] w-full relative py-8">
         {/* Linhas animadas */}
-        <svg className="absolute inset-0 w-full h-full z-0" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className="absolute inset-0 w-full h-full z-0"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <motion.path
             d="M0 100 Q 280 50 500 120 T 1700 10"
             fill="none"
-            stroke="rgba(59, 246, 112, 0.2)"
+            stroke="rgba(59, 246, 137, 0.2)"
             strokeWidth="3"
             variants={lineVariants}
             initial="hidden"
@@ -181,15 +202,20 @@ const Home = () => {
             >
               <h1 className="text-2xl md:text-3xl lg:text-5xl font-semibold mb-4 text-gray-900">
                 Recepção Rápida e Confiável
-                <span className="block font-medium  text-xl sm:text-xl lg:text-4xl mt-2">
+                <span className="block font-medium  text-xl sm:text-xl lg:text-4xl mt-2 text-primaryg">
                   Cobertura ampliada e análise detalhada de sinal
                 </span>
               </h1>
               <p className="text-gray-900 text-base lg:text-lg mb-8">
-                Nossa receptora via rádio garante o recebimento estável e seguro dos eventos transmitidos, com alta sensibilidade e confiabilidade. Para ampliar a cobertura em locais com obstáculos ou distâncias maiores, oferecemos repetidoras que fortalecem o sinal sem perdas.
-
-                Com nosso aplicativo exclusivo, é possível analisar a qualidade das transmissões, perdas de eventos, pacotes recebidos e outros dados essenciais — auxiliando o operador na gestão precisa e em tempo real do sistema.
-
+                Nossa receptora via rádio garante o recebimento estável e seguro
+                dos eventos transmitidos, com alta sensibilidade e
+                confiabilidade. Para ampliar a cobertura em locais com
+                obstáculos ou distâncias maiores, oferecemos repetidoras que
+                fortalecem o sinal sem perdas. Com nosso aplicativo exclusivo, é
+                possível analisar a qualidade das transmissões, perdas de
+                eventos, pacotes recebidos e outros dados essenciais —
+                auxiliando o operador na gestão precisa e em tempo real do
+                sistema.
               </p>
             </motion.div>
           </div>
@@ -206,13 +232,16 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="min-h-[80vh] w-full relative py-8" >
+      <section className="min-h-[80vh] w-full relative py-8">
         {/* Linhas animadas */}
-        <svg className="absolute inset-0 w-full h-full z-0" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className="absolute inset-0 w-full h-full z-0"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <motion.path
             d="M0 100 Q 280 50 500 120 T 1700 10"
             fill="none"
-            stroke="rgba(59, 246, 112, 0.2)"
+            stroke="rgba(59, 246, 137, 0.2)"
             strokeWidth="3"
             variants={lineVariants}
             initial="hidden"
@@ -249,20 +278,23 @@ const Home = () => {
             >
               <h1 className="text-2xl md:text-3xl lg:text-5xl font-semibold mb-4 text-gray-900">
                 Automação Inteligente via Internet
-                <span className="block font-medium  text-xl sm:text-xl lg:text-4xl mt-2">
+                <span className="block font-medium  text-xl sm:text-xl lg:text-4xl mt-2 text-primaryg">
                   Controle total com o módulo IP Vision Connection
                 </span>
               </h1>
               <p className="text-gray-900 text-base lg:text-lg mb-8">
-                O <strong>módulo IP Vision Connection</strong> permite acessar remotamente centrais de alarme e outros dispositivos, com praticidade e segurança. Através do nosso aplicativo exclusivo, você pode ativar ou desativar sistemas, abrir portões, acionar luzes e muito mais — tudo em tempo real, de qualquer lugar.
-
-                É a solução ideal para quem busca autonomia, conectividade e controle completo com apenas alguns toques na tela.
+                O <strong>módulo IP Vision Connection</strong> permite acessar
+                remotamente centrais de alarme e outros dispositivos, com
+                praticidade e segurança. Através do nosso aplicativo exclusivo,
+                você pode ativar ou desativar sistemas, abrir portões, acionar
+                luzes e muito mais — tudo em tempo real, de qualquer lugar. É a
+                solução ideal para quem busca autonomia, conectividade e
+                controle completo com apenas alguns toques na tela.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
-
     </div>
   );
 };

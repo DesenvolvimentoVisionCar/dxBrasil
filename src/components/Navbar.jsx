@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { Menu, X } from "lucide-react";

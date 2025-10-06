@@ -17,7 +17,7 @@ import DezembroVermelhoImg from "../assets/ribbons/Dezembro_Vermelho.png";
 const RibbonMonth = () => {
   const [usePlaceholder, setUsePlaceholder] = useState(false);
   const [campaignData, setCampaignData] = useState(null);
-  const [isVisible, setIsVisible] = useState(true); // ← ADICIONADO
+  const [isVisible, setIsVisible] = useState(true);
 
   const campaigns = {
     1: {
@@ -152,10 +152,8 @@ const RibbonMonth = () => {
     }
   }, []);
 
-  // ← ADICIONADO: Detecta o scroll para esconder o componente
   useEffect(() => {
     const handleScroll = () => {
-      // Se rolar mais de 400px, esconde
       if (window.scrollY > 400) {
         setIsVisible(false);
       } else {
@@ -165,17 +163,14 @@ const RibbonMonth = () => {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Se não houver campanha ou não estiver visível, não renderiza nada
   if (!campaignData || !isVisible) return null; // ← MODIFICADO
 
   return (
     <div className="fixed left-4 top-20 sm:top-23 z-50 transition-opacity duration-300">
       {" "}
-      {/* ← ADICIONADO transition */}
       <div
         className="group relative flex items-center"
         tabIndex={0}
